@@ -8,7 +8,7 @@ namespace Business.Entities
 {
     public class Usuario:BusinessEntity
     {
-        public int ID { get; set; }
+        public new int ID { get; set; }
         public string NombreUsuario { get; set; }
         public string Clave { get; set; }
         public string Nombre { get; set; }

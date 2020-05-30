@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.Desktop
+namespace UI.Login
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formListaUsuarios());
+            Application.Run(new Form1());
         }
     }
 }
