@@ -64,9 +64,11 @@ namespace UI.Desktop
         {
             if (this.dgvUsuarios.SelectedRows.Count != 0)
             {
-                if (new MessageBox())
-                new UsuarioDesktop(((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Baja).GuardarCambios();
-                this.Listar();
+                if (MessageBox.Show("Está seguro que desea eliminar a este usuario?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes)
+                {
+                    new UsuarioDesktop(((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Baja).GuardarCambios();
+                    this.Listar();
+                }
             }
         }
     }

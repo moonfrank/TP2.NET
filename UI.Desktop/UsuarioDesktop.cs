@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using System.Text.RegularExpressions;
 
 namespace UI.Desktop
 {
@@ -121,9 +122,15 @@ namespace UI.Desktop
         }
         public override bool Validar()
         {
-            if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 && 
+            String expresion = "\\w+([-+.']\\w+)@\\w+([-.]\\w+)\\.\\w+([-.]\\w+)*";
+            if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 &&
+                Regex.IsMatch(this.txtEmail.Text, expresion) && Regex.Replace(this.txtEmail.Text, expresion, String.Empty).Length == 0 &&
                 !String.IsNullOrEmpty(this.txtNombre.Text) && !String.IsNullOrEmpty(this.txtApellido.Text) && !String.IsNullOrEmpty(this.txtUsuario.Text)) return true;
-            else return false;
+            else
+            {
+                Notificar("Error", "Ingreso de datos inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
