@@ -64,7 +64,8 @@ namespace UI.Desktop
         {
             if (this.dgvUsuarios.SelectedRows.Count != 0)
             {
-                new UsuarioDesktop(((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Baja).ShowDialog();
+                if (new MessageBox())
+                new UsuarioDesktop(((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Baja).GuardarCambios();
                 this.Listar();
             }
         }
