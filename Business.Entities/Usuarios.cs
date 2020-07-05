@@ -14,7 +14,7 @@ namespace Business.Entities
         public SqlConnection Conn { get; set; }
         public Usuarios()
         {
-            this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=academia;Integrated Security=true;");
+            this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=academia;Integrated Security=True");
 
             /*    
              *"Data Source=serverisi;Initial Catalog=academia;Integrated Security=false;user=net;password=net;"

@@ -30,8 +30,12 @@ namespace UI.Desktop
             this.UsuarioActual = new UsuarioLogic().GetOne(ID);
             MapearDeDatos();
         }
+
         public Usuario UsuarioActual { get; set; }
 
+        /// <summary>
+        /// Copia información de las entidades a los controles del formulario para nostrar la información de cada entidad.
+        /// </summary>
         public override void MapearDeDatos()
         {
             this.txtID.Text = this.UsuarioActual.ID.ToString();
@@ -61,6 +65,9 @@ namespace UI.Desktop
                     }
             }
         }
+        /// <summary>
+        /// Pasa la información de los controles a una entidad para enviarla a la capas inferiores.
+        /// </summary>
         public override void MapearADatos()
         {
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
@@ -100,7 +107,9 @@ namespace UI.Desktop
                 }
             }
         }
-
+        /// <summary>
+        /// Invoca al método correspondiente de la capa de negocio según Modo.
+        /// </summary>
         public override void GuardarCambios()
         {
             MapearADatos();
@@ -120,12 +129,16 @@ namespace UI.Desktop
                 default: break;
             }
         }
+        /// <summary>
+        /// Valida datos para poder registrar los cambios realizados.
+        /// </summary>
+        /// <returns>Validez de datos</returns>
         public override bool Validar()
         {
-            String expresion = "\\w+([-+.']\\w+)@\\w+([-.]\\w+)\\.\\w+([-.]\\w+)*";
+            string expresion = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
             if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 &&
-                Regex.IsMatch(this.txtEmail.Text, expresion) && Regex.Replace(this.txtEmail.Text, expresion, String.Empty).Length == 0 &&
-                !String.IsNullOrEmpty(this.txtNombre.Text) && !String.IsNullOrEmpty(this.txtApellido.Text) && !String.IsNullOrEmpty(this.txtUsuario.Text)) return true;
+                Regex.IsMatch(this.txtEmail.Text, expresion) && Regex.Replace(this.txtEmail.Text, expresion, string.Empty).Length == 0 &&
+                !string.IsNullOrEmpty(this.txtNombre.Text) && !string.IsNullOrEmpty(this.txtApellido.Text) && !string.IsNullOrEmpty(this.txtUsuario.Text)) return true;
             else
             {
                 Notificar("Error", "Ingreso de datos inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
