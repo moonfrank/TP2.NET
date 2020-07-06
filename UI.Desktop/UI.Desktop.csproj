@@ -52,6 +52,12 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="formListaMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formListaMaterias.Designer.cs">
+      <DependentUpon>formListaMaterias.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,8 +84,14 @@
     <Compile Include="UsuarioDesktop.Designer.cs">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="formListaMaterias.resx">
+      <DependentUpon>formListaMaterias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formListaUsuarios.resx">
       <DependentUpon>formListaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formLogin.resx">
+      <DependentUpon>formLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class formLogin : Form
+    public partial class formLogin : ApplicationForm
     {
         public formLogin()
         {
@@ -19,10 +19,10 @@ namespace UI.Desktop
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (this.txtUsuario.Text == "Admin" && this.txtPass.Text == "admin")
+            if (this.txtUsuario.Text == "admin" && this.txtPass.Text == "admin")
             {
-                // MessageBox.Show("Usted ha ingresado al sistema correctamente.",
-                //                 "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bienvienido "+this.txtUsuario.Text+'!',
+                                "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
             }
             else

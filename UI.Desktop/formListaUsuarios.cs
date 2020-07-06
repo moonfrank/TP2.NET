@@ -13,7 +13,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class formListaUsuarios : Form
+    public partial class formListaUsuarios : ApplicationForm
     {
         public Usuarios OUsuarios { get; set; }
         public formListaUsuarios()
@@ -27,7 +27,7 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            this.dgvUsuarios.DataSource = new UsuarioLogic().GetAll(); 
+            this.dgvUsuarios.DataSource = new UsuarioLogic().GetAll();
         }
 
         private void Usuarios_Load(object sender, EventArgs e)

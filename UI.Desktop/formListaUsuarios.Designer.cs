@@ -40,7 +40,6 @@
             this.habilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsUsuarios = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
@@ -59,7 +58,6 @@
             // tcUsuarios.ContentPanel
             // 
             this.tcUsuarios.ContentPanel.Controls.Add(this.tlUsuarios);
-            this.tcUsuarios.ContentPanel.Controls.Add(this.toolStrip2);
             this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(800, 425);
             this.tcUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcUsuarios.Location = new System.Drawing.Point(0, 0);
@@ -176,15 +174,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.Location = new System.Drawing.Point(332, 46);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(111, 25);
-            this.toolStrip2.TabIndex = 0;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
             // tsUsuarios
             // 
             this.tsUsuarios.Dock = System.Windows.Forms.DockStyle.None;
@@ -194,7 +183,7 @@
             this.tsbEliminar});
             this.tsUsuarios.Location = new System.Drawing.Point(3, 0);
             this.tsUsuarios.Name = "tsUsuarios";
-            this.tsUsuarios.Size = new System.Drawing.Size(112, 25);
+            this.tsUsuarios.Size = new System.Drawing.Size(81, 25);
             this.tsUsuarios.TabIndex = 0;
             // 
             // tsbNuevo
@@ -240,7 +229,6 @@
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.Usuarios_Load);
             this.tcUsuarios.ContentPanel.ResumeLayout(false);
-            this.tcUsuarios.ContentPanel.PerformLayout();
             this.tcUsuarios.TopToolStripPanel.ResumeLayout(false);
             this.tcUsuarios.TopToolStripPanel.PerformLayout();
             this.tcUsuarios.ResumeLayout(false);
@@ -260,7 +248,6 @@
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStrip tsUsuarios;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
