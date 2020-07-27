@@ -26,5 +26,11 @@ namespace UI.Desktop
             formLogin appLogin = new formLogin();
             if (appLogin.ShowDialog() != DialogResult.OK) this.Dispose();
         }
+
+        private void mnuUsuarios_Click(object sender, EventArgs e)
+        {
+            formListaUsuarios appListaUsuarios = new formListaUsuarios();
+            if (appListaUsuarios.ShowDialog() != DialogResult.OK) this.Dispose();
+        }
     }
 }

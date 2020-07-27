@@ -68,8 +68,6 @@ namespace Business.Entities
             this.DaUsuarios.InsertCommand.Parameters.Add("@usuario", SqlDbType.VarChar, 50, "usuario");
             this.DaUsuarios.InsertCommand.Parameters.Add("@clave", SqlDbType.VarChar, 50, "clave");
 
-
-
             this.DaUsuarios.DeleteCommand =
                          new SqlCommand(" DELETE FROM usuarios WHERE id=@id ", this.Conn);
             this.DaUsuarios.DeleteCommand.Parameters.Add("@id", SqlDbType.Int, 1, "id");
