@@ -15,14 +15,14 @@ namespace Business.Logic
 
     public class UsuarioLogic:BusinessLogic
     {
-        public Data.Database.UsuarioAdapter UsuarioData { get; set; }
+        public UsuarioAdapter UsuarioData { get; set; }
 
         public UsuarioLogic()
         {
             this.UsuarioData = new UsuarioAdapter();
         }
 
-        public Business.Entities.Usuario GetOne(int id)
+        public Usuario GetOne(int id)
         {
             return UsuarioData.GetOne(id);
         }
@@ -31,13 +31,40 @@ namespace Business.Logic
         {
             return UsuarioData.GetAll();
         }
-        public void Save(Business.Entities.Usuario usuario) 
+        public void Save(Usuario usuario) 
         {
             UsuarioData.Save(usuario);
         }
         public void Delete(int id) 
         {
             UsuarioData.Delete(id);
+        }
+    }
+    public class EspecialidadLogic : BusinessLogic
+    {
+        public EspecialidadAdapter EspecialidadData { get; set; }
+
+        public EspecialidadLogic()
+        {
+            this.EspecialidadData = new EspecialidadAdapter();
+        }
+
+        public Especialidad GetOne(int id)
+        {
+            return EspecialidadData.GetOne(id);
+        }
+
+        public List<Especialidad> GetAll()
+        {
+            return EspecialidadData.GetAll();
+        }
+        public void Save(Especialidad especialidad)
+        {
+            EspecialidadData.Save(especialidad);
+        }
+        public void Delete(int id)
+        {
+            EspecialidadData.Delete(id);
         }
     }
 }
