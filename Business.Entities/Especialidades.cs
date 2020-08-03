@@ -14,7 +14,7 @@ namespace Business.Entities
         public SqlConnection Conn { get; set; }
         public Especialidades()
         {
-            //this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=academia;Integrated Security=True");
+            //this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=tp2_net;Integrated Security=True");
 
             this.Conn = new SqlConnection("Data Source=localhost;Initial Catalog=tp2_net;Integrated Security=True");
 
@@ -37,7 +37,8 @@ namespace Business.Entities
 
             this.DaEspecialidades.UpdateCommand =
             new SqlCommand(" UPDATE especialidades " +
-            " SET desc_especialidad = @desc_especialidad WHERE id=@id ", this.Conn);
+            " SET id_especialidad = @id_especialidad desc_especialidad = @desc_especialidad WHERE id_especialidad=@id_especialidad ", this.Conn);
+            this.DaEspecialidades.UpdateCommand.Parameters.Add("@id_especialidad", SqlDbType.Int, 1, "id_especialidad");
             this.DaEspecialidades.UpdateCommand.Parameters.Add("@desc_especialidad", SqlDbType.VarChar, 100, "desc_especialidad");
             this.DaEspecialidades.InsertCommand =
             new SqlCommand(" INSERT INTO especialidades(desc_especialidad)" +
@@ -45,8 +46,8 @@ namespace Business.Entities
             this.DaEspecialidades.UpdateCommand.Parameters.Add("@desc_especialidad", SqlDbType.VarChar, 100, "desc_especialidad");
 
             this.DaEspecialidades.DeleteCommand =
-                         new SqlCommand(" DELETE FROM especialidades WHERE id=@id ", this.Conn);
-            this.DaEspecialidades.DeleteCommand.Parameters.Add("@id", SqlDbType.Int, 1, "id");
+                         new SqlCommand(" DELETE FROM especialidades WHERE id_especialidad=@id_especialidad ", this.Conn);
+            this.DaEspecialidades.DeleteCommand.Parameters.Add("@id_especialidad", SqlDbType.Int, 1, "id_especialidad");
         }
 
         public DataTable GetAll()

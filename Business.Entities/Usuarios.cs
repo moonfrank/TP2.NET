@@ -14,9 +14,9 @@ namespace Business.Entities
         public SqlConnection Conn { get; set; }
         public Usuarios()
         {
-            //this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=academia;Integrated Security=True");
+            //this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=tp2_net;Integrated Security=True");
 
-            this.Conn = new SqlConnection("Data Source=localhost;Initial Catalog=academia;Integrated Security=True");
+            this.Conn = new SqlConnection("Data Source=localhost;Initial Catalog=tp2_net;Integrated Security=True");
 
             /*    
              *"Data Source=serverisi;Initial Catalog=academia;Integrated Security=false;user=net;password=net;"
@@ -37,42 +37,33 @@ namespace Business.Entities
 
             this.DaUsuarios.UpdateCommand =
             new SqlCommand(" UPDATE usuarios " +
-            " SET tipo_doc = @tipo_doc, nro_doc = @nro_doc, fecha_nac = @fecha_nac, " +
-            " apellido = @apellido, nombre = @nombre, direccion = @direccion, " +
-            " telefono = @telefono, email = @email, celular = @celular, usuario = @usuario, " +
-            " clave = @clave WHERE id=@id ", this.Conn);
-            this.DaUsuarios.UpdateCommand.Parameters.Add("@tipo_doc", SqlDbType.Int, 1, "tipo_doc");
-            this.DaUsuarios.UpdateCommand.Parameters.Add("@nro_doc", SqlDbType.Int, 1, "nro_doc");
-            this.DaUsuarios.UpdateCommand.Parameters.Add("@fecha_nac", SqlDbType.DateTime, 1, "fecha_nac");
+            " SET id_usuario = @id_usuario, nombre_usuario = @nombre_usuario, clave = @clave" +
+            " apellido = @apellido, nombre = @nombre, habilitado = @habilitado, email = @email" +
+            "  WHERE id_usuario=@id_usuario ", this.Conn);
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@id_usuario", SqlDbType.Int, 1, "id_usuario");
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50, "nombre_usuario");
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@clave", SqlDbType.VarChar, 50, "clave");
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@habilitado", SqlDbType.Bit, 50, "habilitado");
             this.DaUsuarios.UpdateCommand.Parameters.Add("@apellido", SqlDbType.VarChar, 50, "apellido");
             this.DaUsuarios.UpdateCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50, "nombre");
-            this.DaUsuarios.UpdateCommand.Parameters.Add("@direccion", SqlDbType.VarChar, 50, "direccion");
-            this.DaUsuarios.UpdateCommand.Parameters.Add("@telefono", SqlDbType.VarChar, 50, "telefono");
             this.DaUsuarios.UpdateCommand.Parameters.Add("@email", SqlDbType.VarChar, 50, "email");
-            this.DaUsuarios.UpdateCommand.Parameters.Add("@celular", SqlDbType.VarChar, 50, "celular");
-            this.DaUsuarios.UpdateCommand.Parameters.Add("@usuario", SqlDbType.VarChar, 50, "usuario");
-            this.DaUsuarios.UpdateCommand.Parameters.Add("@clave", SqlDbType.VarChar, 50, "clave");
-            this.DaUsuarios.UpdateCommand.Parameters.Add("@id", SqlDbType.Int, 1, "id");
+
+
             this.DaUsuarios.InsertCommand =
-            new SqlCommand(" INSERT INTO usuarios(tipo_doc,nro_doc,fecha_nac,apellido, " +
-                " nombre,direccion,telefono,email,celular,usuario,clave) " +
-                " VALUES (@tipo_doc,@nro_doc,@fecha_nac,@apellido,@nombre,@direccion, " +
-                " @telefono,@email,@celular, @usuario, @clave  )", this.Conn);
-            this.DaUsuarios.InsertCommand.Parameters.Add("@tipo_doc", SqlDbType.Int, 1, "tipo_doc");
-            this.DaUsuarios.InsertCommand.Parameters.Add("@nro_doc", SqlDbType.Int, 1, "nro_doc");
-            this.DaUsuarios.InsertCommand.Parameters.Add("@fecha_nac", SqlDbType.DateTime, 1, "fecha_nac");
-            this.DaUsuarios.InsertCommand.Parameters.Add("@apellido", SqlDbType.VarChar, 50, "apellido");
-            this.DaUsuarios.InsertCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50, "nombre");
-            this.DaUsuarios.InsertCommand.Parameters.Add("@direccion", SqlDbType.VarChar, 50, "direccion");
-            this.DaUsuarios.InsertCommand.Parameters.Add("@telefono", SqlDbType.VarChar, 50, "telefono");
-            this.DaUsuarios.InsertCommand.Parameters.Add("@email", SqlDbType.VarChar, 50, "email");
-            this.DaUsuarios.InsertCommand.Parameters.Add("@celular", SqlDbType.VarChar, 50, "celular");
-            this.DaUsuarios.InsertCommand.Parameters.Add("@usuario", SqlDbType.VarChar, 50, "usuario");
-            this.DaUsuarios.InsertCommand.Parameters.Add("@clave", SqlDbType.VarChar, 50, "clave");
+            new SqlCommand(" INSERT INTO usuarios(id_usuari,nombre_usuario,clave,apellido, " +
+                " nombre,habilitado,email) " +
+                " VALUES (@id_usuario,@nombre_usuario,@clave,@apellido,@nombre,@habilitado, @email)", this.Conn);
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@id_usuario", SqlDbType.Int, 1, "id_usuario");
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50, "nombre_usuario");
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@clave", SqlDbType.VarChar, 50, "clave");
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@habilitado", SqlDbType.Bit, 50, "habilitado");
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@apellido", SqlDbType.VarChar, 50, "apellido");
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50, "nombre");
+            this.DaUsuarios.UpdateCommand.Parameters.Add("@email", SqlDbType.VarChar, 50, "email");
 
             this.DaUsuarios.DeleteCommand =
-                         new SqlCommand(" DELETE FROM usuarios WHERE id=@id ", this.Conn);
-            this.DaUsuarios.DeleteCommand.Parameters.Add("@id", SqlDbType.Int, 1, "id");
+                         new SqlCommand(" DELETE FROM usuarios WHERE id_usuario=@id_usuario ", this.Conn);
+            this.DaUsuarios.DeleteCommand.Parameters.Add("@id_usuario", SqlDbType.Int, 1, "id_usuario");
         }
 
         public DataTable GetAll()
