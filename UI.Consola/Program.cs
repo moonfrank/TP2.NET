@@ -79,11 +79,11 @@ namespace UI.Consola
 
         public void ListadoGeneral()
         {
-            foreach (Usuario usuario in UsuarioNegocio.GetAll())
+            foreach (Plan usuario in UsuarioNegocio.GetAll())
                 MostrarDatos(usuario);
         }
 
-        public void MostrarDatos(Usuario usuario)
+        public void MostrarDatos(Plan usuario)
         {
             Console.WriteLine("Usuario: "+usuario.ID);
             Console.WriteLine("\t\tNombre: "+usuario.Nombre);
@@ -109,7 +109,7 @@ namespace UI.Consola
             {
                 Console.Write("Ingrese el ID del usuario a modificar: ");
                 int ID = int.Parse(Console.ReadLine());
-                Usuario usuario = UsuarioNegocio.GetOne(ID);
+                Plan usuario = UsuarioNegocio.GetOne(ID);
                 Console.Write("Ingrese Nombre: ");
                 usuario.Nombre = Console.ReadLine();
                 Console.Write("Ingrese Apellido: ");
@@ -137,7 +137,7 @@ namespace UI.Consola
 
         public void Agregar()
         {
-            Usuario usuario = new Usuario();
+            Plan usuario = new Plan();
             Console.Write("Ingrese Nombre: ");
             usuario.Nombre = Console.ReadLine();
             Console.Write("Ingrese Apellido: ");

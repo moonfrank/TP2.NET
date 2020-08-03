@@ -15,14 +15,14 @@ namespace Business.Logic
 
     public class UsuarioLogic:BusinessLogic
     {
-        public Data.Database.UsuarioAdapter UsuarioData { get; set; }
+        public UsuarioAdapter UsuarioData { get; set; }
 
         public UsuarioLogic()
         {
             this.UsuarioData = new UsuarioAdapter();
         }
 
-        public Business.Entities.Usuario GetOne(int id)
+        public Usuario GetOne(int id)
         {
             return UsuarioData.GetOne(id);
         }
@@ -31,7 +31,7 @@ namespace Business.Logic
         {
             return UsuarioData.GetAll();
         }
-        public void Save(Business.Entities.Usuario usuario) 
+        public void Save(Usuario usuario) 
         {
             UsuarioData.Save(usuario);
         }

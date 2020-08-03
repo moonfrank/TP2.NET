@@ -33,16 +33,22 @@ namespace UI.Desktop
             if (appListaUsuarios.ShowDialog() != DialogResult.OK) this.Dispose();
         }
 
-        private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuMaterias_Click(object sender, EventArgs e)
         {
             formListaMaterias appListaMaterias = new formListaMaterias();
             if (appListaMaterias.ShowDialog() != DialogResult.OK) this.Dispose();
         }
 
-        private void especialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuEspecialidades_Click(object sender, EventArgs e)
         {
             formListaEspecialidades appListaEspecialidades = new formListaEspecialidades();
             if (appListaEspecialidades.ShowDialog() != DialogResult.OK) this.Dispose();
+        }
+
+        private void mnuPlanes_Click(object sender, EventArgs e)
+        {
+            formListaPlanes appListaPlanes = new formListaPlanes();
+            if (appListaPlanes.ShowDialog() != DialogResult.OK) this.Dispose();
         }
     }
 }

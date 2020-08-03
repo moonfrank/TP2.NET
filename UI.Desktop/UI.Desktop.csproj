@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcademiaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +75,12 @@
     <Compile Include="formListaMaterias.Designer.cs">
       <DependentUpon>formListaMaterias.cs</DependentUpon>
     </Compile>
+    <Compile Include="formListaPlanes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formListaPlanes.Designer.cs">
+      <DependentUpon>formListaPlanes.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +98,12 @@
     </Compile>
     <Compile Include="formListaUsuarios.Designer.cs">
       <DependentUpon>formListaUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanDesktop.Designer.cs">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +127,9 @@
     <EmbeddedResource Include="formListaMaterias.resx">
       <DependentUpon>formListaMaterias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formListaPlanes.resx">
+      <DependentUpon>formListaPlanes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formListaUsuarios.resx">
       <DependentUpon>formListaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formMain.resx">
       <DependentUpon>formMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanDesktop.resx">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -131,6 +154,17 @@
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="AcademiaDataSet.xsc">
+      <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AcademiaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AcademiaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AcademiaDataSet.xss">
+      <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

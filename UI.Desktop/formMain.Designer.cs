@@ -33,9 +33,9 @@
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuListado = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.materiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.especialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMaterias = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPlanes = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEspecialidades = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,9 +69,9 @@
             // 
             this.mnuListado.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuUsuarios,
-            this.materiasToolStripMenuItem,
-            this.planesToolStripMenuItem,
-            this.especialidadesToolStripMenuItem});
+            this.mnuMaterias,
+            this.mnuPlanes,
+            this.mnuEspecialidades});
             this.mnuListado.Name = "mnuListado";
             this.mnuListado.Size = new System.Drawing.Size(57, 20);
             this.mnuListado.Text = "Listado";
@@ -83,25 +83,26 @@
             this.mnuUsuarios.Text = "Usuarios";
             this.mnuUsuarios.Click += new System.EventHandler(this.mnuUsuarios_Click);
             // 
-            // materiasToolStripMenuItem
+            // mnuMaterias
             // 
-            this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.materiasToolStripMenuItem.Text = "Materias";
-            this.materiasToolStripMenuItem.Click += new System.EventHandler(this.materiasToolStripMenuItem_Click);
+            this.mnuMaterias.Name = "mnuMaterias";
+            this.mnuMaterias.Size = new System.Drawing.Size(180, 22);
+            this.mnuMaterias.Text = "Materias";
+            this.mnuMaterias.Click += new System.EventHandler(this.mnuMaterias_Click);
             // 
-            // planesToolStripMenuItem
+            // mnuPlanes
             // 
-            this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
-            this.planesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.planesToolStripMenuItem.Text = "Planes";
+            this.mnuPlanes.Name = "mnuPlanes";
+            this.mnuPlanes.Size = new System.Drawing.Size(180, 22);
+            this.mnuPlanes.Text = "Planes";
+            this.mnuPlanes.Click += new System.EventHandler(this.mnuPlanes_Click);
             // 
-            // especialidadesToolStripMenuItem
+            // mnuEspecialidades
             // 
-            this.especialidadesToolStripMenuItem.Name = "especialidadesToolStripMenuItem";
-            this.especialidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.especialidadesToolStripMenuItem.Text = "Especialidades";
-            this.especialidadesToolStripMenuItem.Click += new System.EventHandler(this.especialidadesToolStripMenuItem_Click);
+            this.mnuEspecialidades.Name = "mnuEspecialidades";
+            this.mnuEspecialidades.Size = new System.Drawing.Size(180, 22);
+            this.mnuEspecialidades.Text = "Especialidades";
+            this.mnuEspecialidades.Click += new System.EventHandler(this.mnuEspecialidades_Click);
             // 
             // formMain
             // 
@@ -129,8 +130,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuSalir;
         private System.Windows.Forms.ToolStripMenuItem mnuListado;
         private System.Windows.Forms.ToolStripMenuItem mnuUsuarios;
-        private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem planesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem especialidadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuMaterias;
+        private System.Windows.Forms.ToolStripMenuItem mnuPlanes;
+        private System.Windows.Forms.ToolStripMenuItem mnuEspecialidades;
     }
 }

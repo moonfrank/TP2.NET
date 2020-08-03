@@ -14,24 +14,9 @@ namespace Business.Entities
         public SqlConnection Conn { get; set; }
         public Usuarios()
         {
-            //this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=academia;Integrated Security=True");
+            this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=tp2_net;Integrated Security=True");
 
-            this.Conn = new SqlConnection("Data Source=localhost;Initial Catalog=tp2_net;Integrated Security=True");
-
-            /*    
-             *"Data Source=serverisi;Initial Catalog=academia;Integrated Security=false;user=net;password=net;"
-             *
-             * Este connection string es para conectarse con la base de datos academia en el servidor
-             * del departamento sistemas desde una PC de los laboratorios de sistemas,
-             * si realiza este Laboratorio desde su PC puede probar el siguiente connection string
-             * 
-             * "Data Source=localhost;Initial Catalog=academia;Integrated Security=true;"
-             * 
-             * Si realiza esta práctica sobre el MS SQL SERVER 2005 Express Edition entonce debe 
-             * utilizar el siguiente connection string
-             * 
-             * "Data Source=localhost\SQLEXPRESS;Initial Catalog=academia;Integrated Security=true;"
-             */
+            //this.Conn = new SqlConnection("Data Source=localhost;Initial Catalog=tp2_net;Integrated Security=True");
 
             this.DaUsuarios = new SqlDataAdapter("select * from usuarios", this.Conn);
 
