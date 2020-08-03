@@ -32,25 +32,22 @@
             this.tcEspecialidades = new System.Windows.Forms.ToolStripContainer();
             this.tlEspecialidades = new System.Windows.Forms.TableLayoutPanel();
             this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
-            this.idespecialidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descespecialidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.especialidadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tp2_netDataSet = new UI.Desktop.tp2_netDataSet();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsEspecialidades = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.especialidadesTableAdapter = new UI.Desktop.tp2_netDataSetTableAdapters.especialidadesTableAdapter();
+            this.especialidadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcEspecialidades.ContentPanel.SuspendLayout();
             this.tcEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tcEspecialidades.SuspendLayout();
             this.tlEspecialidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.especialidadesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet)).BeginInit();
             this.tsEspecialidades.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tcEspecialidades
@@ -92,13 +89,11 @@
             // 
             this.dgvEspecialidades.AllowUserToAddRows = false;
             this.dgvEspecialidades.AllowUserToDeleteRows = false;
-            this.dgvEspecialidades.AutoGenerateColumns = false;
             this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idespecialidadDataGridViewTextBoxColumn,
-            this.descespecialidadDataGridViewTextBoxColumn});
+            this.ID,
+            this.Descripcion});
             this.tlEspecialidades.SetColumnSpan(this.dgvEspecialidades, 2);
-            this.dgvEspecialidades.DataSource = this.especialidadesBindingSource;
             this.dgvEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEspecialidades.Location = new System.Drawing.Point(3, 3);
             this.dgvEspecialidades.MultiSelect = false;
@@ -107,30 +102,6 @@
             this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEspecialidades.Size = new System.Drawing.Size(666, 217);
             this.dgvEspecialidades.TabIndex = 0;
-            // 
-            // idespecialidadDataGridViewTextBoxColumn
-            // 
-            this.idespecialidadDataGridViewTextBoxColumn.DataPropertyName = "id_especialidad";
-            this.idespecialidadDataGridViewTextBoxColumn.HeaderText = "id_especialidad";
-            this.idespecialidadDataGridViewTextBoxColumn.Name = "idespecialidadDataGridViewTextBoxColumn";
-            this.idespecialidadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descespecialidadDataGridViewTextBoxColumn
-            // 
-            this.descespecialidadDataGridViewTextBoxColumn.DataPropertyName = "desc_especialidad";
-            this.descespecialidadDataGridViewTextBoxColumn.HeaderText = "desc_especialidad";
-            this.descespecialidadDataGridViewTextBoxColumn.Name = "descespecialidadDataGridViewTextBoxColumn";
-            this.descespecialidadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // especialidadesBindingSource
-            // 
-            this.especialidadesBindingSource.DataMember = "especialidades";
-            this.especialidadesBindingSource.DataSource = this.tp2_netDataSet;
-            // 
-            // tp2_netDataSet
-            // 
-            this.tp2_netDataSet.DataSetName = "tp2_netDataSet";
-            this.tp2_netDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnActualizar
             // 
@@ -162,7 +133,7 @@
             this.tsbEliminar});
             this.tsEspecialidades.Location = new System.Drawing.Point(3, 0);
             this.tsEspecialidades.Name = "tsEspecialidades";
-            this.tsEspecialidades.Size = new System.Drawing.Size(112, 25);
+            this.tsEspecialidades.Size = new System.Drawing.Size(81, 25);
             this.tsEspecialidades.TabIndex = 0;
             // 
             // tsbNuevo
@@ -181,9 +152,23 @@
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             // 
-            // especialidadesTableAdapter
+            // especialidadesBindingSource
             // 
-            this.especialidadesTableAdapter.ClearBeforeFill = true;
+            this.especialidadesBindingSource.DataMember = "especialidades";
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
             // 
             // formListaEspecialidades
             // 
@@ -201,10 +186,9 @@
             this.tcEspecialidades.PerformLayout();
             this.tlEspecialidades.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.especialidadesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet)).EndInit();
             this.tsEspecialidades.ResumeLayout(false);
             this.tsEspecialidades.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -220,10 +204,8 @@
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
-        private tp2_netDataSet tp2_netDataSet;
         private System.Windows.Forms.BindingSource especialidadesBindingSource;
-        private tp2_netDataSetTableAdapters.especialidadesTableAdapter especialidadesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idespecialidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descespecialidadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
     }
 }

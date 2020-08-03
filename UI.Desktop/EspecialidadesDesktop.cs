@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business.Entities;
+using Business.Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace UI.Desktop
 {
     public partial class EspecialidadesDesktop : ApplicationForm
     {
+        public Especialidad EspecialidadActual { get; set; }
         public EspecialidadesDesktop()
         {
             InitializeComponent();
@@ -21,7 +24,7 @@ namespace UI.Desktop
         {
             if (Valida())
             {
-
+                GuardarCambios();
                 this.Close();
             }
         }
@@ -32,7 +35,30 @@ namespace UI.Desktop
             {
                 return true;
             }
-            return false;
+            else
+            {
+                Notificar("Error", "Ingreso de datos inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public override void GuardarCambios()
+        {
+            MapearADatos();
+            switch (this.Modo)
+            {
+                case ModoForm.Alta:
+                case ModoForm.Modificacion:
+                    {
+                        new EspecialidadLogic().Save(EspecialidadActual);
+                        break;
+                    }
+                case ModoForm.Baja:
+                    {
+                        new UsuarioLogic().Delete(EspecialidadActual.ID);
+                        break;
+                    }
+                default: break;
+            }
         }
     }
 }

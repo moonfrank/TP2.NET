@@ -114,9 +114,10 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDescripcion.Location = new System.Drawing.Point(365, 227);
+            this.txtDescripcion.Location = new System.Drawing.Point(317, 187);
+            this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(196, 99);
             this.txtDescripcion.TabIndex = 5;
             // 
             // EspecialidadesDesktop

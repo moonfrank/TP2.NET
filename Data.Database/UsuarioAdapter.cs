@@ -9,7 +9,8 @@ using Business.Entities;
 namespace Data.Database
 {
     public class UsuarioAdapter:Adapter
-    {       
+    {
+       
         public List<Usuario> GetAll()
         {
             List<Usuario> usuarios = new List<Usuario>();
