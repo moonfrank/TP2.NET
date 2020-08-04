@@ -28,7 +28,7 @@ namespace UI.Desktop
             this.dgvEspecialidades.DataSource = new EspecialidadLogic().GetAll();
         }
         private void Especialidades_Load(object sender, EventArgs e)
-        {           
+        {
             Listar();
         }
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -46,15 +46,25 @@ namespace UI.Desktop
             new EspecialidadesDesktop().ShowDialog();
             this.Listar();
         }
-
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-           
+            if (this.dgvEspecialidades.SelectedRows.Count != 0)
+            {
+                new EspecialidadesDesktop(((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Modificacion).ShowDialog();
+                this.Listar();
+            }
         }
 
-        private void tsbEliminar_Click(object sender, EventArgs e)
+        private void tsbEliminar_Click_1(object sender, EventArgs e)
         {
-           
-        }      
+            if (this.dgvEspecialidades.SelectedRows.Count != 0)
+            {
+                if (MessageBox.Show("Está seguro que desea eliminar a esta Especialidad?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    new EspecialidadesDesktop(((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Baja).GuardarCambios();
+                    this.Listar();
+                }
+            }
+        }
     }
 }

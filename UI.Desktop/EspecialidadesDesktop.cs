@@ -19,6 +19,15 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+        public EspecialidadesDesktop(ModoForm modo) : this()
+        {
+            this.Modo = modo;
+        }
+        public EspecialidadesDesktop(int ID, ModoForm modo) : this(modo)
+        {
+            this.EspecialidadActual = new EspecialidadLogic().GetOne(ID);
+            MapearDeDatos();
+        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -41,6 +50,30 @@ namespace UI.Desktop
                 return false;
             }
         }
+        public override void MapearDeDatos()
+        {
+            this.txtID.Text = this.EspecialidadActual.ID.ToString();
+            txtDescripcion.Text = EspecialidadActual.Descripcion.ToString();
+            switch (this.Modo)
+            {
+                case ModoForm.Alta:
+                case ModoForm.Modificacion:
+                    {
+                        btnAceptar.Text = "Guardar";
+                        break;
+                    }
+                case ModoForm.Baja:
+                    {
+                        btnAceptar.Text = "Eliminar";
+                        break;
+                    }
+                default:
+                    {
+                        btnAceptar.Text = "Aceptar";
+                        break;
+                    }
+            }
+        }
         public override void GuardarCambios()
         {
             MapearADatos();
@@ -54,10 +87,42 @@ namespace UI.Desktop
                     }
                 case ModoForm.Baja:
                     {
-                        new UsuarioLogic().Delete(EspecialidadActual.ID);
+                        new EspecialidadLogic().Delete(EspecialidadActual.ID);
                         break;
                     }
                 default: break;
+            }
+        }
+        public override void MapearADatos()
+        {
+            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
+            {
+                if (this.Modo == ModoForm.Alta) this.EspecialidadActual = new Especialidad();
+                else this.EspecialidadActual.ID = int.Parse(this.txtID.Text);
+                this.EspecialidadActual.Descripcion = this.txtDescripcion.Text;
+                switch (Modo)
+                {
+                    case ModoForm.Alta:
+                        {
+                            EspecialidadActual.State = BusinessEntity.States.New;
+                            break;
+                        }
+                    case ModoForm.Baja:
+                        {
+                            EspecialidadActual.State = BusinessEntity.States.Deleted;
+                            break;
+                        }
+                    case ModoForm.Consulta:
+                        {
+                            EspecialidadActual.State = BusinessEntity.States.Unmodified;
+                            break;
+                        }
+                    case ModoForm.Modificacion:
+                        {
+                            EspecialidadActual.State = BusinessEntity.States.Modified;
+                            break;
+                        }
+                }
             }
         }
     }
