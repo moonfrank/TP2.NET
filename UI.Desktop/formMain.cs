@@ -50,5 +50,11 @@ namespace UI.Desktop
             formListaPlanes appListaPlanes = new formListaPlanes();
             if (appListaPlanes.ShowDialog() != DialogResult.OK) this.Dispose();
         }
+
+        private void mnuComisiones_Click(object sender, EventArgs e)
+        {
+            formListaComisiones appListaComisiones = new formListaComisiones();
+            if (appListaComisiones.ShowDialog() != DialogResult.OK) this.Dispose();
+        }
     }
 }

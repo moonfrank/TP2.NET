@@ -57,11 +57,23 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComisionDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComisionDesktop.Designer.cs">
+      <DependentUpon>ComisionDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="EspecialidadesDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EspecialidadesDesktop.Designer.cs">
       <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formListaComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formListaComisiones.Designer.cs">
+      <DependentUpon>formListaComisiones.cs</DependentUpon>
     </Compile>
     <Compile Include="formListaEspecialidades.cs">
       <SubType>Form</SubType>
@@ -113,8 +125,14 @@
     <Compile Include="UsuarioDesktop.Designer.cs">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ComisionDesktop.resx">
+      <DependentUpon>ComisionDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EspecialidadesDesktop.resx">
       <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formListaComisiones.resx">
+      <DependentUpon>formListaComisiones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formListaEspecialidades.resx">
       <DependentUpon>formListaEspecialidades.cs</DependentUpon>

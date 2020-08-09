@@ -36,6 +36,7 @@
             this.mnuMaterias = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPlanes = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEspecialidades = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuComisiones = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +72,8 @@
             this.mnuUsuarios,
             this.mnuMaterias,
             this.mnuPlanes,
-            this.mnuEspecialidades});
+            this.mnuEspecialidades,
+            this.mnuComisiones});
             this.mnuListado.Name = "mnuListado";
             this.mnuListado.Size = new System.Drawing.Size(57, 20);
             this.mnuListado.Text = "Listado";
@@ -104,6 +106,13 @@
             this.mnuEspecialidades.Text = "Especialidades";
             this.mnuEspecialidades.Click += new System.EventHandler(this.mnuEspecialidades_Click);
             // 
+            // mnuComisiones
+            // 
+            this.mnuComisiones.Name = "mnuComisiones";
+            this.mnuComisiones.Size = new System.Drawing.Size(180, 22);
+            this.mnuComisiones.Text = "Comisiones";
+            this.mnuComisiones.Click += new System.EventHandler(this.mnuComisiones_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,5 +142,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuMaterias;
         private System.Windows.Forms.ToolStripMenuItem mnuPlanes;
         private System.Windows.Forms.ToolStripMenuItem mnuEspecialidades;
+        private System.Windows.Forms.ToolStripMenuItem mnuComisiones;
     }
 }

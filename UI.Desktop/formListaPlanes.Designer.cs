@@ -62,7 +62,7 @@
             this.tcPlanes.TabIndex = 1;
             this.tcPlanes.Text = "toolStripContainer1";
             // 
-            // tcPlanes.TopToolStripPanel
+            // tcPlanes.tspPlanes
             // 
             this.tcPlanes.TopToolStripPanel.Controls.Add(this.tsPlanes);
             // 

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class formListaMaterias : Form
+    public partial class formListaMaterias : ApplicationForm
     {
         public formListaMaterias()
         {
