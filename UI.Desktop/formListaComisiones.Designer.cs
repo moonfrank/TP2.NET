@@ -39,23 +39,23 @@
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.academiaDataSet = new UI.Desktop.AcademiaDataSet();
-            this.academiaDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comisionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.academiaDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.academiaDataSet = new UI.Desktop.AcademiaDataSet();
             this.comisionesTableAdapter = new UI.Desktop.AcademiaDataSetTableAdapters.comisionesTableAdapter();
-            this.idcomisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desccomisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anioespecialidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idplanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcPlanes.ContentPanel.SuspendLayout();
             this.tcPlanes.TopToolStripPanel.SuspendLayout();
             this.tcPlanes.SuspendLayout();
             this.tlComisiones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).BeginInit();
             this.tsPlanes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comisionesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // tcPlanes
@@ -72,7 +72,7 @@
             this.tcPlanes.TabIndex = 2;
             this.tcPlanes.Text = "toolStripContainer1";
             // 
-            // tcPlanes.tspComisiones
+            // tcPlanes.TopToolStripPanel
             // 
             this.tcPlanes.TopToolStripPanel.Controls.Add(this.tsPlanes);
             // 
@@ -95,15 +95,13 @@
             // 
             // dgvComisiones
             // 
-            this.dgvComisiones.AutoGenerateColumns = false;
             this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idcomisionDataGridViewTextBoxColumn,
-            this.desccomisionDataGridViewTextBoxColumn,
-            this.anioespecialidadDataGridViewTextBoxColumn,
-            this.idplanDataGridViewTextBoxColumn});
+            this.ID,
+            this.IDPlan,
+            this.Descripcion,
+            this.AnioEspecialidad});
             this.tlComisiones.SetColumnSpan(this.dgvComisiones, 2);
-            this.dgvComisiones.DataSource = this.comisionesBindingSource;
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(3, 3);
             this.dgvComisiones.MultiSelect = false;
@@ -178,49 +176,50 @@
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
-            // academiaDataSet
+            // comisionesBindingSource
             // 
-            this.academiaDataSet.DataSetName = "AcademiaDataSet";
-            this.academiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.comisionesBindingSource.DataMember = "comisiones";
+            this.comisionesBindingSource.DataSource = this.academiaDataSetBindingSource;
             // 
             // academiaDataSetBindingSource
             // 
             this.academiaDataSetBindingSource.DataSource = this.academiaDataSet;
             this.academiaDataSetBindingSource.Position = 0;
             // 
-            // comisionesBindingSource
+            // academiaDataSet
             // 
-            this.comisionesBindingSource.DataMember = "comisiones";
-            this.comisionesBindingSource.DataSource = this.academiaDataSetBindingSource;
+            this.academiaDataSet.DataSetName = "AcademiaDataSet";
+            this.academiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comisionesTableAdapter
             // 
             this.comisionesTableAdapter.ClearBeforeFill = true;
             // 
-            // idcomisionDataGridViewTextBoxColumn
+            // ID
             // 
-            this.idcomisionDataGridViewTextBoxColumn.DataPropertyName = "id_comision";
-            this.idcomisionDataGridViewTextBoxColumn.HeaderText = "ID Comisión";
-            this.idcomisionDataGridViewTextBoxColumn.Name = "idcomisionDataGridViewTextBoxColumn";
-            this.idcomisionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID Comisión";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
-            // desccomisionDataGridViewTextBoxColumn
+            // IDPlan
             // 
-            this.desccomisionDataGridViewTextBoxColumn.DataPropertyName = "desc_comision";
-            this.desccomisionDataGridViewTextBoxColumn.HeaderText = "Descripción";
-            this.desccomisionDataGridViewTextBoxColumn.Name = "desccomisionDataGridViewTextBoxColumn";
+            this.IDPlan.DataPropertyName = "IDPlan";
+            this.IDPlan.HeaderText = "ID Plan";
+            this.IDPlan.Name = "IDPlan";
+            this.IDPlan.ReadOnly = true;
             // 
-            // anioespecialidadDataGridViewTextBoxColumn
+            // Descripcion
             // 
-            this.anioespecialidadDataGridViewTextBoxColumn.DataPropertyName = "anio_especialidad";
-            this.anioespecialidadDataGridViewTextBoxColumn.HeaderText = "Año Especialidad";
-            this.anioespecialidadDataGridViewTextBoxColumn.Name = "anioespecialidadDataGridViewTextBoxColumn";
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
             // 
-            // idplanDataGridViewTextBoxColumn
+            // AnioEspecialidad
             // 
-            this.idplanDataGridViewTextBoxColumn.DataPropertyName = "id_plan";
-            this.idplanDataGridViewTextBoxColumn.HeaderText = "ID Plan";
-            this.idplanDataGridViewTextBoxColumn.Name = "idplanDataGridViewTextBoxColumn";
+            this.AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
+            this.AnioEspecialidad.HeaderText = "Año Especialidad";
+            this.AnioEspecialidad.Name = "AnioEspecialidad";
             // 
             // formListaComisiones
             // 
@@ -239,9 +238,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).EndInit();
             this.tsPlanes.ResumeLayout(false);
             this.tsPlanes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comisionesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -261,9 +260,9 @@
         private AcademiaDataSet academiaDataSet;
         private System.Windows.Forms.BindingSource comisionesBindingSource;
         private AcademiaDataSetTableAdapters.comisionesTableAdapter comisionesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idcomisionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn desccomisionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn anioespecialidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idplanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDPlan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AnioEspecialidad;
     }
 }

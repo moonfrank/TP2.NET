@@ -50,6 +50,7 @@
     <Compile Include="Especialidad.cs" />
     <Compile Include="Especialidades.cs" />
     <Compile Include="Materia.cs" />
+    <Compile Include="Materias.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Plan.cs" />
     <Compile Include="Planes.cs" />

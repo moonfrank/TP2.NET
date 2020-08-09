@@ -22,7 +22,7 @@ namespace UI.Desktop
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             Usuario usr = new UsuarioLogic().GetOne(txtUsuario.Text, txtPass.Text);
-            if (usr!=null)
+            if (usr.Nombre!=null)
             {
                 MessageBox.Show("Bienvienido "+usr.Nombre+' '+usr.Apellido+'!',
                                 "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);

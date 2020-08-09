@@ -39,7 +39,7 @@ namespace Business.Entities
             this.DaUsuarios.InsertCommand.Parameters.Add("@email", SqlDbType.VarChar, 50, "email");
 
             this.DaUsuarios.DeleteCommand = new SqlCommand(" DELETE FROM usuarios WHERE id_usuario=@id_usuario ", this.Conn);
-            this.DaUsuarios.DeleteCommand.Parameters.Add("@id", SqlDbType.Int, 1, "id");
+            this.DaUsuarios.DeleteCommand.Parameters.Add("@id_usuario", SqlDbType.Int, 1, "id_usuario");
         }
 
         public DataTable GetAll()

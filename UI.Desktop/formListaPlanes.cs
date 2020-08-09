@@ -28,11 +28,6 @@ namespace UI.Desktop
             this.dgvPlanes.DataSource = new PlanLogic().GetAll();
         }
 
-        private void Usuarios_Load(object sender, EventArgs e)
-        {
-            Listar();
-        }
-
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
             new PlanDesktop(ApplicationForm.ModoForm.Alta).ShowDialog();
@@ -69,9 +64,7 @@ namespace UI.Desktop
 
         private void formListaPlanes_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'academiaDataSet.planes' table. You can move, or remove it, as needed.
-            this.planesTableAdapter.Fill(this.academiaDataSet.planes);
-
+            Listar();
         }
     }
 }

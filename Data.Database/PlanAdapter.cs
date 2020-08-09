@@ -75,7 +75,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdDelete = new SqlCommand("delete planes where id_plan=@id_plan", sqlConnection);
-                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                cmdDelete.Parameters.Add("@id_plan", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception Ex)
