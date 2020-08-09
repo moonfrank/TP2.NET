@@ -66,5 +66,12 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void formListaPlanes_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'academiaDataSet.planes' table. You can move, or remove it, as needed.
+            this.planesTableAdapter.Fill(this.academiaDataSet.planes);
+
+        }
     }
 }

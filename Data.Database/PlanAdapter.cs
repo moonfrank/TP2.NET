@@ -16,7 +16,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdPlanes = new SqlCommand("select * from usuarios", sqlConnection);
+                SqlCommand cmdPlanes = new SqlCommand("select * from planes", sqlConnection);
                 SqlDataReader drPlanes = cmdPlanes.ExecuteReader();
                 while (drPlanes.Read())
                 {
@@ -59,7 +59,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar datos de usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de plan", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -94,7 +94,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("UPDATE planes SET SET desc_plan = @desc_plan, id_especialidad = @id_especialidad WHERE id_plan=@id", sqlConnection);
+                SqlCommand cmdSave = new SqlCommand("UPDATE planes SET desc_plan = @desc_plan, id_especialidad = @id_especialidad WHERE id_plan=@id", sqlConnection);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = plan.ID;
                 cmdSave.Parameters.Add("@desc_plan", SqlDbType.VarChar, 50).Value = plan.Descripcion;
                 cmdSave.Parameters.Add("@id_especialidad", SqlDbType.Int, 1).Value = plan.IDEspecialidad;

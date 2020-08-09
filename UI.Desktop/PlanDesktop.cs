@@ -138,16 +138,6 @@ namespace UI.Desktop
             */
             return true;
         }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            if (Validar())
-            {
-                GuardarCambios();
-                this.Close();
-            }
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -159,7 +149,17 @@ namespace UI.Desktop
             this.especialidadesTableAdapter.Fill(this.academiaDataSet.especialidades);
 
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (Validar())
+            {
+                GuardarCambios();
+                this.Close();
+            }
+        }
+
     }
 
-    
+
 }

@@ -28,24 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formListaPlanes));
             this.tcPlanes = new System.Windows.Forms.ToolStripContainer();
             this.tlPlanes = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPlanes = new System.Windows.Forms.DataGridView();
-            this.IDEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsPlanes = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.academiaDataSet = new UI.Desktop.AcademiaDataSet();
+            this.planesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.planesTableAdapter = new UI.Desktop.AcademiaDataSetTableAdapters.planesTableAdapter();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcPlanes.ContentPanel.SuspendLayout();
             this.tcPlanes.TopToolStripPanel.SuspendLayout();
             this.tcPlanes.SuspendLayout();
             this.tlPlanes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlanes)).BeginInit();
             this.tsPlanes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tcPlanes
@@ -62,7 +69,7 @@
             this.tcPlanes.TabIndex = 1;
             this.tcPlanes.Text = "toolStripContainer1";
             // 
-            // tcPlanes.tspPlanes
+            // tcPlanes.TopToolStripPanel
             // 
             this.tcPlanes.TopToolStripPanel.Controls.Add(this.tsPlanes);
             // 
@@ -85,11 +92,14 @@
             // 
             // dgvPlanes
             // 
+            this.dgvPlanes.AutoGenerateColumns = false;
             this.dgvPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.IDEspecialidad,
             this.Descripcion});
             this.tlPlanes.SetColumnSpan(this.dgvPlanes, 2);
+            this.dgvPlanes.DataSource = this.planesBindingSource;
             this.dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPlanes.Location = new System.Drawing.Point(3, 3);
             this.dgvPlanes.MultiSelect = false;
@@ -97,17 +107,6 @@
             this.dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPlanes.Size = new System.Drawing.Size(794, 390);
             this.dgvPlanes.TabIndex = 0;
-            // 
-            // IDEspecialidad
-            // 
-            this.IDEspecialidad.HeaderText = "ID Especialidad";
-            this.IDEspecialidad.Name = "IDEspecialidad";
-            this.IDEspecialidad.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
             // 
             // btnActualizar
             // 
@@ -175,6 +174,40 @@
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
+            // academiaDataSet
+            // 
+            this.academiaDataSet.DataSetName = "AcademiaDataSet";
+            this.academiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // planesBindingSource
+            // 
+            this.planesBindingSource.DataMember = "planes";
+            this.planesBindingSource.DataSource = this.academiaDataSet;
+            // 
+            // planesTableAdapter
+            // 
+            this.planesTableAdapter.ClearBeforeFill = true;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "id_plan";
+            this.ID.HeaderText = "ID Plan";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // IDEspecialidad
+            // 
+            this.IDEspecialidad.DataPropertyName = "id_especialidad";
+            this.IDEspecialidad.HeaderText = "ID Especialidad";
+            this.IDEspecialidad.Name = "IDEspecialidad";
+            this.IDEspecialidad.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "desc_plan";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            // 
             // formListaPlanes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +216,7 @@
             this.Controls.Add(this.tcPlanes);
             this.Name = "formListaPlanes";
             this.Text = "Planes";
+            this.Load += new System.EventHandler(this.formListaPlanes_Load);
             this.tcPlanes.ContentPanel.ResumeLayout(false);
             this.tcPlanes.TopToolStripPanel.ResumeLayout(false);
             this.tcPlanes.TopToolStripPanel.PerformLayout();
@@ -192,6 +226,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlanes)).EndInit();
             this.tsPlanes.ResumeLayout(false);
             this.tsPlanes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -207,6 +243,10 @@
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private AcademiaDataSet academiaDataSet;
+        private System.Windows.Forms.BindingSource planesBindingSource;
+        private AcademiaDataSetTableAdapters.planesTableAdapter planesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDEspecialidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
     }
