@@ -11,13 +11,8 @@ namespace Business.Entities
     public class Comisiones : BusinessEntity
     {
         public SqlDataAdapter DaComisiones { get; set; }
-        public SqlConnection Conn { get; set; }
-        public Comisiones()
+        public Comisiones():base()
         {
-            this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=tp2_net;Integrated Security=True");
-
-            //this.Conn = new SqlConnection("Data Source=localhost;Initial Catalog=tp2_net;Integrated Security=True");
-
             this.DaComisiones = new SqlDataAdapter("select * from comisiones", this.Conn);
 
             this.DaComisiones.UpdateCommand =

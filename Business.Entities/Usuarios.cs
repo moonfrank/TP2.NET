@@ -8,16 +8,11 @@ using System.Data.SqlClient;
 
 namespace Business.Entities
 {
-    public class Usuarios
+    public class Usuarios:BusinessEntity
     {
         public SqlDataAdapter DaUsuarios { get; set; }
-        public SqlConnection Conn { get; set; }
-        public Usuarios()
+        public Usuarios():base()
         {
-            //this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=tp2_net;Integrated Security=True");
-
-            this.Conn = new SqlConnection("Data Source=localhost;Initial Catalog=tp2_net;Integrated Security=True");
-
             this.DaUsuarios = new SqlDataAdapter("select * from usuarios", this.Conn);
 
             this.DaUsuarios.UpdateCommand = new SqlCommand(" UPDATE usuarios " +

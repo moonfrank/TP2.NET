@@ -8,17 +8,12 @@ using System.Data.SqlClient;
 
 namespace Business.Entities
 {
-    public class Especialidades
+    public class Especialidades:BusinessEntity
     {
         public SqlDataAdapter DaEspecialidades { get; set; }
-        public SqlConnection Conn { get; set; }
-        public Especialidades()
+        public Especialidades():base()
         {
-            //this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=tp2_net;Integrated Security=True");
-
-            this.Conn = new SqlConnection("Data Source=localhost;Initial Catalog=tp2_net;Integrated Security=True");
-
-            this.DaEspecialidades = new SqlDataAdapter("select * from especialidades", this.Conn);
+           this.DaEspecialidades = new SqlDataAdapter("select * from especialidades", this.Conn);
 
             this.DaEspecialidades.UpdateCommand =
             new SqlCommand(" UPDATE especialidades " +

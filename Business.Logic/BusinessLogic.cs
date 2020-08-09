@@ -26,6 +26,10 @@ namespace Business.Logic
         {
             return UsuarioData.GetOne(id);
         }
+        public Usuario GetOne(string user, string pass)
+        {
+            return UsuarioData.GetOne(user,pass);
+        }
 
         public List<Usuario> GetAll() 
         {

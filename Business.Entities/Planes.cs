@@ -11,13 +11,8 @@ namespace Business.Entities
     public class Planes:BusinessEntity
     {
         public SqlDataAdapter DaPlanes { get; set; }
-        public SqlConnection Conn { get; set; }
         public Planes()
         {
-            this.Conn = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=tp2_net;Integrated Security=True");
-
-            //this.Conn = new SqlConnection("Data Source=localhost;Initial Catalog=tp2_net;Integrated Security=True");
-
             this.DaPlanes = new SqlDataAdapter("select * from planes", this.Conn);
 
             this.DaPlanes.UpdateCommand =

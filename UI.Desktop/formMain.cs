@@ -30,31 +30,31 @@ namespace UI.Desktop
         private void mnuUsuarios_Click(object sender, EventArgs e)
         {
             formListaUsuarios appListaUsuarios = new formListaUsuarios();
-            if (appListaUsuarios.ShowDialog() != DialogResult.OK) this.Dispose();
+            if (appListaUsuarios.ShowDialog() != DialogResult.OK) appListaUsuarios.Dispose();
         }
 
         private void mnuMaterias_Click(object sender, EventArgs e)
         {
             formListaMaterias appListaMaterias = new formListaMaterias();
-            if (appListaMaterias.ShowDialog() != DialogResult.OK) this.Dispose();
+            if (appListaMaterias.ShowDialog() != DialogResult.OK) appListaMaterias.Dispose();
         }
 
         private void mnuEspecialidades_Click(object sender, EventArgs e)
         {
             formListaEspecialidades appListaEspecialidades = new formListaEspecialidades();
-            if (appListaEspecialidades.ShowDialog() != DialogResult.OK) this.Dispose();
+            if (appListaEspecialidades.ShowDialog() != DialogResult.OK) appListaEspecialidades.Dispose();
         }
 
         private void mnuPlanes_Click(object sender, EventArgs e)
         {
             formListaPlanes appListaPlanes = new formListaPlanes();
-            if (appListaPlanes.ShowDialog() != DialogResult.OK) this.Dispose();
+            if (appListaPlanes.ShowDialog() != DialogResult.OK) appListaPlanes.Dispose();
         }
 
         private void mnuComisiones_Click(object sender, EventArgs e)
         {
             formListaComisiones appListaComisiones = new formListaComisiones();
-            if (appListaComisiones.ShowDialog() != DialogResult.OK) this.Dispose();
+            if (appListaComisiones.ShowDialog() != DialogResult.OK) appListaComisiones.Dispose();
         }
     }
 }

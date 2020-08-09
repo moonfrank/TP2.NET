@@ -78,6 +78,40 @@ namespace Data.Database
             return usr;
         }
 
+        public Usuario GetOne(string usu, string pass)
+        {
+            Usuario usr = new Usuario();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios where nombre_usuario = @usu and clave=@pass", sqlConnection);
+                cmdUsuarios.Parameters.Add("@usu", SqlDbType.VarChar,50).Value = usu;
+                cmdUsuarios.Parameters.Add("@pass", SqlDbType.VarChar,50).Value = pass;
+                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+                if (drUsuarios.Read())
+                {
+                    usr.ID = (int)drUsuarios["id_usuario"];
+                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.Clave = (string)drUsuarios["clave"];
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
+                    usr.Nombre = (string)drUsuarios["nombre"];
+                    usr.Apellido = (string)drUsuarios["apellido"];
+                    usr.Email = (string)drUsuarios["email"];
+                }
+                drUsuarios.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de usuario", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return usr;
+        }
+
         public void Delete(int ID)
         {
             try

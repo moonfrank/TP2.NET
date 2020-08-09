@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Entities;
+using Business.Logic;
 
 namespace UI.Desktop
 {
@@ -19,9 +21,10 @@ namespace UI.Desktop
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (this.txtUsuario.Text == "admin" && this.txtPass.Text == "admin")
+            Usuario usr = new UsuarioLogic().GetOne(txtUsuario.Text, txtPass.Text);
+            if (usr!=null)
             {
-                MessageBox.Show("Bienvienido "+this.txtUsuario.Text+'!',
+                MessageBox.Show("Bienvienido "+usr.Nombre+' '+usr.Apellido+'!',
                                 "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
             }
