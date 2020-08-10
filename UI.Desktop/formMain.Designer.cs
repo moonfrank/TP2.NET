@@ -38,6 +38,7 @@
             this.mnuEspecialidades = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuComisiones = new System.Windows.Forms.ToolStripMenuItem();
             this.personasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alumnoInscripcionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +76,8 @@
             this.mnuPlanes,
             this.mnuEspecialidades,
             this.mnuComisiones,
-            this.personasToolStripMenuItem});
+            this.personasToolStripMenuItem,
+            this.alumnoInscripcionToolStripMenuItem});
             this.mnuListado.Name = "mnuListado";
             this.mnuListado.Size = new System.Drawing.Size(57, 20);
             this.mnuListado.Text = "Listado";
@@ -122,6 +124,13 @@
             this.personasToolStripMenuItem.Text = "Personas";
             this.personasToolStripMenuItem.Click += new System.EventHandler(this.personasToolStripMenuItem_Click);
             // 
+            // alumnoInscripcionToolStripMenuItem
+            // 
+            this.alumnoInscripcionToolStripMenuItem.Name = "alumnoInscripcionToolStripMenuItem";
+            this.alumnoInscripcionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alumnoInscripcionToolStripMenuItem.Text = "AlumnoInscripcion";
+            this.alumnoInscripcionToolStripMenuItem.Click += new System.EventHandler(this.alumnoInscripcionToolStripMenuItem_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,5 +162,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuEspecialidades;
         private System.Windows.Forms.ToolStripMenuItem mnuComisiones;
         private System.Windows.Forms.ToolStripMenuItem personasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alumnoInscripcionToolStripMenuItem;
     }
 }

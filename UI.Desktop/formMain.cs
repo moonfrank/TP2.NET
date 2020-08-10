@@ -62,5 +62,11 @@ namespace UI.Desktop
             formListaPersona appListaPersonas = new formListaPersona();
             if (appListaPersonas.ShowDialog() != DialogResult.OK) appListaPersonas.Dispose();
         }
+
+        private void alumnoInscripcionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formListaAlumnoInscripcion appAlumnoInscripcion = new formListaAlumnoInscripcion();
+            if (appAlumnoInscripcion.ShowDialog() != DialogResult.OK) appAlumnoInscripcion.Dispose();
+        }
     }
 }
