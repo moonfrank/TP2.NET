@@ -27,7 +27,6 @@ namespace Data.Database
                     per.Nombre = (string)drPersona["nombre"];
                     per.Apellido = (string)drPersona["apellido"];
                     per.Direccion = (string)drPersona["direccion"];
-                    per.Email = (string)drPersona["email"];
                     per.Telefono = (string)drPersona["telefono"];
                     per.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
                     per.Legajo = (int)drPersona["legajo"];
@@ -64,7 +63,6 @@ namespace Data.Database
                     per.Nombre = (string)drPersona["nombre"];
                     per.Apellido = (string)drPersona["apellido"];
                     per.Direccion = (string)drPersona["direccion"];
-                    per.Email = (string)drPersona["email"];
                     per.Telefono = (string)drPersona["telefono"];
                     per.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
                     per.Legajo = (int)drPersona["legajo"];
@@ -110,14 +108,13 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("UPDATE personas SET nombre = @nombre, apellido = @apellido, id_plan=@id_plan" +
-                                                    "direccion = @direccion, email = @email, telefono=@telefono, fecha_nac=@fecha_nac " +
+                                                    "direccion = @direccion, telefono=@telefono, fecha_nac=@fecha_nac " +
                                                     "legajo=@legajo, tipo_persona=@tipo_persona" +
                                                    "WHERE id_persona=@id", sqlConnection);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = persona.ID;
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
                 cmdSave.Parameters.Add("@direccion", SqlDbType.VarChar).Value = persona.Direccion;
-                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = persona.Email;
                 cmdSave.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = persona.Telefono;
                 cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime, 50).Value = persona.FechaNacimiento;
                 cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
@@ -142,13 +139,12 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("insert into personas(nombre,apellido,direccion,email,telefono,fecha_nac,legajo,tipo_persona,id_plan)" +
-                                                    "values (@nombre,@apellido,@direccion,@email,@telefono,@fecha_nac,@legajo,@tipo_persona,@id_plan)" +
+                SqlCommand cmdSave = new SqlCommand("insert into personas(nombre,apellido,direccion,telefono,fecha_nac,legajo,tipo_persona,id_plan)" +
+                                                    "values (@nombre,@apellido,@direccion,@telefono,@fecha_nac,@legajo,@tipo_persona,@id_plan)" +
                                                     "select @@identity", sqlConnection);
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
                 cmdSave.Parameters.Add("@direccion", SqlDbType.VarChar).Value = persona.Direccion;
-                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = persona.Email;
                 cmdSave.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = persona.Telefono;
                 cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime, 50).Value = persona.FechaNacimiento;
                 cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;

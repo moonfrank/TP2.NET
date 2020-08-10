@@ -21,8 +21,6 @@ namespace UI.Desktop
         {
             // TODO: esta línea de código carga datos en la tabla '_AcademiaDataSet_NOEXPRESS_.cursos' Puede moverla o quitarla según sea necesario.
             this.cursosTableAdapter.Fill(this._AcademiaDataSet_NOEXPRESS_.cursos);
-            // TODO: esta línea de código carga datos en la tabla '_AcademiaDataSet_NOEXPRESS_.personas' Puede moverla o quitarla según sea necesario.
-            this.personasTableAdapter.Fill(this._AcademiaDataSet_NOEXPRESS_.personas);
 
         }
 
