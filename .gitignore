@@ -3,10 +3,6 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-# Diferencias entre SQL y EXPRESS
-Data.Database/Adapter.cs
-Business.Entities/BusinessEntity.cs
-
 # User-specific files
 *.rsuser
 *.suo
@@ -341,6 +337,4 @@ ASALocalRun/
 .localhistory/
 
 # BeatPulse healthcheck temp database
-healthchecksdbAdapter.cs
-Data.Database/Adapter.cs
-Business.Entities/BusinessEntity.cs
+healthchecksdb

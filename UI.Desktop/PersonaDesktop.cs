@@ -163,14 +163,8 @@ namespace UI.Desktop
         private void PersonaDesktop_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla '_AcademiaDataSet_NOEXPRESS_.planes' Puede moverla o quitarla según sea necesario.
-            try
-            {
-                this.planesTableAdapter1.Fill(this._AcademiaDataSet_NOEXPRESS_.planes);
-            }
-            catch (Exception)
-            {
-                this.planesTableAdapter.Fill(this.academiaDataSet.planes);
-            }
+            this.planesTableAdapter1.Fill(this._AcademiaDataSet_NOEXPRESS_.planes);
+
         }
 
 
