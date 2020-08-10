@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formListaMaterias));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.dgvMaterias = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HsSemanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HsTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HsSemanales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HsTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -57,11 +57,11 @@
             this.toolStripContainer1.ContentPanel.Controls.Add(this.dgvMaterias);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.btnActualizar);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.btnSalir);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 425);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(806, 446);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 450);
+            this.toolStripContainer1.Size = new System.Drawing.Size(806, 471);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -82,6 +82,41 @@
             this.dgvMaterias.Name = "dgvMaterias";
             this.dgvMaterias.Size = new System.Drawing.Size(794, 390);
             this.dgvMaterias.TabIndex = 2;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // IDPlan
+            // 
+            this.IDPlan.DataPropertyName = "IDPlan";
+            this.IDPlan.HeaderText = "ID Plan";
+            this.IDPlan.Name = "IDPlan";
+            this.IDPlan.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // HsSemanales
+            // 
+            this.HsSemanales.DataPropertyName = "HsSemanales";
+            this.HsSemanales.HeaderText = "Hs. Semanales";
+            this.HsSemanales.Name = "HsSemanales";
+            this.HsSemanales.ReadOnly = true;
+            // 
+            // HsTotales
+            // 
+            this.HsTotales.DataPropertyName = "HsTotales";
+            this.HsTotales.HeaderText = "Hs. Totales";
+            this.HsTotales.Name = "HsTotales";
+            this.HsTotales.ReadOnly = true;
             // 
             // btnActualizar
             // 
@@ -148,46 +183,11 @@
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // IDPlan
-            // 
-            this.IDPlan.DataPropertyName = "IDPlan";
-            this.IDPlan.HeaderText = "ID Plan";
-            this.IDPlan.Name = "IDPlan";
-            this.IDPlan.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // HsSemanales
-            // 
-            this.HsSemanales.DataPropertyName = "HsSemanales";
-            this.HsSemanales.HeaderText = "Hs. Semanales";
-            this.HsSemanales.Name = "HsSemanales";
-            this.HsSemanales.ReadOnly = true;
-            // 
-            // HsTotales
-            // 
-            this.HsTotales.DataPropertyName = "HsTotales";
-            this.HsTotales.HeaderText = "Hs. Totales";
-            this.HsTotales.Name = "HsTotales";
-            this.HsTotales.ReadOnly = true;
-            // 
             // formListaMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(806, 471);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "formListaMaterias";
             this.Text = "Materias";

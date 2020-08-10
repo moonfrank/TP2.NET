@@ -57,10 +57,10 @@ namespace UI.Desktop
             if (appListaComisiones.ShowDialog() != DialogResult.OK) appListaComisiones.Dispose();
         }
 
-        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formListaCursos appListaCursos = new formListaCursos();
-            if (appListaCursos.ShowDialog() != DialogResult.OK) appListaCursos.Dispose();
+            formListaPersona appListaPersonas = new formListaPersona();
+            if (appListaPersonas.ShowDialog() != DialogResult.OK) appListaPersonas.Dispose();
         }
     }
 }
