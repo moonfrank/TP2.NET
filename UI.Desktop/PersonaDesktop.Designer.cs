@@ -73,7 +73,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
             this.tableLayoutPanel1.Controls.Add(this.txtDireccion, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblDireccion, 0, 1);
@@ -112,7 +112,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDireccion.Location = new System.Drawing.Point(94, 116);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(177, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(176, 20);
             this.txtDireccion.TabIndex = 10;
             // 
             // lblID
@@ -145,7 +145,7 @@
             // lblIDPlan
             // 
             this.lblIDPlan.AutoSize = true;
-            this.lblIDPlan.Location = new System.Drawing.Point(277, 226);
+            this.lblIDPlan.Location = new System.Drawing.Point(276, 226);
             this.lblIDPlan.Name = "lblIDPlan";
             this.lblIDPlan.Size = new System.Drawing.Size(42, 13);
             this.lblIDPlan.TabIndex = 6;
@@ -158,12 +158,12 @@
             this.txtID.Location = new System.Drawing.Point(94, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(177, 20);
+            this.txtID.Size = new System.Drawing.Size(176, 20);
             this.txtID.TabIndex = 8;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(277, 342);
+            this.btnAceptar.Location = new System.Drawing.Point(276, 342);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 16;
@@ -174,7 +174,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(368, 342);
+            this.btnCancelar.Location = new System.Drawing.Point(367, 342);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 17;
@@ -185,7 +185,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(277, 0);
+            this.lblNombre.Location = new System.Drawing.Point(276, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 3;
@@ -193,7 +193,7 @@
             // 
             // textNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(368, 3);
+            this.textNombre.Location = new System.Drawing.Point(367, 3);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(100, 20);
             this.textNombre.TabIndex = 18;
@@ -201,7 +201,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(551, 0);
+            this.lblApellido.Location = new System.Drawing.Point(549, 0);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 19;
@@ -209,7 +209,7 @@
             // 
             // textApellido
             // 
-            this.textApellido.Location = new System.Drawing.Point(649, 3);
+            this.textApellido.Location = new System.Drawing.Point(647, 3);
             this.textApellido.Name = "textApellido";
             this.textApellido.Size = new System.Drawing.Size(100, 20);
             this.textApellido.TabIndex = 20;
@@ -217,7 +217,7 @@
             // lblFechaNac
             // 
             this.lblFechaNac.AutoSize = true;
-            this.lblFechaNac.Location = new System.Drawing.Point(277, 113);
+            this.lblFechaNac.Location = new System.Drawing.Point(276, 113);
             this.lblFechaNac.Name = "lblFechaNac";
             this.lblFechaNac.Size = new System.Drawing.Size(60, 26);
             this.lblFechaNac.TabIndex = 21;
@@ -225,16 +225,18 @@
             // 
             // DTPFechaNac
             // 
-            this.DTPFechaNac.Location = new System.Drawing.Point(368, 116);
+            this.DTPFechaNac.Location = new System.Drawing.Point(367, 116);
+            this.DTPFechaNac.MaxDate = new System.DateTime(2020, 8, 10, 0, 0, 0, 0);
             this.DTPFechaNac.Name = "DTPFechaNac";
-            this.DTPFechaNac.Size = new System.Drawing.Size(177, 20);
+            this.DTPFechaNac.Size = new System.Drawing.Size(176, 20);
             this.DTPFechaNac.TabIndex = 22;
+            this.DTPFechaNac.Value = new System.DateTime(2020, 8, 10, 0, 0, 0, 0);
             this.DTPFechaNac.ValueChanged += new System.EventHandler(this.DTPFechaNac_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(551, 113);
+            this.label1.Location = new System.Drawing.Point(549, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 23;
@@ -242,7 +244,7 @@
             // 
             // txtLegajo
             // 
-            this.txtLegajo.Location = new System.Drawing.Point(649, 116);
+            this.txtLegajo.Location = new System.Drawing.Point(647, 116);
             this.txtLegajo.Name = "txtLegajo";
             this.txtLegajo.Size = new System.Drawing.Size(100, 20);
             this.txtLegajo.TabIndex = 24;
@@ -261,7 +263,7 @@
             this.comboBoxIDPlan.DataSource = this.planesBindingSource1;
             this.comboBoxIDPlan.DisplayMember = "desc_plan";
             this.comboBoxIDPlan.FormattingEnabled = true;
-            this.comboBoxIDPlan.Location = new System.Drawing.Point(368, 229);
+            this.comboBoxIDPlan.Location = new System.Drawing.Point(367, 229);
             this.comboBoxIDPlan.Name = "comboBoxIDPlan";
             this.comboBoxIDPlan.Size = new System.Drawing.Size(100, 21);
             this.comboBoxIDPlan.TabIndex = 26;
@@ -284,7 +286,7 @@
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(551, 226);
+            this.lblTelefono.Location = new System.Drawing.Point(549, 226);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(49, 13);
             this.lblTelefono.TabIndex = 27;
@@ -292,7 +294,7 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(649, 229);
+            this.txtTelefono.Location = new System.Drawing.Point(647, 229);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(8, 20);
             this.txtTelefono.TabIndex = 28;

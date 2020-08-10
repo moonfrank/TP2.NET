@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
-using static enum;
 
 namespace UI.Desktop
 {
@@ -18,6 +17,8 @@ namespace UI.Desktop
         public PersonaDesktop()
         {
             InitializeComponent();
+            comboBoxTipoPersona.DataSource = Enum.GetNames(typeof(Persona.TiposPersonas));
+            comboBoxTipoPersona.SelectedItem = Persona.TiposPersonas.Alumno;
         }
         public PersonaDesktop(ModoForm modo) : this()
         {
@@ -80,7 +81,8 @@ namespace UI.Desktop
                 this.PersonaActual.Telefono = this.txtTelefono.Text;
                 this.PersonaActual.FechaNacimiento = this.DTPFechaNac.Value;
                 this.PersonaActual.Legajo = int.Parse(this.txtLegajo.Text);
-                this.PersonaActual.TipoPersona = this.comboBoxTipoPersona.Text;
+                Enum.TryParse<Persona.TiposPersonas>(this.comboBoxTipoPersona.SelectedValue.ToString(), out Persona.TiposPersonas tipo_persona);
+                this.PersonaActual.TipoPersona = tipo_persona;
                 this.PersonaActual.IDPlan = int.Parse(this.comboBoxIDPlan.Text);
 
                 switch (Modo)
