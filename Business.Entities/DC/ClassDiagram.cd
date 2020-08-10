@@ -3,22 +3,8 @@
   <Class Name="Business.Entities.AlumnoInscripcion">
     <Position X="14.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACACAAAAAgAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAiAAAAAgAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>AlumnoInscripcion.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Business.Entities.BusinessEntity">
-    <Position X="15.75" Y="1.75" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="Business.Entities.BusinessEntity.States" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>BusinessEntity.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>BusinessEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Business.Entities.Comision">
@@ -73,7 +59,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>EAAAAAEAACAAAQAEACAAhAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <HashCode>EAAAAAEAACAAgQAEACAAhAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Persona.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -89,6 +75,20 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAgAAEAAAAgAAAAAAAABAAAIAAAAAAEAA=</HashCode>
       <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Business.Entities.BusinessEntity">
+    <Position X="15" Y="1.75" Width="2.25" />
+    <NestedTypes>
+      <Enum Name="Business.Entities.BusinessEntity.States" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BusinessEntity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>BusinessEntity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
