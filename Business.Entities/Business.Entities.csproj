@@ -46,6 +46,7 @@
     <Compile Include="Comision.cs" />
     <Compile Include="Comisiones.cs" />
     <Compile Include="Curso.cs" />
+    <Compile Include="Cursos.cs" />
     <Compile Include="DocenteCurso.cs" />
     <Compile Include="Especialidad.cs" />
     <Compile Include="Especialidades.cs" />
