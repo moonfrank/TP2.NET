@@ -37,6 +37,7 @@
             this.mnuPlanes = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEspecialidades = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuComisiones = new System.Windows.Forms.ToolStripMenuItem();
+            this.personasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +74,8 @@
             this.mnuMaterias,
             this.mnuPlanes,
             this.mnuEspecialidades,
-            this.mnuComisiones});
+            this.mnuComisiones,
+            this.personasToolStripMenuItem});
             this.mnuListado.Name = "mnuListado";
             this.mnuListado.Size = new System.Drawing.Size(57, 20);
             this.mnuListado.Text = "Listado";
@@ -113,6 +115,13 @@
             this.mnuComisiones.Text = "Comisiones";
             this.mnuComisiones.Click += new System.EventHandler(this.mnuComisiones_Click);
             // 
+            // personasToolStripMenuItem
+            // 
+            this.personasToolStripMenuItem.Name = "personasToolStripMenuItem";
+            this.personasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personasToolStripMenuItem.Text = "Personas";
+            this.personasToolStripMenuItem.Click += new System.EventHandler(this.personasToolStripMenuItem_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,5 +152,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuPlanes;
         private System.Windows.Forms.ToolStripMenuItem mnuEspecialidades;
         private System.Windows.Forms.ToolStripMenuItem mnuComisiones;
+        private System.Windows.Forms.ToolStripMenuItem personasToolStripMenuItem;
     }
 }

@@ -8,12 +8,12 @@ namespace Business.Entities
 {
     public class Persona : BusinessEntity
     {
+        public new int ID { get; set; }
         public enum TiposPersonas
         {
             Alumno,
             Profesor
         }
-
         public int Legajo { get; set; }
         public int IDPlan { get; set; }
         public string Nombre { get; set; }

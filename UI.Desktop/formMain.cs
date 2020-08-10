@@ -56,5 +56,11 @@ namespace UI.Desktop
             formListaComisiones appListaComisiones = new formListaComisiones();
             if (appListaComisiones.ShowDialog() != DialogResult.OK) appListaComisiones.Dispose();
         }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formListaPersona appListaPersonas = new formListaPersona();
+            if (appListaPersonas.ShowDialog() != DialogResult.OK) appListaPersonas.Dispose();
+        }
     }
 }

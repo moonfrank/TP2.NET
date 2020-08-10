@@ -52,6 +52,7 @@
     <Compile Include="Materia.cs" />
     <Compile Include="Materias.cs" />
     <Compile Include="Persona.cs" />
+    <Compile Include="Personas.cs" />
     <Compile Include="Plan.cs" />
     <Compile Include="Planes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
