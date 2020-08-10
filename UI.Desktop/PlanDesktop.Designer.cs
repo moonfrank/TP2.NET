@@ -42,10 +42,18 @@
             this.academiaDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.academiaDataSet = new UI.Desktop.AcademiaDataSet();
             this.especialidadesTableAdapter = new UI.Desktop.AcademiaDataSetTableAdapters.especialidadesTableAdapter();
+            this._AcademiaDataSet_NOEXPRESS_ = new UI.Desktop._AcademiaDataSet_NOEXPRESS_();
+            this.especialidadesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.especialidadesTableAdapter1 = new UI.Desktop._AcademiaDataSet_NOEXPRESS_TableAdapters.especialidadesTableAdapter();
+            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
+            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.especialidadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.academiaDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._AcademiaDataSet_NOEXPRESS_)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadesBindingSource1)).BeginInit();
+            this.fillByToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -72,14 +80,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(564, 189);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(564, 206);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescripcion.Location = new System.Drawing.Point(97, 83);
+            this.txtDescripcion.Location = new System.Drawing.Point(97, 91);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(181, 20);
             this.txtDescripcion.TabIndex = 10;
@@ -96,7 +104,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(3, 80);
+            this.lblDescripcion.Location = new System.Drawing.Point(3, 88);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcion.TabIndex = 1;
@@ -105,7 +113,7 @@
             // lblIDEspecialidad
             // 
             this.lblIDEspecialidad.AutoSize = true;
-            this.lblIDEspecialidad.Location = new System.Drawing.Point(284, 80);
+            this.lblIDEspecialidad.Location = new System.Drawing.Point(284, 88);
             this.lblIDEspecialidad.Name = "lblIDEspecialidad";
             this.lblIDEspecialidad.Size = new System.Drawing.Size(81, 13);
             this.lblIDEspecialidad.TabIndex = 5;
@@ -123,7 +131,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(284, 163);
+            this.btnAceptar.Location = new System.Drawing.Point(284, 179);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 16;
@@ -134,7 +142,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(378, 163);
+            this.btnCancelar.Location = new System.Drawing.Point(378, 179);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 17;
@@ -143,11 +151,11 @@
             // 
             // cboxIDEspecialidad
             // 
-            this.cboxIDEspecialidad.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.especialidadesBindingSource, "id_especialidad", true));
-            this.cboxIDEspecialidad.DataSource = this.especialidadesBindingSource;
+            this.cboxIDEspecialidad.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.especialidadesBindingSource1, "id_especialidad", true));
+            this.cboxIDEspecialidad.DataSource = this.especialidadesBindingSource1;
             this.cboxIDEspecialidad.DisplayMember = "id_especialidad";
             this.cboxIDEspecialidad.FormattingEnabled = true;
-            this.cboxIDEspecialidad.Location = new System.Drawing.Point(378, 83);
+            this.cboxIDEspecialidad.Location = new System.Drawing.Point(378, 91);
             this.cboxIDEspecialidad.Name = "cboxIDEspecialidad";
             this.cboxIDEspecialidad.Size = new System.Drawing.Size(121, 21);
             this.cboxIDEspecialidad.TabIndex = 18;
@@ -172,11 +180,44 @@
             // 
             this.especialidadesTableAdapter.ClearBeforeFill = true;
             // 
+            // _AcademiaDataSet_NOEXPRESS_
+            // 
+            this._AcademiaDataSet_NOEXPRESS_.DataSetName = "AcademiaDataSet(NOEXPRESS)";
+            this._AcademiaDataSet_NOEXPRESS_.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // especialidadesBindingSource1
+            // 
+            this.especialidadesBindingSource1.DataMember = "especialidades";
+            this.especialidadesBindingSource1.DataSource = this._AcademiaDataSet_NOEXPRESS_;
+            // 
+            // especialidadesTableAdapter1
+            // 
+            this.especialidadesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // fillByToolStrip
+            // 
+            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillByToolStripButton});
+            this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillByToolStrip.Name = "fillByToolStrip";
+            this.fillByToolStrip.Size = new System.Drawing.Size(564, 25);
+            this.fillByToolStrip.TabIndex = 2;
+            this.fillByToolStrip.Text = "fillByToolStrip";
+            // 
+            // fillByToolStripButton
+            // 
+            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByToolStripButton.Name = "fillByToolStripButton";
+            this.fillByToolStripButton.Size = new System.Drawing.Size(39, 22);
+            this.fillByToolStripButton.Text = "FillBy";
+            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
+            // 
             // PlanDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 189);
+            this.ClientSize = new System.Drawing.Size(564, 206);
+            this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PlanDesktop";
             this.Text = "Plan";
@@ -186,7 +227,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.especialidadesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.academiaDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._AcademiaDataSet_NOEXPRESS_)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadesBindingSource1)).EndInit();
+            this.fillByToolStrip.ResumeLayout(false);
+            this.fillByToolStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -205,5 +251,10 @@
         private AcademiaDataSet academiaDataSet;
         private System.Windows.Forms.BindingSource especialidadesBindingSource;
         private AcademiaDataSetTableAdapters.especialidadesTableAdapter especialidadesTableAdapter;
+        private _AcademiaDataSet_NOEXPRESS_ _AcademiaDataSet_NOEXPRESS_;
+        private System.Windows.Forms.BindingSource especialidadesBindingSource1;
+        private _AcademiaDataSet_NOEXPRESS_TableAdapters.especialidadesTableAdapter especialidadesTableAdapter1;
+        private System.Windows.Forms.ToolStrip fillByToolStrip;
+        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
     }
 }

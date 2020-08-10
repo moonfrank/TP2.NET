@@ -145,9 +145,14 @@ namespace UI.Desktop
 
         private void PlanDesktop_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'academiaDataSet.especialidades' table. You can move, or remove it, as needed.
-            this.especialidadesTableAdapter.Fill(this.academiaDataSet.especialidades);
-
+            try
+            {
+                this.especialidadesTableAdapter.Fill(this.academiaDataSet.especialidades);
+            }
+            catch (Exception)
+            {
+                this.especialidadesTableAdapter1.Fill(this._AcademiaDataSet_NOEXPRESS_.especialidades);
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -159,6 +164,18 @@ namespace UI.Desktop
             }
         }
 
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.especialidadesTableAdapter1.FillBy(this._AcademiaDataSet_NOEXPRESS_.especialidades);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 
 

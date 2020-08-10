@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcademiaDataSet%28NOEXPRESS%29.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AcademiaDataSet%28NOEXPRESS%29.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AcademiaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -195,6 +200,17 @@
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="AcademiaDataSet%28NOEXPRESS%29.xsc">
+      <DependentUpon>AcademiaDataSet%28NOEXPRESS%29.xsd</DependentUpon>
+    </None>
+    <None Include="AcademiaDataSet%28NOEXPRESS%29.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AcademiaDataSet%28NOEXPRESS%29.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AcademiaDataSet%28NOEXPRESS%29.xss">
+      <DependentUpon>AcademiaDataSet%28NOEXPRESS%29.xsd</DependentUpon>
+    </None>
     <None Include="AcademiaDataSet.xsc">
       <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
     </None>
