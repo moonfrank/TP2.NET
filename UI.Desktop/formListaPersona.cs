@@ -15,7 +15,7 @@ namespace UI.Desktop
 {
     public partial class formListaPersona : ApplicationForm
     {
-        public Usuarios OUsuarios { get; set; }
+        public Personas OPersonas { get; set; }
         public formListaPersona()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            new UsuarioDesktop(ApplicationForm.ModoForm.Alta).ShowDialog();
+            new PersonaDesktop(ApplicationForm.ModoForm.Alta).ShowDialog();
             this.Listar();
         }
 
@@ -47,7 +47,7 @@ namespace UI.Desktop
         {
             if (this.dgvPersona.SelectedRows.Count!=0)
             {
-                new UsuarioDesktop(((Usuario)this.dgvPersona.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Modificacion).ShowDialog();
+                new PersonaDesktop(((Persona)this.dgvPersona.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Modificacion).ShowDialog();
                 this.Listar();
             }
         }
@@ -58,7 +58,7 @@ namespace UI.Desktop
             {
                 if (MessageBox.Show("Está seguro que desea eliminar a esta persona?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes)
                 {
-                    new UsuarioDesktop(((Usuario)this.dgvPersona.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Baja).GuardarCambios();
+                    new PersonaDesktop(((Persona)this.dgvPersona.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Baja).GuardarCambios();
                     this.Listar();
                 }
             }
@@ -66,6 +66,11 @@ namespace UI.Desktop
         private void formListaPersona_Load(object sender, EventArgs e)
         {
             Listar();
+        }
+
+        private void dgvPersona_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
