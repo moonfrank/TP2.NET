@@ -28,11 +28,6 @@ namespace UI.Desktop
             this.dgvMaterias.DataSource = new MateriaLogic().GetAll();
         }
 
-        private void formListaMaterias_Load(object sender, EventArgs e)
-        {
-            Listar();
-        }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             Listar();
@@ -68,6 +63,11 @@ namespace UI.Desktop
                     this.Listar();
                 }
             }
+        }
+
+        private void formListaMaterias_Load(object sender, EventArgs e)
+        {
+            Listar();
         }
     }
 }

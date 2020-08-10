@@ -8,7 +8,7 @@ using Business.Entities;
 
 namespace Business.Logic
 {
-    public class PersonaLogic : BusinessLogic
+    public class PersonaLogic : IBusinessLogic<Persona>
     {
         public PersonaAdapter PersonaData { get; set; }
         public PersonaLogic()

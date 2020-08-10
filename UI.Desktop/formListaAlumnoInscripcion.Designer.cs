@@ -215,7 +215,7 @@
             this.ClientSize = new System.Drawing.Size(944, 450);
             this.Controls.Add(this.tcUsuarios);
             this.Name = "formListaAlumnoInscripcion";
-            this.Text = "AlumnoInscripcion";
+            this.Text = "Inscripciones";
             this.Load += new System.EventHandler(this.formListaAlumnoInscripcion_Load);
             this.tcUsuarios.ContentPanel.ResumeLayout(false);
             this.tcUsuarios.TopToolStripPanel.ResumeLayout(false);

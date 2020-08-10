@@ -8,7 +8,7 @@ using Business.Entities;
 
 namespace Business.Logic
 {
-    public class PlanLogic : BusinessLogic
+    public class PlanLogic : IBusinessLogic<Plan>
     {
         public PlanAdapter PlanData { get; set; }
 

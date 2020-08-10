@@ -8,7 +8,7 @@ using Business.Entities;
 
 namespace Business.Logic
 {
-    public class MateriaLogic:BusinessLogic
+    public class MateriaLogic:IBusinessLogic<Materia>
     {
         public MateriaAdapter MateriaData { get; set; }
 

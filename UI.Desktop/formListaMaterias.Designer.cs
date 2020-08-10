@@ -191,6 +191,7 @@
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "formListaMaterias";
             this.Text = "Materias";
+            this.Load += new System.EventHandler(this.formListaMaterias_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();

@@ -19,10 +19,21 @@ namespace UI.Desktop
 
         private void AlumnoInscripcion_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla '_AcademiaDataSet_NOEXPRESS_.cursos' Puede moverla o quitarla según sea necesario.
-            this.cursosTableAdapter.Fill(this._AcademiaDataSet_NOEXPRESS_.cursos);
-            // TODO: esta línea de código carga datos en la tabla '_AcademiaDataSet_NOEXPRESS_.personas' Puede moverla o quitarla según sea necesario.
-            this.personasTableAdapter.Fill(this._AcademiaDataSet_NOEXPRESS_.personas);
+            try
+            {
+                // TODO: esta línea de código carga datos en la tabla '_AcademiaDataSet_NOEXPRESS_.cursos' Puede moverla o quitarla según sea necesario.
+                this.cursosTableAdapter.Fill(this._AcademiaDataSet_NOEXPRESS_.cursos);
+                // TODO: esta línea de código carga datos en la tabla '_AcademiaDataSet_NOEXPRESS_.personas' Puede moverla o quitarla según sea necesario.
+                this.personasTableAdapter.Fill(this._AcademiaDataSet_NOEXPRESS_.personas);
+            }
+            
+            catch (Exception)
+            {
+                // TODO: This line of code loads data into the 'academiaDataSet.cursos' table. You can move, or remove it, as needed.
+                this.cursosTableAdapter1.Fill(this.academiaDataSet.cursos);
+                // TODO: This line of code loads data into the 'academiaDataSet.personas' table. You can move, or remove it, as needed.
+                this.personasTableAdapter1.Fill(this.academiaDataSet.personas);
+            }
 
         }
 

@@ -36,8 +36,11 @@
             this.cbxIDAlumno = new System.Windows.Forms.ComboBox();
             this.personasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._AcademiaDataSet_NOEXPRESS_ = new UI.Desktop._AcademiaDataSet_NOEXPRESS_();
+            this.personasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.academiaDataSet = new UI.Desktop.AcademiaDataSet();
             this.cbxIDCurso = new System.Windows.Forms.ComboBox();
             this.cursosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cursosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCondicion = new System.Windows.Forms.TextBox();
@@ -47,10 +50,15 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.personasTableAdapter = new UI.Desktop._AcademiaDataSet_NOEXPRESS_TableAdapters.personasTableAdapter();
             this.cursosTableAdapter = new UI.Desktop._AcademiaDataSet_NOEXPRESS_TableAdapters.cursosTableAdapter();
+            this.personasTableAdapter1 = new UI.Desktop.AcademiaDataSetTableAdapters.personasTableAdapter();
+            this.cursosTableAdapter1 = new UI.Desktop.AcademiaDataSetTableAdapters.cursosTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.personasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._AcademiaDataSet_NOEXPRESS_)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personasBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -59,7 +67,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.13726F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.86274F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
@@ -104,7 +112,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(258, 109);
+            this.label3.Location = new System.Drawing.Point(256, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 2;
@@ -113,10 +121,10 @@
             // cbxIDAlumno
             // 
             this.cbxIDAlumno.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.personasBindingSource, "id_persona", true));
-            this.cbxIDAlumno.DataSource = this.personasBindingSource;
+            this.cbxIDAlumno.DataSource = this.personasBindingSource1;
             this.cbxIDAlumno.DisplayMember = "id_persona";
             this.cbxIDAlumno.FormattingEnabled = true;
-            this.cbxIDAlumno.Location = new System.Drawing.Point(113, 112);
+            this.cbxIDAlumno.Location = new System.Drawing.Point(112, 112);
             this.cbxIDAlumno.Name = "cbxIDAlumno";
             this.cbxIDAlumno.Size = new System.Drawing.Size(121, 21);
             this.cbxIDAlumno.TabIndex = 3;
@@ -132,13 +140,23 @@
             this._AcademiaDataSet_NOEXPRESS_.DataSetName = "AcademiaDataSet(NOEXPRESS)";
             this._AcademiaDataSet_NOEXPRESS_.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // personasBindingSource1
+            // 
+            this.personasBindingSource1.DataMember = "personas";
+            this.personasBindingSource1.DataSource = this.academiaDataSet;
+            // 
+            // academiaDataSet
+            // 
+            this.academiaDataSet.DataSetName = "AcademiaDataSet";
+            this.academiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // cbxIDCurso
             // 
             this.cbxIDCurso.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.cursosBindingSource, "id_curso", true));
-            this.cbxIDCurso.DataSource = this.cursosBindingSource;
+            this.cbxIDCurso.DataSource = this.cursosBindingSource1;
             this.cbxIDCurso.DisplayMember = "id_curso";
             this.cbxIDCurso.FormattingEnabled = true;
-            this.cbxIDCurso.Location = new System.Drawing.Point(378, 112);
+            this.cbxIDCurso.Location = new System.Drawing.Point(376, 112);
             this.cbxIDCurso.Name = "cbxIDCurso";
             this.cbxIDCurso.Size = new System.Drawing.Size(121, 21);
             this.cbxIDCurso.TabIndex = 4;
@@ -148,6 +166,11 @@
             // 
             this.cursosBindingSource.DataMember = "cursos";
             this.cursosBindingSource.DataSource = this._AcademiaDataSet_NOEXPRESS_;
+            // 
+            // cursosBindingSource1
+            // 
+            this.cursosBindingSource1.DataMember = "cursos";
+            this.cursosBindingSource1.DataSource = this.academiaDataSet;
             // 
             // label4
             // 
@@ -161,7 +184,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(258, 225);
+            this.label5.Location = new System.Drawing.Point(256, 225);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 6;
@@ -169,21 +192,21 @@
             // 
             // txtCondicion
             // 
-            this.txtCondicion.Location = new System.Drawing.Point(113, 228);
+            this.txtCondicion.Location = new System.Drawing.Point(112, 228);
             this.txtCondicion.Name = "txtCondicion";
             this.txtCondicion.Size = new System.Drawing.Size(100, 20);
             this.txtCondicion.TabIndex = 7;
             // 
             // txtNota
             // 
-            this.txtNota.Location = new System.Drawing.Point(378, 228);
+            this.txtNota.Location = new System.Drawing.Point(376, 228);
             this.txtNota.Name = "txtNota";
             this.txtNota.Size = new System.Drawing.Size(100, 20);
             this.txtNota.TabIndex = 8;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(258, 347);
+            this.btnAceptar.Location = new System.Drawing.Point(256, 347);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 9;
@@ -193,7 +216,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(378, 347);
+            this.btnSalir.Location = new System.Drawing.Point(376, 347);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 10;
@@ -203,7 +226,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(113, 3);
+            this.txtID.Location = new System.Drawing.Point(112, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(100, 20);
@@ -217,19 +240,30 @@
             // 
             this.cursosTableAdapter.ClearBeforeFill = true;
             // 
+            // personasTableAdapter1
+            // 
+            this.personasTableAdapter1.ClearBeforeFill = true;
+            // 
+            // cursosTableAdapter1
+            // 
+            this.cursosTableAdapter1.ClearBeforeFill = true;
+            // 
             // AlumnoInscripcionDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(520, 383);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AlumnoInscripcionDesktop";
-            this.Text = "";
+            this.Text = "Inscripción";
             this.Load += new System.EventHandler(this.AlumnoInscripcion_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.personasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._AcademiaDataSet_NOEXPRESS_)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personasBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cursosBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,5 +288,10 @@
         private _AcademiaDataSet_NOEXPRESS_TableAdapters.personasTableAdapter personasTableAdapter;
         private System.Windows.Forms.BindingSource cursosBindingSource;
         private _AcademiaDataSet_NOEXPRESS_TableAdapters.cursosTableAdapter cursosTableAdapter;
+        private AcademiaDataSet academiaDataSet;
+        private System.Windows.Forms.BindingSource personasBindingSource1;
+        private AcademiaDataSetTableAdapters.personasTableAdapter personasTableAdapter1;
+        private System.Windows.Forms.BindingSource cursosBindingSource1;
+        private AcademiaDataSetTableAdapters.cursosTableAdapter cursosTableAdapter1;
     }
 }

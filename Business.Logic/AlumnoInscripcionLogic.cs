@@ -8,7 +8,7 @@ using Business.Entities;
 
 namespace Business.Logic
 {
-    public class AlumnoInscripcionLogic
+    public class AlumnoInscripcionLogic:IBusinessLogic<AlumnoInscripcion>
     {
         public AlumnoInscripcionAdapter inscripcionData { get; set; }
 
