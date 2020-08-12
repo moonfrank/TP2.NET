@@ -12,13 +12,10 @@ namespace UI.Desktop
 {
     public partial class formListaCursos : UI.Desktop.ApplicationForm
     {
-        public Cursos OCursos { get; set; }
         public formListaCursos()
         {
             InitializeComponent();
             this.dgvCursos.AutoGenerateColumns = false;
-            this.OCursos = new Cursos();
-            this.dgvCursos.DataSource = this.OCursos.GetAll();
         }
 
         public void Listar()

@@ -12,13 +12,10 @@ namespace UI.Desktop
 {
     public partial class formListaComisiones : ApplicationForm
     {
-        public Comisiones OComisiones { get; set; }
         public formListaComisiones()
         {
             InitializeComponent();
             this.dgvComisiones.AutoGenerateColumns = false;
-            this.OComisiones = new Comisiones();
-            this.dgvComisiones.DataSource = this.OComisiones.GetAll();
         }
 
 

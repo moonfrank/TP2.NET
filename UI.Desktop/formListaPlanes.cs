@@ -14,13 +14,10 @@ namespace UI.Desktop
 {
     public partial class formListaPlanes : ApplicationForm
     {
-        public Planes OPlanes { get; set; }
         public formListaPlanes()
         {
             InitializeComponent();
             this.dgvPlanes.AutoGenerateColumns = false;
-            this.OPlanes = new Planes();
-            this.dgvPlanes.DataSource = this.OPlanes.GetAll();
         }
 
         public void Listar()

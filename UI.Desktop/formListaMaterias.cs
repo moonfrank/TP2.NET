@@ -14,13 +14,10 @@ namespace UI.Desktop
 {
     public partial class formListaMaterias : ApplicationForm
     {
-        public Materias OMaterias { get; set; }
         public formListaMaterias()
         {
             InitializeComponent();
             this.dgvMaterias.AutoGenerateColumns = false;
-            this.OMaterias = new Materias();
-            this.dgvMaterias.DataSource = this.OMaterias.GetAll();
         }
 
         public void Listar()

@@ -15,7 +15,6 @@ namespace UI.Desktop
 {
     public partial class formListaPersona : ApplicationForm
     {
-        public Personas OPersonas { get; set; }
         public formListaPersona()
         {
             InitializeComponent();

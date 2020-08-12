@@ -15,13 +15,11 @@ namespace UI.Desktop
 {
     public partial class formListaUsuarios : ApplicationForm
     {
-        public Usuarios OUsuarios { get; set; }
         public formListaUsuarios()
         {
             InitializeComponent();
             this.dgvUsuarios.AutoGenerateColumns = false;
-            this.OUsuarios = new Usuarios();
-            this.dgvUsuarios.DataSource = this.OUsuarios.GetAll();
+            this.Listar();
         }
 
         public void Listar()

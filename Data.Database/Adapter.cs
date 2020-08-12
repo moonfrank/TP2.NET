@@ -8,13 +8,7 @@ namespace Data.Database
 {
     public class Adapter
     {
-        #region SQLEXPRESS
-        //protected SqlConnection sqlConnection = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=tp2_net;Integrated Security=False"); const string consKeyDefaultCnnString = "ConnStringExpress";
-        #endregion;
-
-        #region SQL NO EXPRESS
-        protected SqlConnection sqlConnection = new SqlConnection("Data Source=localhost;Initial Catalog=tp2_net;Integrated Security=False"); const string consKeyDefaultCnnString = "ConnStringLocal";
-        #endregion
+        protected SqlConnection sqlConnection; const string consKeyDefaultCnnString = "ConnStringLocal";
 
         protected void OpenConnection()
         {

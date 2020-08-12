@@ -14,14 +14,10 @@ namespace UI.Desktop
 {
     public partial class formListaEspecialidades : Form
     {
-        public Especialidades OEspecialidad { get; set; }
-
         public formListaEspecialidades()
         {
             InitializeComponent();
             this.dgvEspecialidades.AutoGenerateColumns = false;
-            this.OEspecialidad = new Especialidades();
-            this.dgvEspecialidades.DataSource = this.OEspecialidad.GetAll();
         }
         public void Listar()
         {
