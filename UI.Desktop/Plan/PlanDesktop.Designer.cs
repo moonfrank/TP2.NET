@@ -171,6 +171,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PlanDesktop";
             this.Text = "Plan";
+            this.Load += new System.EventHandler(this.PlanDesktop_Load);
             this.fillByToolStrip.ResumeLayout(false);
             this.fillByToolStrip.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

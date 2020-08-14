@@ -157,5 +157,24 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void CursoDesktop_Load(object sender, EventArgs e)
+        {
+            ListarCBX();
+        }
+
+        private void ListarCBX()
+        {
+            foreach (Materia materia in new MateriaLogic().GetAll())
+            {
+                cboxIDMateria.Items.Add(materia.ID.ToString());
+            }
+            cboxIDMateria.SelectedIndex = 0;
+            foreach (Comision comision in new ComisionLogic().GetAll())
+            {
+                cboxIDComision.Items.Add(comision.ID.ToString());
+            }
+            cboxIDComision.SelectedIndex = 0;
+        }
     }
 }

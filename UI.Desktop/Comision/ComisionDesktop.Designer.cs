@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
-            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
@@ -41,26 +39,8 @@
             this.cboxIDPlan = new System.Windows.Forms.ComboBox();
             this.lblAnioEspecialidad = new System.Windows.Forms.Label();
             this.txtAnioEspecialidad = new System.Windows.Forms.TextBox();
-            this.fillByToolStrip.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // fillByToolStrip
-            // 
-            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillByToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(613, 25);
-            this.fillByToolStrip.TabIndex = 5;
-            this.fillByToolStrip.Text = "fillByToolStrip";
-            // 
-            // fillByToolStripButton
-            // 
-            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillByToolStripButton.Name = "fillByToolStripButton";
-            this.fillByToolStripButton.Size = new System.Drawing.Size(39, 22);
-            this.fillByToolStripButton.Text = "FillBy";
             // 
             // tableLayoutPanel1
             // 
@@ -186,27 +166,21 @@
             this.txtAnioEspecialidad.Size = new System.Drawing.Size(199, 20);
             this.txtAnioEspecialidad.TabIndex = 20;
             // 
-            // ComisionDesktopp
+            // ComisionDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(613, 286);
-            this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "ComisionDesktopp";
+            this.Name = "ComisionDesktop";
             this.Text = "Comisión";
-            this.fillByToolStrip.ResumeLayout(false);
-            this.fillByToolStrip.PerformLayout();
+            this.Load += new System.EventHandler(this.ComisionDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStrip fillByToolStrip;
-        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblID;

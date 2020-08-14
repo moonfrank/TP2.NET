@@ -1,6 +1,6 @@
 ﻿namespace UI.Desktop
 {
-    partial class CursoDesktop
+    partial class DocenteCursoDesktop
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,16 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtCupo = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
-            this.lblAnioCalendario = new System.Windows.Forms.Label();
             this.lblCupo = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.cboxIDComision = new System.Windows.Forms.ComboBox();
-            this.lblIDComision = new System.Windows.Forms.Label();
-            this.lblIDMateria = new System.Windows.Forms.Label();
-            this.cboxIDMateria = new System.Windows.Forms.ComboBox();
-            this.cboxAnioCalendario = new System.Windows.Forms.ComboBox();
+            this.cboxIDDocente = new System.Windows.Forms.ComboBox();
+            this.lblIDDocente = new System.Windows.Forms.Label();
+            this.lblIDCurso = new System.Windows.Forms.Label();
+            this.cboxIDCurso = new System.Windows.Forms.ComboBox();
+            this.cbxCargo = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,38 +49,26 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.txtCupo, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblAnioCalendario, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblCupo, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.cboxIDComision, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblIDComision, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblIDMateria, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cboxIDMateria, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cboxAnioCalendario, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblIDCurso, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboxIDCurso, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblIDDocente, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cboxIDDocente, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblCupo, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cbxCargo, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.43542F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.38745F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.80812F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(645, 271);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // txtCupo
-            // 
-            this.txtCupo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCupo.Location = new System.Drawing.Point(431, 163);
-            this.txtCupo.Name = "txtCupo";
-            this.txtCupo.Size = new System.Drawing.Size(211, 20);
-            this.txtCupo.TabIndex = 13;
             // 
             // lblID
             // 
@@ -93,23 +79,14 @@
             this.lblID.TabIndex = 0;
             this.lblID.Text = "ID";
             // 
-            // lblAnioCalendario
-            // 
-            this.lblAnioCalendario.AutoSize = true;
-            this.lblAnioCalendario.Location = new System.Drawing.Point(3, 160);
-            this.lblAnioCalendario.Name = "lblAnioCalendario";
-            this.lblAnioCalendario.Size = new System.Drawing.Size(79, 13);
-            this.lblAnioCalendario.TabIndex = 2;
-            this.lblAnioCalendario.Text = "Año Calendario";
-            // 
             // lblCupo
             // 
             this.lblCupo.AutoSize = true;
-            this.lblCupo.Location = new System.Drawing.Point(324, 160);
+            this.lblCupo.Location = new System.Drawing.Point(324, 115);
             this.lblCupo.Name = "lblCupo";
-            this.lblCupo.Size = new System.Drawing.Size(32, 13);
+            this.lblCupo.Size = new System.Drawing.Size(35, 13);
             this.lblCupo.TabIndex = 6;
-            this.lblCupo.Text = "Cupo";
+            this.lblCupo.Text = "Cargo";
             // 
             // txtID
             // 
@@ -123,7 +100,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(324, 243);
+            this.btnAceptar.Location = new System.Drawing.Point(324, 241);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 16;
@@ -134,7 +111,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(431, 243);
+            this.btnCancelar.Location = new System.Drawing.Point(431, 241);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 17;
@@ -142,55 +119,55 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // cboxIDComision
+            // cboxIDDocente
             // 
-            this.cboxIDComision.FormattingEnabled = true;
-            this.cboxIDComision.Location = new System.Drawing.Point(431, 83);
-            this.cboxIDComision.Name = "cboxIDComision";
-            this.cboxIDComision.Size = new System.Drawing.Size(121, 21);
-            this.cboxIDComision.TabIndex = 19;
+            this.cboxIDDocente.FormattingEnabled = true;
+            this.cboxIDDocente.Location = new System.Drawing.Point(431, 3);
+            this.cboxIDDocente.Name = "cboxIDDocente";
+            this.cboxIDDocente.Size = new System.Drawing.Size(121, 21);
+            this.cboxIDDocente.TabIndex = 19;
             // 
-            // lblIDComision
+            // lblIDDocente
             // 
-            this.lblIDComision.AutoSize = true;
-            this.lblIDComision.Location = new System.Drawing.Point(324, 80);
-            this.lblIDComision.Name = "lblIDComision";
-            this.lblIDComision.Size = new System.Drawing.Size(63, 13);
-            this.lblIDComision.TabIndex = 1;
-            this.lblIDComision.Text = "ID Comisión";
+            this.lblIDDocente.AutoSize = true;
+            this.lblIDDocente.Location = new System.Drawing.Point(324, 0);
+            this.lblIDDocente.Name = "lblIDDocente";
+            this.lblIDDocente.Size = new System.Drawing.Size(62, 13);
+            this.lblIDDocente.TabIndex = 1;
+            this.lblIDDocente.Text = "ID Docente";
             // 
-            // lblIDMateria
+            // lblIDCurso
             // 
-            this.lblIDMateria.AutoSize = true;
-            this.lblIDMateria.Location = new System.Drawing.Point(3, 80);
-            this.lblIDMateria.Name = "lblIDMateria";
-            this.lblIDMateria.Size = new System.Drawing.Size(56, 13);
-            this.lblIDMateria.TabIndex = 3;
-            this.lblIDMateria.Text = "ID Materia";
+            this.lblIDCurso.AutoSize = true;
+            this.lblIDCurso.Location = new System.Drawing.Point(3, 115);
+            this.lblIDCurso.Name = "lblIDCurso";
+            this.lblIDCurso.Size = new System.Drawing.Size(48, 13);
+            this.lblIDCurso.TabIndex = 3;
+            this.lblIDCurso.Text = "ID Curso";
             // 
-            // cboxIDMateria
+            // cboxIDCurso
             // 
-            this.cboxIDMateria.FormattingEnabled = true;
-            this.cboxIDMateria.Location = new System.Drawing.Point(110, 83);
-            this.cboxIDMateria.Name = "cboxIDMateria";
-            this.cboxIDMateria.Size = new System.Drawing.Size(121, 21);
-            this.cboxIDMateria.TabIndex = 18;
+            this.cboxIDCurso.FormattingEnabled = true;
+            this.cboxIDCurso.Location = new System.Drawing.Point(110, 118);
+            this.cboxIDCurso.Name = "cboxIDCurso";
+            this.cboxIDCurso.Size = new System.Drawing.Size(121, 21);
+            this.cboxIDCurso.TabIndex = 18;
             // 
-            // cboxAnioCalendario
+            // cbxCargo
             // 
-            this.cboxAnioCalendario.FormattingEnabled = true;
-            this.cboxAnioCalendario.Location = new System.Drawing.Point(110, 163);
-            this.cboxAnioCalendario.Name = "cboxAnioCalendario";
-            this.cboxAnioCalendario.Size = new System.Drawing.Size(121, 21);
-            this.cboxAnioCalendario.TabIndex = 20;
+            this.cbxCargo.FormattingEnabled = true;
+            this.cbxCargo.Location = new System.Drawing.Point(431, 118);
+            this.cbxCargo.Name = "cbxCargo";
+            this.cbxCargo.Size = new System.Drawing.Size(121, 21);
+            this.cbxCargo.TabIndex = 20;
             // 
-            // CursoDesktop
+            // DocenteCursoDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 271);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "CursoDesktop";
+            this.Name = "DocenteCursoDesktop";
             this.Text = "Curso";
             this.Load += new System.EventHandler(this.CursoDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -202,17 +179,15 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox txtCupo;
         private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.Label lblAnioCalendario;
         private System.Windows.Forms.Label lblCupo;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.ComboBox cboxIDComision;
-        private System.Windows.Forms.Label lblIDComision;
-        private System.Windows.Forms.Label lblIDMateria;
-        private System.Windows.Forms.ComboBox cboxIDMateria;
-        private System.Windows.Forms.ComboBox cboxAnioCalendario;
+        private System.Windows.Forms.ComboBox cboxIDDocente;
+        private System.Windows.Forms.Label lblIDDocente;
+        private System.Windows.Forms.Label lblIDCurso;
+        private System.Windows.Forms.ComboBox cboxIDCurso;
+        private System.Windows.Forms.ComboBox cbxCargo;
     }
 }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-    class DocenteCurso:BusinessEntity
+    public class DocenteCurso:BusinessEntity
     {
+        public new int ID { get; set; }
         public enum TiposCargos
         {
            Auxiliar,

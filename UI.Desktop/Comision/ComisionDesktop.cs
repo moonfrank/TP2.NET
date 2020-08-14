@@ -151,5 +151,18 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void ComisionDesktop_Load(object sender, EventArgs e)
+        {
+            ListarPlan();
+        }
+        private void ListarPlan()
+        {
+            foreach (Plan plan in new PlanLogic().GetAll())
+            {
+                cboxIDPlan.Items.Add(plan.ID.ToString());
+            }
+            cboxIDPlan.SelectedIndex = 0;
+        }
     }
 }

@@ -153,5 +153,25 @@ namespace UI.Desktop
                 this.Close();
             }
         }
+
+        private void AlumnoInscripcionDesktop_Load(object sender, EventArgs e)
+        {
+            ListarCmbx();
+        }
+
+        private void ListarCmbx()
+        {
+            foreach (Curso curso in new CursoLogic().GetAll())
+            {
+                cbxIDCurso.Items.Add(curso.ID.ToString());
+            }
+            cbxIDCurso.SelectedIndex = 0;
+            // falta programar que recupere solo alumnos
+            //foreach (Persona persona in new PersonaLogic().GetAll())
+            //{
+            //    cbxIDAlumno.Items.Add(persona.ID.ToString());
+            //}
+            //cbxIDAlumno.SelectedIndex = 0;
+        }
     }
 }

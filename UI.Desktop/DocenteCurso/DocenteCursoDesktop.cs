@@ -7,44 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business.Logic;
 using Business.Entities;
+using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class PersonaDesktop : ApplicationForm
+    public partial class DocenteCursoDesktop : ApplicationForm
     {
-        public PersonaDesktop()
-        {
+        public DocenteCursoDesktop()
+        {          
             InitializeComponent();
-            comboBoxTipoPersona.DataSource = Enum.GetNames(typeof(Persona.TiposPersonas));
-            comboBoxTipoPersona.SelectedItem = Persona.TiposPersonas.Alumno;
+            cbxCargo.DataSource = Enum.GetNames(typeof(DocenteCurso.TiposCargos));
         }
-        public PersonaDesktop(ModoForm modo) : this()
+        public DocenteCursoDesktop(ModoForm modo) : this()
         {
             this.Modo = modo;
         }
 
-        public Persona PersonaActual { get; set; }
-        public PersonaDesktop(int ID, ModoForm modo) : this(modo)
+        public DocenteCursoDesktop(int ID, ModoForm modo) : this(modo)
         {
-            this.PersonaActual = new PersonaLogic().GetOne(ID);
+            this.DocenteCursoActual = new DocenteCursoLogic().GetOne(ID);
             MapearDeDatos();
         }
+
+        public DocenteCurso DocenteCursoActual { get; set; }
+
         /// <summary>
         /// Copia información de las entidades a los controles del formulario para nostrar la información de cada entidad.
         /// </summary>
         public override void MapearDeDatos()
         {
-            this.txtID.Text = this.PersonaActual.ID.ToString();
-            this.textNombre.Text = this.PersonaActual.Nombre.ToString();
-            this.textApellido.Text = this.PersonaActual.Apellido.ToString();
-            this.txtDireccion.Text = this.PersonaActual.Direccion.ToString();
-            this.txtTelefono.Text = this.PersonaActual.Telefono.ToString();
-            this.DTPFechaNac.Text = this.PersonaActual.FechaNacimiento.ToString();
-            this.txtLegajo.Text = this.PersonaActual.Legajo.ToString();
-            this.comboBoxTipoPersona.Text = this.PersonaActual.TipoPersona.ToString();
-            this.comboBoxIDPlan.Text = this.PersonaActual.IDPlan.ToString();
+            this.txtID.Text = this.DocenteCursoActual.ID.ToString();
+            this.cbxCargo.Text = DocenteCursoActual.Cargo.ToString();
+            this.cboxIDCurso.Text = this.DocenteCursoActual.IDCurso.ToString();
+            this.cboxIDDocente.Text = this.DocenteCursoActual.IDDocente.ToString();
+
 
             switch (this.Modo)
             {
@@ -73,39 +70,34 @@ namespace UI.Desktop
         {
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
             {
-                if (this.Modo == ModoForm.Alta) this.PersonaActual = new Persona();
-                else this.PersonaActual.ID = int.Parse(this.txtID.Text);
+                if (this.Modo == ModoForm.Alta) this.DocenteCursoActual = new DocenteCurso();
+                else this.DocenteCursoActual.ID = int.Parse(this.txtID.Text);
 
-                this.PersonaActual.Nombre = this.textNombre.Text;
-                this.PersonaActual.Apellido = this.textApellido.Text;
-                this.PersonaActual.Direccion = this.txtDireccion.Text;
-                this.PersonaActual.Telefono = this.txtTelefono.Text;
-                this.PersonaActual.FechaNacimiento = this.DTPFechaNac.Value;
-                this.PersonaActual.Legajo = int.Parse(this.txtLegajo.Text);
-                Enum.TryParse<Persona.TiposPersonas>(this.comboBoxTipoPersona.SelectedValue.ToString(), out Persona.TiposPersonas tipo_persona);
-                this.PersonaActual.TipoPersona = tipo_persona;
-                this.PersonaActual.IDPlan = int.Parse(this.comboBoxIDPlan.Text);
+                this.txtID.Text = this.DocenteCursoActual.ID.ToString();
+                this.cbxCargo.Text = DocenteCursoActual.Cargo.ToString();
+                this.cboxIDCurso.Text = this.DocenteCursoActual.IDCurso.ToString();
+                this.cboxIDDocente.Text = this.DocenteCursoActual.IDDocente.ToString();
 
                 switch (Modo)
                 {
                     case ModoForm.Alta:
                         {
-                            PersonaActual.State = BusinessEntity.States.New;
+                            DocenteCursoActual.State = BusinessEntity.States.New;
                             break;
                         }
                     case ModoForm.Baja:
                         {
-                            PersonaActual.State = BusinessEntity.States.Deleted;
+                            DocenteCursoActual.State = BusinessEntity.States.Deleted;
                             break;
                         }
                     case ModoForm.Consulta:
                         {
-                            PersonaActual.State = BusinessEntity.States.Unmodified;
+                            DocenteCursoActual.State = BusinessEntity.States.Unmodified;
                             break;
                         }
                     case ModoForm.Modificacion:
                         {
-                            PersonaActual.State = BusinessEntity.States.Modified;
+                            DocenteCursoActual.State = BusinessEntity.States.Modified;
                             break;
                         }
                 }
@@ -122,12 +114,12 @@ namespace UI.Desktop
                 case ModoForm.Alta:
                 case ModoForm.Modificacion:
                     {
-                        new PersonaLogic().Save(PersonaActual);
+                        new DocenteCursoLogic().Save(DocenteCursoActual);
                         break;
                     }
                 case ModoForm.Baja:
                     {
-                        new PersonaLogic().Delete(PersonaActual.ID);
+                        new DocenteCursoLogic().Delete(DocenteCursoActual.ID);
                         break;
                     }
                 default: break;
@@ -141,19 +133,14 @@ namespace UI.Desktop
         {
             /*string expresion = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
             if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 &&
-                Regex.IsMatch(this.txtHsSemanales.Text, expresion) && Regex.Replace(this.txtHsSemanales.Text, expresion, string.Empty).Length == 0 &&
-            !string.IsNullOrEmpty(this.txtDescripcion.Text) && !string.IsNullOrEmpty(this.txtApellido.Text) && !string.IsNullOrEmpty(this.txtHsTotales.Text)) return true;
+                Regex.IsMatch(this.txtEmail.Text, expresion) && Regex.Replace(this.txtEmail.Text, expresion, string.Empty).Length == 0 &&
+            !string.IsNullOrEmpty(this.txtNombre.Text) && !string.IsNullOrEmpty(this.txtApellido.Text) && !string.IsNullOrEmpty(this.txtUsuario.Text)) return true;
             else
             {
                 Notificar("Error", "Ingreso de datos inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }*/
             return true;
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -165,18 +152,35 @@ namespace UI.Desktop
             }
         }
 
-        private void PersonaDesktop_Load(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            ListarPlanes();
+            this.Close();
         }
 
-        private void ListarPlanes()
+        private void CursoDesktop_Load(object sender, EventArgs e)
         {
-            foreach (Plan plan in new PlanLogic().GetAll())
+            ListarCBX();
+        }
+
+        private void ListarCBX()
+        {
+            foreach (Curso curso in new CursoLogic().GetAll())
             {
-                comboBoxIDPlan.Items.Add(plan.ID.ToString());
+                cboxIDCurso.Items.Add(curso.ID.ToString());
             }
-            comboBoxIDPlan.SelectedIndex = 0;
+            cboxIDCurso.SelectedIndex = 0;
+            // falta programar que recupere solo Profesores
+            //var alumno = from p in new PersonaLogic().GetAll()
+            //             where p.TipoPersona.ToString() = (Persona.TiposPersonas.Profesor)
+            //             select p;
+
+            //foreach (Persona persona in new PersonaLogic().GetAll())
+            //{
+            //    var alumno = from p in persona
+            //                 where p.Tipo
+            //        cboxIDDocente.Items.Add(persona.ID.ToString());
+            //}
+            //comboBoxIDPlan.SelectedIndex = 0;
         }
     }
 }

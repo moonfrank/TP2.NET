@@ -151,6 +151,20 @@ namespace UI.Desktop
                 this.Close();
             }
         }
+
+        private void PlanDesktop_Load(object sender, EventArgs e)
+        {
+            ListarEspecialidades();
+        }
+
+        private void ListarEspecialidades()
+        {
+            foreach (Especialidad espe in new EspecialidadLogic().GetAll())
+            {
+                cboxIDEspecialidad.Items.Add(espe.ID.ToString());
+            }
+            cboxIDEspecialidad.SelectedIndex = 0;
+        }
     }
 
 

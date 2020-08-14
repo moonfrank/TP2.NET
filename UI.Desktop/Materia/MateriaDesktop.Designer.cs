@@ -194,6 +194,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MateriaDesktop";
             this.Text = "Materia";
+            this.Load += new System.EventHandler(this.MateriaDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

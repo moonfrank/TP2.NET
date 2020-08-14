@@ -39,6 +39,7 @@
             this.mnuComisiones = new System.Windows.Forms.ToolStripMenuItem();
             this.personasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnoInscripcionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.docenteCursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +78,8 @@
             this.mnuEspecialidades,
             this.mnuComisiones,
             this.personasToolStripMenuItem,
-            this.alumnoInscripcionToolStripMenuItem});
+            this.alumnoInscripcionToolStripMenuItem,
+            this.docenteCursoToolStripMenuItem});
             this.mnuListado.Name = "mnuListado";
             this.mnuListado.Size = new System.Drawing.Size(57, 20);
             this.mnuListado.Text = "Listado";
@@ -131,6 +133,13 @@
             this.alumnoInscripcionToolStripMenuItem.Text = "AlumnoInscripcion";
             this.alumnoInscripcionToolStripMenuItem.Click += new System.EventHandler(this.alumnoInscripcionToolStripMenuItem_Click);
             // 
+            // docenteCursoToolStripMenuItem
+            // 
+            this.docenteCursoToolStripMenuItem.Name = "docenteCursoToolStripMenuItem";
+            this.docenteCursoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.docenteCursoToolStripMenuItem.Text = "DocenteCurso";
+            this.docenteCursoToolStripMenuItem.Click += new System.EventHandler(this.docenteCursoToolStripMenuItem_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,5 +172,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuComisiones;
         private System.Windows.Forms.ToolStripMenuItem personasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alumnoInscripcionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem docenteCursoToolStripMenuItem;
     }
 }

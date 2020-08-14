@@ -8,6 +8,7 @@ namespace Business.Entities
 {
     public class Curso : BusinessEntity
     {
+        public new int ID { get; set; }
         public int IDComision { get; set; }
         public int IDMateria { get; set; }
         public int Cupo { get; set; }
