@@ -46,16 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcademiaDataSet%28NOEXPRESS%29.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AcademiaDataSet%28NOEXPRESS%29.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AcademiaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="AlumnoInscripcion\AlumnoInscripcionDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,12 +70,6 @@
     <Compile Include="Curso\CursoDesktop.Designer.cs">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Especialidad\EspecialidadesDesktop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Especialidad\EspecialidadesDesktop.Designer.cs">
-      <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
-    </Compile>
     <Compile Include="Comision\formListaComisiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +81,12 @@
     </Compile>
     <Compile Include="Curso\formListaCursos.Designer.cs">
       <DependentUpon>formListaCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Especialidad\EspecialidadesDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Especialidad\EspecialidadesDesktop.Designer.cs">
+      <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="Especialidad\formListaEspecialidades.cs">
       <SubType>Form</SubType>
@@ -115,6 +105,18 @@
     </Compile>
     <Compile Include="AlumnoInscripcion\formListaAlumnoInscripcion.Designer.cs">
       <DependentUpon>formListaAlumnoInscripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materia\MateriaDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materia\MateriaDesktop.Designer.cs">
+      <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persona\PersonaDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Persona\PersonaDesktop.Designer.cs">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="Plan\formListaPlanes.cs">
       <SubType>Form</SubType>
@@ -140,29 +142,17 @@
     <Compile Include="formMain.Designer.cs">
       <DependentUpon>formMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\formListaUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Usuario\formListaUsuarios.Designer.cs">
-      <DependentUpon>formListaUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Materia\MateriaDesktop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Materia\MateriaDesktop.Designer.cs">
-      <DependentUpon>MateriaDesktop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Persona\PersonaDesktop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Persona\PersonaDesktop.Designer.cs">
-      <DependentUpon>PersonaDesktop.cs</DependentUpon>
-    </Compile>
     <Compile Include="Plan\PlanDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Plan\PlanDesktop.Designer.cs">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\formListaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\formListaUsuarios.Designer.cs">
+      <DependentUpon>formListaUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,14 +171,14 @@
     <EmbeddedResource Include="Curso\CursoDesktop.resx">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Especialidad\EspecialidadesDesktop.resx">
-      <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Comision\formListaComisiones.resx">
       <DependentUpon>formListaComisiones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Curso\formListaCursos.resx">
       <DependentUpon>formListaCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Especialidad\EspecialidadesDesktop.resx">
+      <DependentUpon>EspecialidadesDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Especialidad\formListaEspecialidades.resx">
       <DependentUpon>formListaEspecialidades.cs</DependentUpon>
@@ -200,11 +190,20 @@
     <EmbeddedResource Include="AlumnoInscripcion\formListaAlumnoInscripcion.resx">
       <DependentUpon>formListaAlumnoInscripcion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Materia\MateriaDesktop.resx">
+      <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persona\PersonaDesktop.resx">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Plan\formListaPlanes.resx">
       <DependentUpon>formListaPlanes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Persona\formListaPersona.resx">
       <DependentUpon>formListaPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan\PlanDesktop.resx">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\formListaUsuarios.resx">
       <DependentUpon>formListaUsuarios.cs</DependentUpon>
@@ -214,15 +213,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formMain.resx">
       <DependentUpon>formMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Materia\MateriaDesktop.resx">
-      <DependentUpon>MateriaDesktop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Persona\PersonaDesktop.resx">
-      <DependentUpon>PersonaDesktop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Plan\PlanDesktop.resx">
-      <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -236,28 +226,6 @@
     <EmbeddedResource Include="Usuario\UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="AcademiaDataSet%28NOEXPRESS%29.xsc">
-      <DependentUpon>AcademiaDataSet%28NOEXPRESS%29.xsd</DependentUpon>
-    </None>
-    <None Include="AcademiaDataSet%28NOEXPRESS%29.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AcademiaDataSet%28NOEXPRESS%29.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="AcademiaDataSet%28NOEXPRESS%29.xss">
-      <DependentUpon>AcademiaDataSet%28NOEXPRESS%29.xsd</DependentUpon>
-    </None>
-    <None Include="AcademiaDataSet.xsc">
-      <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="AcademiaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AcademiaDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="AcademiaDataSet.xss">
-      <DependentUpon>AcademiaDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -283,6 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

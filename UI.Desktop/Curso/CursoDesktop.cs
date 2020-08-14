@@ -5,13 +5,14 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class CursoDesktop : UI.Desktop.ApplicationForm
+    public partial class CursoDesktop : ApplicationForm
     {
         public CursoDesktop()
         {
@@ -73,9 +74,9 @@ namespace UI.Desktop
                 if (this.Modo == ModoForm.Alta) this.CursoActual = new Curso();
                 else this.CursoActual.ID = int.Parse(this.txtID.Text);
 
-                this.CursoActual.IDMateria= int.Parse(this.cboxIDMateria.Text);
-                this.CursoActual.IDComision= int.Parse(this.cboxIDComision.Text);
-                this.CursoActual.AnioCalendario=int.Parse(this.cboxAnioCalendario.Text);
+                this.CursoActual.IDMateria = int.Parse(this.cboxIDMateria.Text);
+                this.CursoActual.IDComision = int.Parse(this.cboxIDComision.Text);
+                this.CursoActual.AnioCalendario = int.Parse(this.cboxAnioCalendario.Text);
                 this.CursoActual.Cupo = int.Parse(this.txtCupo.Text);
 
                 switch (Modo)
@@ -155,15 +156,6 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void CursoDesktop_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'academiaDataSet.comisiones' table. You can move, or remove it, as needed.
-            this.comisionesTableAdapter.Fill(this.academiaDataSet.comisiones);
-            // TODO: This line of code loads data into the 'academiaDataSet.materias' table. You can move, or remove it, as needed.
-            this.materiasTableAdapter.Fill(this.academiaDataSet.materias);
-
         }
     }
 }

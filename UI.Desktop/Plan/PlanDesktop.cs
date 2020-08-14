@@ -143,18 +143,6 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void PlanDesktop_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                this.especialidadesTableAdapter.Fill(this.academiaDataSet.especialidades);
-            }
-            catch (Exception)
-            {
-                this.especialidadesTableAdapter1.Fill(this._AcademiaDataSet_NOEXPRESS_.especialidades);
-            }
-        }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (Validar())
@@ -162,19 +150,6 @@ namespace UI.Desktop
                 GuardarCambios();
                 this.Close();
             }
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.especialidadesTableAdapter1.FillBy(this._AcademiaDataSet_NOEXPRESS_.especialidades);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
         }
     }
 

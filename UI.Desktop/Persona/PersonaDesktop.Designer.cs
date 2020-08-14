@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
@@ -48,21 +47,9 @@
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.comboBoxTipoPersona = new System.Windows.Forms.ComboBox();
             this.comboBoxIDPlan = new System.Windows.Forms.ComboBox();
-            this.planesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this._AcademiaDataSet_NOEXPRESS_ = new UI.Desktop._AcademiaDataSet_NOEXPRESS_();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.planesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.planesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.academiaDataSet = new UI.Desktop.AcademiaDataSet();
-            this.planesTableAdapter = new UI.Desktop.AcademiaDataSetTableAdapters.planesTableAdapter();
-            this.planesTableAdapter1 = new UI.Desktop._AcademiaDataSet_NOEXPRESS_TableAdapters.planesTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._AcademiaDataSet_NOEXPRESS_)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -73,7 +60,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.tableLayoutPanel1.Controls.Add(this.txtDireccion, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblDireccion, 0, 1);
@@ -103,16 +90,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 370);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.TabIndex = 3;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDireccion.Location = new System.Drawing.Point(93, 116);
+            this.txtDireccion.Location = new System.Drawing.Point(92, 143);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(175, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(173, 20);
             this.txtDireccion.TabIndex = 10;
             // 
             // lblID
@@ -127,7 +114,7 @@
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(3, 113);
+            this.lblDireccion.Location = new System.Drawing.Point(3, 140);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 1;
@@ -136,7 +123,7 @@
             // lblTipoPersona
             // 
             this.lblTipoPersona.AutoSize = true;
-            this.lblTipoPersona.Location = new System.Drawing.Point(3, 226);
+            this.lblTipoPersona.Location = new System.Drawing.Point(3, 280);
             this.lblTipoPersona.Name = "lblTipoPersona";
             this.lblTipoPersona.Size = new System.Drawing.Size(70, 13);
             this.lblTipoPersona.TabIndex = 2;
@@ -145,7 +132,7 @@
             // lblIDPlan
             // 
             this.lblIDPlan.AutoSize = true;
-            this.lblIDPlan.Location = new System.Drawing.Point(274, 226);
+            this.lblIDPlan.Location = new System.Drawing.Point(271, 280);
             this.lblIDPlan.Name = "lblIDPlan";
             this.lblIDPlan.Size = new System.Drawing.Size(42, 13);
             this.lblIDPlan.TabIndex = 6;
@@ -155,15 +142,15 @@
             // 
             this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtID.Location = new System.Drawing.Point(93, 3);
+            this.txtID.Location = new System.Drawing.Point(92, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(175, 20);
+            this.txtID.Size = new System.Drawing.Size(173, 20);
             this.txtID.TabIndex = 8;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(274, 342);
+            this.btnAceptar.Location = new System.Drawing.Point(271, 423);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 16;
@@ -174,7 +161,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(364, 342);
+            this.btnCancelar.Location = new System.Drawing.Point(360, 423);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 17;
@@ -185,7 +172,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(274, 0);
+            this.lblNombre.Location = new System.Drawing.Point(271, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 3;
@@ -193,7 +180,7 @@
             // 
             // textNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(364, 3);
+            this.textNombre.Location = new System.Drawing.Point(360, 3);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(100, 20);
             this.textNombre.TabIndex = 18;
@@ -201,7 +188,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(545, 0);
+            this.lblApellido.Location = new System.Drawing.Point(539, 0);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 19;
@@ -209,7 +196,7 @@
             // 
             // textApellido
             // 
-            this.textApellido.Location = new System.Drawing.Point(643, 3);
+            this.textApellido.Location = new System.Drawing.Point(637, 3);
             this.textApellido.Name = "textApellido";
             this.textApellido.Size = new System.Drawing.Size(100, 20);
             this.textApellido.TabIndex = 20;
@@ -217,7 +204,7 @@
             // lblFechaNac
             // 
             this.lblFechaNac.AutoSize = true;
-            this.lblFechaNac.Location = new System.Drawing.Point(274, 113);
+            this.lblFechaNac.Location = new System.Drawing.Point(271, 140);
             this.lblFechaNac.Name = "lblFechaNac";
             this.lblFechaNac.Size = new System.Drawing.Size(60, 26);
             this.lblFechaNac.TabIndex = 21;
@@ -225,18 +212,17 @@
             // 
             // DTPFechaNac
             // 
-            this.DTPFechaNac.Location = new System.Drawing.Point(364, 116);
+            this.DTPFechaNac.Location = new System.Drawing.Point(360, 143);
             this.DTPFechaNac.MaxDate = new System.DateTime(2020, 8, 10, 0, 0, 0, 0);
             this.DTPFechaNac.Name = "DTPFechaNac";
-            this.DTPFechaNac.Size = new System.Drawing.Size(175, 20);
+            this.DTPFechaNac.Size = new System.Drawing.Size(173, 20);
             this.DTPFechaNac.TabIndex = 22;
             this.DTPFechaNac.Value = new System.DateTime(2020, 8, 10, 0, 0, 0, 0);
-            this.DTPFechaNac.ValueChanged += new System.EventHandler(this.DTPFechaNac_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(545, 113);
+            this.label1.Location = new System.Drawing.Point(539, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 23;
@@ -244,7 +230,7 @@
             // 
             // txtLegajo
             // 
-            this.txtLegajo.Location = new System.Drawing.Point(643, 116);
+            this.txtLegajo.Location = new System.Drawing.Point(637, 143);
             this.txtLegajo.Name = "txtLegajo";
             this.txtLegajo.Size = new System.Drawing.Size(100, 20);
             this.txtLegajo.TabIndex = 24;
@@ -252,37 +238,23 @@
             // comboBoxTipoPersona
             // 
             this.comboBoxTipoPersona.FormattingEnabled = true;
-            this.comboBoxTipoPersona.Location = new System.Drawing.Point(93, 229);
+            this.comboBoxTipoPersona.Location = new System.Drawing.Point(92, 283);
             this.comboBoxTipoPersona.Name = "comboBoxTipoPersona";
             this.comboBoxTipoPersona.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTipoPersona.TabIndex = 25;
             // 
             // comboBoxIDPlan
             // 
-            this.comboBoxIDPlan.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.planesBindingSource1, "id_plan", true));
-            this.comboBoxIDPlan.DataSource = this.planesBindingSource1;
-            this.comboBoxIDPlan.DisplayMember = "id_plan";
             this.comboBoxIDPlan.FormattingEnabled = true;
-            this.comboBoxIDPlan.Location = new System.Drawing.Point(364, 229);
+            this.comboBoxIDPlan.Location = new System.Drawing.Point(360, 283);
             this.comboBoxIDPlan.Name = "comboBoxIDPlan";
             this.comboBoxIDPlan.Size = new System.Drawing.Size(100, 21);
             this.comboBoxIDPlan.TabIndex = 26;
-            this.comboBoxIDPlan.ValueMember = "id_plan";
-            // 
-            // planesBindingSource1
-            // 
-            this.planesBindingSource1.DataMember = "planes";
-            this.planesBindingSource1.DataSource = this._AcademiaDataSet_NOEXPRESS_;
-            // 
-            // _AcademiaDataSet_NOEXPRESS_
-            // 
-            this._AcademiaDataSet_NOEXPRESS_.DataSetName = "AcademiaDataSet(NOEXPRESS)";
-            this._AcademiaDataSet_NOEXPRESS_.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(545, 226);
+            this.lblTelefono.Location = new System.Drawing.Point(539, 280);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(49, 13);
             this.lblTelefono.TabIndex = 27;
@@ -290,50 +262,21 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(643, 229);
+            this.txtTelefono.Location = new System.Drawing.Point(637, 283);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(128, 20);
             this.txtTelefono.TabIndex = 28;
-            // 
-            // planesBindingSource2
-            // 
-            this.planesBindingSource2.DataMember = "planes";
-            this.planesBindingSource2.DataSource = this._AcademiaDataSet_NOEXPRESS_;
-            // 
-            // planesBindingSource
-            // 
-            this.planesBindingSource.DataMember = "planes";
-            this.planesBindingSource.DataSource = this.academiaDataSet;
-            // 
-            // academiaDataSet
-            // 
-            this.academiaDataSet.DataSetName = "AcademiaDataSet";
-            this.academiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // planesTableAdapter
-            // 
-            this.planesTableAdapter.ClearBeforeFill = true;
-            // 
-            // planesTableAdapter1
-            // 
-            this.planesTableAdapter1.ClearBeforeFill = true;
             // 
             // PersonaDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 370);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PersonaDesktop";
             this.Text = "Persona";
-            this.Load += new System.EventHandler(this.PersonaDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._AcademiaDataSet_NOEXPRESS_)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.academiaDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -350,9 +293,6 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.BindingSource planesBindingSource;
-        private AcademiaDataSet academiaDataSet;
-        private AcademiaDataSetTableAdapters.planesTableAdapter planesTableAdapter;
         private System.Windows.Forms.TextBox textNombre;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.TextBox textApellido;
@@ -362,10 +302,6 @@
         private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.ComboBox comboBoxTipoPersona;
         private System.Windows.Forms.ComboBox comboBoxIDPlan;
-        private _AcademiaDataSet_NOEXPRESS_ _AcademiaDataSet_NOEXPRESS_;
-        private System.Windows.Forms.BindingSource planesBindingSource1;
-        private _AcademiaDataSet_NOEXPRESS_TableAdapters.planesTableAdapter planesTableAdapter1;
-        private System.Windows.Forms.BindingSource planesBindingSource2;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.TextBox txtTelefono;
     }

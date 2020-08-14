@@ -1,6 +1,4 @@
-﻿using Business.Entities;
-using Business.Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Logic;
+using Business.Entities;
 
 namespace UI.Desktop
 {
@@ -36,6 +36,11 @@ namespace UI.Desktop
                 GuardarCambios();
                 this.Close();
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private bool Valida()

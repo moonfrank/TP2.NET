@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class MateriaDesktop : UI.Desktop.ApplicationForm
+    public partial class MateriaDesktop : ApplicationForm
     {
         public MateriaDesktop()
         {
@@ -71,9 +73,9 @@ namespace UI.Desktop
                 else this.MateriaActual.ID = int.Parse(this.txtID.Text);
 
                 this.MateriaActual.IDPlan = int.Parse(this.cboxIDPlan.Text);
-                this.MateriaActual.Descripcion=this.txtDescripcion.Text;
-                this.MateriaActual.HsTotales=int.Parse(this.txtHsTotales.Text);
-                this.MateriaActual.HsSemanales=int.Parse(this.txtHsSemanales.Text);
+                this.MateriaActual.Descripcion = this.txtDescripcion.Text;
+                this.MateriaActual.HsTotales = int.Parse(this.txtHsTotales.Text);
+                this.MateriaActual.HsSemanales = int.Parse(this.txtHsSemanales.Text);
 
                 switch (Modo)
                 {
@@ -153,12 +155,6 @@ namespace UI.Desktop
         {
             this.Close();
         }
-
-        private void MateriaDesktop_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'academiaDataSet.planes' table. You can move, or remove it, as needed.
-            this.planesTableAdapter.Fill(this.academiaDataSet.planes);
-
-        }
     }
 }
+

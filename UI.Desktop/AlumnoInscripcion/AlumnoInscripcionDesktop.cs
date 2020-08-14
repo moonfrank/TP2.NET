@@ -1,27 +1,20 @@
-﻿using Business.Entities;
-using Business.Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Business.Entities;
+using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class AlumnoInscripcionDesktop : UI.Desktop.ApplicationForm
+    public partial class AlumnoInscripcionDesktop : ApplicationForm
     {
         public AlumnoInscripcionDesktop()
         {
             InitializeComponent();
-        }
-
-        private void AlumnoInscripcion_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla '_AcademiaDataSet_NOEXPRESS_.cursos' Puede moverla o quitarla según sea necesario.
-            this.cursosTableAdapter.Fill(this._AcademiaDataSet_NOEXPRESS_.cursos);
-
         }
 
         public AlumnoInscripcionDesktop(ModoForm modo) : this()
@@ -35,7 +28,7 @@ namespace UI.Desktop
             MapearDeDatos();
         }
 
-        public AlumnoInscripcion AlumnoInscripcionActual { get; set; }
+        public Business.Entities.AlumnoInscripcion AlumnoInscripcionActual { get; set; }
 
         /// <summary>
         /// Copia información de las entidades a los controles del formulario para nostrar la información de cada entidad.
@@ -149,7 +142,7 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-             this.Close();
+            this.Close();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

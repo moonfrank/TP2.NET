@@ -24,6 +24,7 @@ namespace UI.Desktop
         {
             this.Modo = modo;
         }
+
         public Persona PersonaActual { get; set; }
         public PersonaDesktop(int ID, ModoForm modo) : this(modo)
         {
@@ -159,14 +160,6 @@ namespace UI.Desktop
         {
 
         }
-
-        private void PersonaDesktop_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla '_AcademiaDataSet_NOEXPRESS_.planes' Puede moverla o quitarla según sea necesario.
-            this.planesTableAdapter1.Fill(this._AcademiaDataSet_NOEXPRESS_.planes);
-
-        }
-
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {

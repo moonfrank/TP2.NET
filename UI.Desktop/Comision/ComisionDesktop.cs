@@ -138,19 +138,6 @@ namespace UI.Desktop
             */
             return true;
         }
-
-        private void ComisionDesktop_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                this.planesTableAdapter.Fill(this.academiaDataSet.planes);
-            }
-            catch (Exception)
-            {
-                this.planesTableAdapter1.Fill(this._AcademiaDataSet_NOEXPRESS_.planes);
-            }
-
-        }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (Validar())
@@ -163,19 +150,6 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.planesTableAdapter1.FillBy(this._AcademiaDataSet_NOEXPRESS_.planes);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
         }
     }
 }
