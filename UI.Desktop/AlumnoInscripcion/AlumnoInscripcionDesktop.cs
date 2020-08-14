@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business.Entities;
@@ -165,13 +166,32 @@ namespace UI.Desktop
             {
                 cbxIDCurso.Items.Add(curso.ID.ToString());
             }
-            cbxIDCurso.SelectedIndex = 0;
-            // falta programar que recupere solo alumnos
-            //foreach (Persona persona in new PersonaLogic().GetAll())
-            //{
-            //    cbxIDAlumno.Items.Add(persona.ID.ToString());
-            //}
-            //cbxIDAlumno.SelectedIndex = 0;
+            try
+            {
+                cbxIDCurso.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ningun curso cargado", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
+
+            var alumno = from a in new PersonaLogic().GetAll()
+                         where a.TipoPersona.ToString() == "Alumno"
+                         select a;
+            foreach (Persona persona in alumno)
+            {
+                cbxIDAlumno.Items.Add(persona.ID.ToString());
+            }
+            try
+            {
+                cbxIDAlumno.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ningun alumno cargado", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
         }
     }
 }

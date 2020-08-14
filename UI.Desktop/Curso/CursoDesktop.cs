@@ -169,12 +169,28 @@ namespace UI.Desktop
             {
                 cboxIDMateria.Items.Add(materia.ID.ToString());
             }
-            cboxIDMateria.SelectedIndex = 0;
+            try
+            {
+                cboxIDMateria.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ninguna materia cargada", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
             foreach (Comision comision in new ComisionLogic().GetAll())
             {
                 cboxIDComision.Items.Add(comision.ID.ToString());
             }
-            cboxIDComision.SelectedIndex = 0;
+            try
+            {
+                cboxIDComision.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ninguna comision cargada", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
         }
     }
 }

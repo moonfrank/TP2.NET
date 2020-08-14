@@ -162,7 +162,15 @@ namespace UI.Desktop
             {
                 cboxIDPlan.Items.Add(plan.ID.ToString());
             }
-            cboxIDPlan.SelectedIndex = 0;
+            try
+            {
+                cboxIDPlan.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ningun plan cargado", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
         }
     }
 }

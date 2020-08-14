@@ -168,19 +168,33 @@ namespace UI.Desktop
             {
                 cboxIDCurso.Items.Add(curso.ID.ToString());
             }
-            cboxIDCurso.SelectedIndex = 0;
-            // falta programar que recupere solo Profesores
-            //var alumno = from p in new PersonaLogic().GetAll()
-            //             where p.TipoPersona.ToString() = (Persona.TiposPersonas.Profesor)
-            //             select p;
+            try
+            {
+                cboxIDCurso.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ningun curso cargado", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
 
-            //foreach (Persona persona in new PersonaLogic().GetAll())
-            //{
-            //    var alumno = from p in persona
-            //                 where p.Tipo
-            //        cboxIDDocente.Items.Add(persona.ID.ToString());
-            //}
-            //comboBoxIDPlan.SelectedIndex = 0;
+            var profesor = from p in new PersonaLogic().GetAll()
+                         where p.TipoPersona.ToString() == "Profesor"
+                         select p;
+            foreach (Persona persona in profesor)
+            {
+                cboxIDDocente.Items.Add(persona.ID.ToString());
+            }
+            try
+            {
+                cboxIDDocente.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ningun profesor cargado", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
+            
         }
     }
 }

@@ -74,5 +74,11 @@ namespace UI.Desktop
             formListaDocenteCurso appDocenteCurso = new formListaDocenteCurso();
             if (appDocenteCurso.ShowDialog() != DialogResult.OK) appDocenteCurso.Dispose();
         }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formListaCursos appListaCursos = new formListaCursos();
+            if (appListaCursos.ShowDialog() != DialogResult.OK) appListaCursos.Dispose();
+        }
     }
 }

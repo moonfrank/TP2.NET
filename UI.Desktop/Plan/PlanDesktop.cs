@@ -163,7 +163,15 @@ namespace UI.Desktop
             {
                 cboxIDEspecialidad.Items.Add(espe.ID.ToString());
             }
-            cboxIDEspecialidad.SelectedIndex = 0;
+            try
+            {
+                cboxIDEspecialidad.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ninguna especialidad cargada", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
         }
     }
 

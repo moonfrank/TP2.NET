@@ -176,7 +176,15 @@ namespace UI.Desktop
             {
                 comboBoxIDPlan.Items.Add(plan.ID.ToString());
             }
-            comboBoxIDPlan.SelectedIndex = 0;
+            try
+            {
+                comboBoxIDPlan.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ningun plan cargado", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
         }
     }
 }
