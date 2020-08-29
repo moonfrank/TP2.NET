@@ -8,7 +8,6 @@ namespace Business.Entities
 {
     public class Materia : BusinessEntity
     {
-        public new int ID { get; set; }
         public int IDPlan { get; set; }
         public int HsSemanales { get; set; }
         public int HsTotales { get; set; }

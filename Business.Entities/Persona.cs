@@ -8,7 +8,6 @@ namespace Business.Entities
 {
     public class Persona : BusinessEntity
     {
-        public new int ID { get; set; }
         public enum TiposPersonas
         {
             Alumno,

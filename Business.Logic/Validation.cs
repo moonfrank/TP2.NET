@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace Business.Logic
 {
-    public class IsValid
+    public class Validation
     {
         public static bool IsEmailValid(string email)
         {

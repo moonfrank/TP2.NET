@@ -44,7 +44,7 @@ namespace UI.Desktop
             this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
             this.txtClave.Text = this.UsuarioActual.Clave;
             this.txtEmail.Text = this.UsuarioActual.Email;
-            switch(this.Modo)
+            switch (this.Modo)
             {
                 case ModoForm.Alta:
                 case ModoForm.Modificacion:
@@ -71,7 +71,7 @@ namespace UI.Desktop
         {
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
             {
-                if(this.Modo == ModoForm.Alta) this.UsuarioActual = new Usuario();
+                if (this.Modo == ModoForm.Alta) this.UsuarioActual = new Usuario();
                 else this.UsuarioActual.ID = int.Parse(this.txtID.Text);
 
                 this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
@@ -81,7 +81,7 @@ namespace UI.Desktop
                 this.UsuarioActual.Clave = this.txtClave.Text;
                 this.UsuarioActual.Email = this.txtEmail.Text;
 
-                switch(Modo)
+                switch (Modo)
                 {
                     case ModoForm.Alta:
                         {
@@ -112,7 +112,7 @@ namespace UI.Desktop
         public override void GuardarCambios()
         {
             MapearADatos();
-            switch(this.Modo)
+            switch (this.Modo)
             {
                 case ModoForm.Alta:
                 case ModoForm.Modificacion:
@@ -134,7 +134,7 @@ namespace UI.Desktop
         /// <returns>Validez de datos</returns>
         public override bool Validar()
         {
-            if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 && IsValid.IsEmailValid(txtEmail.Text) &&
+            if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 && Validation.IsEmailValid(txtEmail.Text) &&
             !string.IsNullOrEmpty(this.txtNombre.Text) && !string.IsNullOrEmpty(this.txtApellido.Text) && !string.IsNullOrEmpty(this.txtUsuario.Text)) return true;
             else
             {
@@ -157,5 +157,38 @@ namespace UI.Desktop
             this.Close();
         }
 
+        private void UsuarioDesktop_Load(object sender, EventArgs e)
+        {
+            ListarCBX();
+        }
+
+        private void ListarCBX()
+        {
+            foreach (Persona persona in new PersonaLogic().GetAll())
+            {
+                cmbxIDPersona.Items.Add(persona.ID.ToString());
+            }
+            try
+            {
+                cmbxIDPersona.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se ha encontrado ninguna persona cargada", "Persona", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
+            finally
+            {
+                Persona persona = new PersonaLogic().GetOne(Convert.ToInt32(cmbxIDPersona.SelectedItem));
+                txtNombre.Text = persona.Nombre;
+                txtApellido.Text = persona.Apellido;
+            }
+        }
+        private void cmbxIDPersona_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Persona persona = new PersonaLogic().GetOne(Convert.ToInt32(cmbxIDPersona.SelectedItem));
+            txtNombre.Text = persona.Nombre;
+            txtApellido.Text = persona.Apellido;
+        }
     }
 }
