@@ -1,0 +1,20 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Web.Site" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Academia</title>
+</head>
+<body>
+    <form id="bodyform" runat="server">
+        <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource">
+            <Items>
+                <asp:MenuItem NavigateUrl="Default.aspx" Text="Home"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="Usuarios.aspx" Text="Usuarios"></asp:MenuItem>
+            </Items>
+        </asp:Menu>
+        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server"></asp:SiteMapDataSource>
+        <div>
+            <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
