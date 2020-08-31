@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Logic;
 using Business.Entities;
+using System.Text.RegularExpressions;
 
 namespace UI.Web
 {
@@ -128,10 +129,67 @@ namespace UI.Web
                     Entity.State = BusinessEntity.States.Modified;
                     Listar();
                     break;
+                case FormModes.Alta:
+                    Entity = new Usuario();
+                    Listar();
+                    break;
                 default:
                     break;
             }
             formPanel.Visible = false;
+        }
+        private void ClearForm()
+        {
+            this.txtNombre.Text = string.Empty;
+            this.txtApellido.Text = string.Empty;
+            this.txtEmail.Text = string.Empty;
+            this.ckbHabilitado.Checked = false;
+            this.txtNombreUsuario.Text = string.Empty;
+        }
+
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            this.formPanel.Visible = true;
+            this.FormMode = FormModes.Alta;
+            this.ClearForm();
+            this.EnableForm(true);
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            formPanel.Visible = true;
+        }
+        private Boolean email_bien_escrito(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (email_bien_escrito(txtEmail.Text)) args.IsValid = true;
+            else args.IsValid = false;
+        }
+
+        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (txtClave.Text == txtRepetirClave.Text) args.IsValid = true;
+            else args.IsValid = false;
         }
     }
 }
