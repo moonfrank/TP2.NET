@@ -1,18 +1,18 @@
-﻿using Business.Logic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
+﻿using System;
 using System.Web.UI.WebControls;
 using Business.Logic;
 using Business.Entities;
-using System.Text.RegularExpressions;
 
 namespace UI.Web
 {
     public partial class Usuarios : System.Web.UI.Page
     {
+        UsuarioLogic _logic;
+        private UsuarioLogic Logic
+        {
+            get
+            { if (_logic == null) { _logic = new UsuarioLogic(); } return _logic; }
+        }
         public enum FormModes
         {
             Alta,
@@ -52,7 +52,7 @@ namespace UI.Web
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Listar();
+            if (!Page.IsPostBack) Listar();
         }
         private void Listar()
         {
@@ -62,29 +62,16 @@ namespace UI.Web
 
         private void LoadForm (int ID)
         {
-            Entity = new UsuarioLogic().GetOne(ID);
+            Entity = this.Logic.GetOne(ID);
             txtNombre.Text = Entity.Nombre;
             txtApellido.Text = Entity.Apellido;
             txtEmail.Text = Entity.Email;
             txtNombreUsuario.Text = Entity.NombreUsuario;
-            txtClave.Text = Entity.Clave;
             ckbHabilitado.Checked = Entity.Habilitado;
         }
-
-        protected void gridView_SelectedIndexChanged1(object sender, EventArgs e)
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedID = (int)gridView.SelectedValue;
-        }
-
-        protected void btnEditar_Click1(object sender, EventArgs e)
-        {
-            if (IsEntitySelected)
-            {
-                formPanel.Visible = true;
-                FormMode = FormModes.Modificacion;
-                LoadForm(SelectedID);
-                EnableForm(true);
-            }
         }
 
         private void EnableForm(bool enable)
@@ -98,46 +85,24 @@ namespace UI.Web
             txtRepetirClave.Enabled = enable;
             lblRepertirClave.Visible = enable;
         }
-
-        protected void btnEliminar_Click(object sender, EventArgs e)
+        private void LoadEntity(Usuario usuario)
         {
-            if (IsEntitySelected)
-            {
-                formPanel.Visible = true;
-                FormMode = FormModes.Baja;
-                EnableForm(false);
-                LoadForm(SelectedID);
-            }
+            usuario.Nombre = this.txtNombre.Text;
+            usuario.Apellido = this.txtApellido.Text;
+            usuario.Email = this.txtEmail.Text;
+            usuario.NombreUsuario = this.txtNombreUsuario.Text;
+            usuario.Clave = this.txtClave.Text;
+            usuario.Habilitado = this.ckbHabilitado.Checked;
         }
-        
+        private void SaveEntity(Usuario usuario)
+        {
+            this.Logic.Save(usuario);
+        }
         private void DeleteEntity(int ID)
         {
             new UsuarioLogic().Delete(ID);
         }
 
-        protected void btnAceptar_Click(object sender, EventArgs e)
-        {
-            switch (FormMode)
-            {
-                case FormModes.Baja:
-                    DeleteEntity(SelectedID);
-                    Listar();
-                    break;
-                case FormModes.Modificacion:
-                    Entity = new Usuario();
-                    Entity.ID = SelectedID;
-                    Entity.State = BusinessEntity.States.Modified;
-                    Listar();
-                    break;
-                case FormModes.Alta:
-                    Entity = new Usuario();
-                    Listar();
-                    break;
-                default:
-                    break;
-            }
-            formPanel.Visible = false;
-        }
         private void ClearForm()
         {
             this.txtNombre.Text = string.Empty;
@@ -154,35 +119,61 @@ namespace UI.Web
             this.ClearForm();
             this.EnableForm(true);
         }
-
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (IsEntitySelected)
+            {
+                formPanel.Visible = true;
+                FormMode = FormModes.Modificacion;
+                LoadForm(SelectedID);
+                EnableForm(true);
+            }
+        }
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (IsEntitySelected)
+            {
+                formPanel.Visible = true;
+                FormMode = FormModes.Baja;
+                EnableForm(false);
+                LoadForm(SelectedID);
+            }
+        }
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            switch (FormMode)
+            {
+                case FormModes.Baja:
+                    DeleteEntity(SelectedID);
+                    Listar();
+                    break;
+                case FormModes.Modificacion:
+                    Entity = new Usuario();
+                    Entity.ID = SelectedID;
+                    Entity.State = BusinessEntity.States.Modified;
+                    this.LoadEntity(this.Entity);
+                    this.SaveEntity(this.Entity);
+                    Listar();
+                    break;
+                case FormModes.Alta:
+                    Entity = new Usuario();
+                    this.LoadEntity(this.Entity);
+                    this.SaveEntity(this.Entity);
+                    Listar();
+                    break;
+                default:
+                    break;
+            }
+            formPanel.Visible = false;
+        }
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             formPanel.Visible = true;
         }
-        private Boolean email_bien_escrito(String email)
-        {
-            String expresion;
-            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(email, expresion))
-            {
-                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (email_bien_escrito(txtEmail.Text)) args.IsValid = true;
+            if (Validation.IsEmailValid(txtEmail.Text)) args.IsValid = true;
             else args.IsValid = false;
         }
 
