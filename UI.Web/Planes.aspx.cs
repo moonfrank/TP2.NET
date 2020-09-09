@@ -11,6 +11,12 @@ namespace UI.Web
 {
     public partial class Planes : System.Web.UI.Page
     {
+        PlanLogic _logic;
+        private PlanLogic Logic
+        {
+            get
+            { if (_logic == null) { _logic = new PlanLogic(); } return _logic; }
+        }
         public enum FormModes
         {
             Alta,
@@ -27,59 +33,129 @@ namespace UI.Web
         {
             get
             {
-                if (ViewState["SelectedID"] != null) return (int)ViewState["SelectedID"];
-                else return 0;
+                if (ViewState["SelectedID"] != null)
+                {
+                    return (int)ViewState["SelectedID"];
+                }
+                else
+                {
+                    return 0;
+                }
             }
-            set { ViewState["SelectedID"] = value; }
+            set
+            {
+                ViewState["SelectedID"] = value;
+            }
         }
         private bool IsEntitySelected
         {
-            get { return (SelectedID != 0); }
+            get
+            {
+                return (SelectedID != 0);
+            }
         }
-
-        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.SelectedID = (int)this.gridView.SelectedValue;
-        }
-        PlanLogic _logic;
-        private PlanLogic Logic 
-        { get
-            { if (_logic == null) { _logic = new PlanLogic(); } return _logic; } }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) LoadGrid();
         }
-
         private void LoadGrid()
         {
-            this.gridView.DataSource = this.Logic.GetAll();
-            this.gridView.DataBind();
+            gridView.DataSource = this.Logic.GetAll();
+            gridView.DataBind();
         }
 
         private void LoadForm(int id)
         {
-            this.Entity = this.Logic.GetOne(id);
-            this.listIDEspecialidad.Text = this.Entity.IDEspecialidad.ToString();
-            this.txtDescripcion.Text = this.Entity.Descripcion;
+            Entity = this.Logic.GetOne(id);
+            txtDescripcion.Text = this.Entity.Descripcion;
+            ddlIDEspecialidad.Text = this.Entity.IDEspecialidad.ToString();
         }
-
-        protected void btnEditar_Click(object sender, EventArgs e)
+        private void EnableForm(bool enable)
         {
-            if (this.IsEntitySelected)
-            {
-                this.formPanel.Visible = true;
-                this.FormMode = FormModes.Modificacion;
-                this.LoadForm(this.SelectedID);
-            }
+            txtDescripcion.Enabled = enable;
+            ddlIDEspecialidad.Enabled = enable;
         }
-
-        protected void btnEliminar_Click(object sender, EventArgs e)
+        private void ClearForm()
         {
-
+            this.txtDescripcion.Text = string.Empty;
+            this.ddlIDEspecialidad.Text = string.Empty;
         }
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedID = (int)gridView.SelectedValue;
+        }
+        private void LoadEntity(Plan plan)
+        {
+            plan.Descripcion = this.txtDescripcion.Text;
+            plan.IDEspecialidad = int.Parse(this.ddlIDEspecialidad.Text);
+        }
+        private void SaveEntity(Plan plan)
+        {
+            this.Logic.Save(plan);
+        }
+        private void DeleteEntity(int ID)
+        {
+            this.Logic.Delete(ID);
+        }
+
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-
+            this.formPanel.Visible = true;
+            this.FormMode = FormModes.Alta;
+            this.ClearForm();
+            this.EnableForm(true);
+        }
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (IsEntitySelected)
+            {
+                formPanel.Visible = true;
+                FormMode = FormModes.Modificacion;
+                LoadForm(SelectedID);
+                EnableForm(true);
+            }
+        }
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (IsEntitySelected)
+            {
+                formPanel.Visible = true;
+                FormMode = FormModes.Baja;
+                EnableForm(false);
+                LoadForm(SelectedID);
+            }
+        }
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            switch (FormMode)
+            {
+                case FormModes.Baja:
+                    DeleteEntity(SelectedID);
+                    LoadGrid();
+                    break;
+                case FormModes.Modificacion:
+                    Entity = new Plan();
+                    Entity.ID = SelectedID;
+                    Entity.State = BusinessEntity.States.Modified;
+                    this.LoadEntity(this.Entity);
+                    this.SaveEntity(this.Entity);
+                    LoadGrid();
+                    break;
+                case FormModes.Alta:
+                    Entity = new Plan();
+                    Entity.State = BusinessEntity.States.New;
+                    this.LoadEntity(this.Entity);
+                    this.SaveEntity(this.Entity);
+                    LoadGrid();
+                    break;
+                default:
+                    break;
+            }
+            formPanel.Visible = false;
+        }
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            formPanel.Visible = true;
         }
 
 

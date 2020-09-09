@@ -20,8 +20,8 @@
     </asp:GridView>
     <asp:Panel ID="formPanel" runat="server" Visible="False" Height="232px">
         <asp:Label ID="lblIDEspecialidad" runat="server" Text="ID Especialidad"></asp:Label>
-        <asp:ListBox ID="listIDEspecialidad" runat="server"></asp:ListBox>
-        <asp:RequiredFieldValidator ID="validIDEspecialidad" runat="server" ControlToValidate="listIDEspecialidad" ErrorMessage="El ID de Especialidad no puede estar vacío" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+        <asp:DropDownList ID="ddlIDEspecialidad" runat="server"></asp:DropDownList>
+        <asp:RequiredFieldValidator ID="validIDEspecialidad" runat="server" ControlToValidate="ddlIDEspecialidad" ErrorMessage="El ID de Especialidad no puede estar vacío" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblDescripcion" runat="server" Text="Descripción"></asp:Label>
         <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>

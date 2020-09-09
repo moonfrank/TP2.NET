@@ -42,13 +42,13 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Label lblIDEspecialidad;
 
         /// <summary>
-        /// listIDEspecialidad control.
+        /// ddlIDEspecialidad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listIDEspecialidad;
+        protected global::System.Web.UI.WebControls.DropDownList ddlIDEspecialidad;
 
         /// <summary>
         /// validIDEspecialidad control.

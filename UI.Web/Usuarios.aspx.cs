@@ -52,9 +52,9 @@ namespace UI.Web
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) Listar();
+            if (!Page.IsPostBack) LoadGrid();
         }
-        private void Listar()
+        private void LoadGrid()
         {
             gridView.DataSource = new UsuarioLogic().GetAll();
             gridView.DataBind();
@@ -69,11 +69,6 @@ namespace UI.Web
             txtNombreUsuario.Text = Entity.NombreUsuario;
             ckbHabilitado.Checked = Entity.Habilitado;
         }
-        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SelectedID = (int)gridView.SelectedValue;
-        }
-
         private void EnableForm(bool enable)
         {
             txtNombre.Enabled = enable;
@@ -84,6 +79,18 @@ namespace UI.Web
             lblClave.Visible = enable;
             txtRepetirClave.Enabled = enable;
             lblRepertirClave.Visible = enable;
+        }
+        private void ClearForm()
+        {
+            this.txtNombre.Text = string.Empty;
+            this.txtApellido.Text = string.Empty;
+            this.txtEmail.Text = string.Empty;
+            this.ckbHabilitado.Checked = false;
+            this.txtNombreUsuario.Text = string.Empty;
+        }
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedID = (int)gridView.SelectedValue;
         }
         private void LoadEntity(Usuario usuario)
         {
@@ -100,16 +107,7 @@ namespace UI.Web
         }
         private void DeleteEntity(int ID)
         {
-            new UsuarioLogic().Delete(ID);
-        }
-
-        private void ClearForm()
-        {
-            this.txtNombre.Text = string.Empty;
-            this.txtApellido.Text = string.Empty;
-            this.txtEmail.Text = string.Empty;
-            this.ckbHabilitado.Checked = false;
-            this.txtNombreUsuario.Text = string.Empty;
+            this.Logic.Delete(ID);
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -145,7 +143,7 @@ namespace UI.Web
             {
                 case FormModes.Baja:
                     DeleteEntity(SelectedID);
-                    Listar();
+                    LoadGrid();
                     break;
                 case FormModes.Modificacion:
                     Entity = new Usuario();
@@ -153,13 +151,14 @@ namespace UI.Web
                     Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
-                    Listar();
+                    LoadGrid();
                     break;
                 case FormModes.Alta:
                     Entity = new Usuario();
+                    Entity.State = BusinessEntity.States.New;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
-                    Listar();
+                    LoadGrid();
                     break;
                 default:
                     break;
