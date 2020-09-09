@@ -15,6 +15,7 @@
 
 #ConnectionString
 UI.Desktop/App.config
+UI.Web/Web.config
 
 # Build results
 [Dd]ebug/
