@@ -1,17 +1,22 @@
-﻿using System;
+﻿using Business.Logic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Logic;
 using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Comisiones : System.Web.UI.Page
     {
-        UsuarioLogic _logic;
-        private UsuarioLogic Logic
+        private Comision Entity { get; set; }
+        protected void Page_Load(object sender, EventArgs e)
         {
-            get
-            { if (_logic == null) { _logic = new UsuarioLogic(); } return _logic; }
+            if (!Page.IsPostBack) LoadGrid();
         }
         public enum FormModes
         {
@@ -21,10 +26,9 @@ namespace UI.Web
         }
         public FormModes FormMode
         {
-            get { return (FormModes)ViewState["FormMode"];}
+            get { return (FormModes)ViewState["FormMode"]; }
             set { ViewState["FormMode"] = value; }
         }
-        private Usuario Entity { get; set; }
         private int SelectedID
         {
             get
@@ -50,64 +54,51 @@ namespace UI.Web
                 return (SelectedID != 0);
             }
         }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!Page.IsPostBack) LoadGrid();
-        }
         private void LoadGrid()
         {
-            gridView.DataSource = new UsuarioLogic().GetAll();
-            gridView.DataBind();
+            gridViewComision.DataSource = new ComisionLogic().GetAll();
+            gridViewComision.DataBind();
         }
-
-        private void LoadForm (int ID)
+        private void LoadForm(int ID)
         {
-            Entity = this.Logic.GetOne(ID);
-            txtNombre.Text = Entity.Nombre;
-            txtApellido.Text = Entity.Apellido;
-            txtEmail.Text = Entity.Email;
-            txtNombreUsuario.Text = Entity.NombreUsuario;
-            ckbHabilitado.Checked = Entity.Habilitado;
+            Comision Comision = new ComisionLogic().GetOne(ID);
+            txtDescripcion.Text = Comision.Descripcion;
+            txtAño.Text = Comision.AnioEspecialidad.ToString();
+            ddlID.Text = Comision.IDPlan.ToString();                      
         }
         private void EnableForm(bool enable)
         {
-            txtNombre.Enabled = enable;
-            txtApellido.Enabled = enable;
-            txtEmail.Enabled = enable;
-            txtNombreUsuario.Enabled = enable;
-            txtClave.Enabled = enable;
-            lblClave.Visible = enable;
-            txtRepetirClave.Enabled = enable;
-            lblRepertirClave.Visible = enable;
+            txtAño.Enabled = enable;
+            txtDescripcion.Enabled = enable;
+            ddlID.Enabled = enable;
+            foreach (Plan plan in new PlanLogic().GetAll())
+            {
+                ddlID.Items.Add(plan.ID.ToString());
+            }
         }
         private void ClearForm()
         {
-            this.txtNombre.Text = string.Empty;
-            this.txtApellido.Text = string.Empty;
-            this.txtEmail.Text = string.Empty;
-            this.ckbHabilitado.Checked = false;
-            this.txtNombreUsuario.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtAño.Text = string.Empty;
+            ddlID.DataSource = string.Empty;
         }
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedID = (int)gridView.SelectedValue;
+            SelectedID = (int)gridViewComision.SelectedValue;
         }
-        private void LoadEntity(Usuario usuario)
+        private void LoadEntity(Comision comision)
         {
-            usuario.Nombre = this.txtNombre.Text;
-            usuario.Apellido = this.txtApellido.Text;
-            usuario.Email = this.txtEmail.Text;
-            usuario.NombreUsuario = this.txtNombreUsuario.Text;
-            usuario.Clave = this.txtClave.Text;
-            usuario.Habilitado = this.ckbHabilitado.Checked;
+            comision.Descripcion = txtDescripcion.Text;
+            comision.AnioEspecialidad = int.Parse(txtAño.Text);
+            comision.IDPlan = Convert.ToInt32(ddlID.SelectedValue);
         }
-        private void SaveEntity(Usuario usuario)
+        private void SaveEntity(Comision comision)
         {
-            this.Logic.Save(usuario);
+            new ComisionLogic().Save(comision);
         }
         private void DeleteEntity(int ID)
         {
-            this.Logic.Delete(ID);
+            new ComisionLogic().Delete(ID);
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -117,6 +108,7 @@ namespace UI.Web
             this.ClearForm();
             this.EnableForm(true);
         }
+
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             if (IsEntitySelected)
@@ -127,6 +119,7 @@ namespace UI.Web
                 EnableForm(true);
             }
         }
+
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             if (IsEntitySelected)
@@ -137,6 +130,7 @@ namespace UI.Web
                 LoadForm(SelectedID);
             }
         }
+
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
             switch (FormMode)
@@ -146,7 +140,7 @@ namespace UI.Web
                     LoadGrid();
                     break;
                 case FormModes.Modificacion:
-                    Entity = new Usuario();
+                    Entity = new Comision();
                     Entity.ID = SelectedID;
                     Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
@@ -154,7 +148,7 @@ namespace UI.Web
                     LoadGrid();
                     break;
                 case FormModes.Alta:
-                    Entity = new Usuario();
+                    Entity = new Comision();
                     Entity.State = BusinessEntity.States.New;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
@@ -165,21 +159,10 @@ namespace UI.Web
             }
             formPanel.Visible = false;
         }
+
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             formPanel.Visible = false;
-        }
-
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            if (Validation.IsEmailValid(txtEmail.Text)) args.IsValid = true;
-            else args.IsValid = false;
-        }
-
-        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            if (txtClave.Text == txtRepetirClave.Text) args.IsValid = true;
-            else args.IsValid = false;
         }
     }
 }
