@@ -26,6 +26,7 @@
         <asp:Label ID="lblDescripcion" runat="server" Text="Descripción"></asp:Label>
         <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="validDescripcion" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="La descripción no puede estar vacía" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+        <asp:ValidationSummary ID="ValidationSummary" runat="server" ForeColor="Red" ValidationGroup="vg" />
         <br />
     </asp:Panel>
     <asp:Panel ID="gridActionsPanel" runat="server">
@@ -34,7 +35,7 @@
         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
     </asp:Panel>
     <asp:Panel ID="formActionsPanel" runat="server">
-        <asp:LinkButton ID="linkAceptar" runat="server" Text="Aceptar"/>
+        <asp:LinkButton ID="linkAceptar" runat="server" Text="Aceptar" ValidationGroup="vg"/>
         <asp:LinkButton ID="linkCancelar" runat="server" Text="Cancelar"/>
     </asp:Panel>
 </asp:Content>

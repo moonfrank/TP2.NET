@@ -68,7 +68,7 @@ namespace UI.Web
         {
             Entity = this.Logic.GetOne(id);
             txtDescripcion.Text = this.Entity.Descripcion;
-            ddlIDEspecialidad.Text = this.Entity.IDEspecialidad.ToString();
+            ListarEspecialidades();
         }
         private void EnableForm(bool enable)
         {
@@ -156,6 +156,14 @@ namespace UI.Web
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             formPanel.Visible = true;
+        }
+
+        private void ListarEspecialidades()
+        {
+            foreach (Especialidad espe in new EspecialidadLogic().GetAll())
+            {
+                ddlIDEspecialidad.Items.Add(espe.ID.ToString());
+            }
         }
 
 
