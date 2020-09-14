@@ -134,6 +134,25 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+        public void DeleteIDPersona(int ID)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdDelete = new SqlCommand("delete usuarios where id_persona=@id", sqlConnection);
+                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al eliminar usuario", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
 
         protected void Update(Usuario usuario)
         {

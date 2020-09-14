@@ -58,6 +58,8 @@ namespace UI.Desktop
                 if (MessageBox.Show("Está seguro que desea eliminar a esta persona?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes)
                 {
                     new PersonaDesktop(((Persona)this.dgvPersona.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Baja).GuardarCambios();
+                    // ver esto
+                    new UsuarioLogic().DeleteIDPersona(((Persona)this.dgvPersona.SelectedRows[0].DataBoundItem).ID);
                     this.Listar();
                 }
             }

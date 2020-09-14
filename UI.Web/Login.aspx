@@ -22,7 +22,7 @@
                     <br />
                     <asp:Label ID="lblClave" runat="server" Text="Clave"></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtClave" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtClave" TextMode="Password" runat="server"></asp:TextBox>
                     <br />
                     <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" />
                     <br />

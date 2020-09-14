@@ -38,5 +38,9 @@ namespace Business.Logic
         {
             UsuarioData.Delete(id);
         }
+        public void DeleteIDPersona(int id)
+        {
+            UsuarioData.DeleteIDPersona(id);
+        }
     }
 }
