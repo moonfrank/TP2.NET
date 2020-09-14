@@ -11,7 +11,24 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            switch (Session["Persona"].ToString())
+            {
+                case "Alumno":
+                    //menu..Remove(menu.FindItem(@"Home\Planes"));
+                    //MenuItem mnuItem = Menu1.FindItem("@"Home\Planes""); // Find particular item
+                    //Menu1.Items.Remove(mnuItem);
 
+                    SiteMapNodeItem homeMenuItem = SiteMapNode.;
+
+                    MenuItem movieSubMenuItem = menu.FindItem(@"Home\Planes");
+
+                    // Remove the Movie submenu item.
+                    if (movieSubMenuItem != null)
+                    {
+                        homeMenuItem.ChildItems.Remove(movieSubMenuItem);
+                    }
+                    break;
+            }
         }
     }
 }

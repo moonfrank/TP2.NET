@@ -3,13 +3,15 @@ using Business.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static Business.Entities.Persona;
 
 namespace UI.Web
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,18 +34,20 @@ namespace UI.Web
         }
 
         protected void ManejoSession(Usuario usu)
-        {
-            switch (usu.IDPersona)
+        {           
+            switch (new PersonaLogic().GetOne(usu.IDPersona).TipoPersona)
             {
-                case 0:
+                case TiposPersonas.Alumno: 
+                    Session["Persona"] = "Alumno";
                     break;
-                case 1:
+                case TiposPersonas.Profesor:
+                    Session["Persona"] = "Profesor";
                     break;
-                case 2:
-                    break;
-                default:
+                case TiposPersonas.Admin:
+                    Session["Persona"] = "Admin";
                     break;
             }
+            
         }
     }
 }

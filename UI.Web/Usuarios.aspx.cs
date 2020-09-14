@@ -197,7 +197,7 @@ namespace UI.Web
 
         protected void ddlIDPersona_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Persona persona = new PersonaLogic().GetOne(Convert.ToInt32(ddlIDPersona.SelectedItem.text));
+            Persona persona = new PersonaLogic().GetOne(Convert.ToInt32(ddlIDPersona.SelectedItem.Text));
             txtNombre.Text = persona.Nombre;
             txtApellido.Text = persona.Apellido;
         }
