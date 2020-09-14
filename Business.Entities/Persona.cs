@@ -11,7 +11,8 @@ namespace Business.Entities
         public enum TiposPersonas
         {
             Alumno,
-            Profesor
+            Profesor,
+            Admin
         }
         public int Legajo { get; set; }
         public int IDPlan { get; set; }

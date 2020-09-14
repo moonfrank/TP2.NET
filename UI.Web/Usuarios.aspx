@@ -4,6 +4,7 @@
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
+            <asp:BoundField AccessibleHeaderText="ID Persona" DataField="IDPersona" HeaderText="ID Persona" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
             <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
@@ -23,6 +24,10 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
     <asp:Panel ID="formPanel" runat="server" Visible="False" Height="232px">
+        <asp:Label ID="lblIDPersona" runat="server" Text="ID Persona"></asp:Label>
+        <asp:DropDownList ID="ddlIDPersona" runat="server" OnSelectedIndexChanged="ddlIDPersona_SelectedIndexChanged">
+        </asp:DropDownList>
+        <br />
         <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>
         <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNombre" ErrorMessage="El nombre no puede estar vacío" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
@@ -35,7 +40,7 @@
         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
         <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="El email no es válido" ForeColor="Red" OnServerValidate="CustomValidator1_ServerValidate" ValidationGroup="vg">*</asp:CustomValidator>
         <br />
-         <asp:Label ID="Label7" runat="server" Text="Habilitado"></asp:Label>
+        <asp:Label ID="Label7" runat="server" Text="Habilitado"></asp:Label>
         <asp:CheckBox ID="ckbHabilitado" runat="server" Text=" " />
         <br />
         <asp:Label ID="Label4" runat="server" Text="Nombre Usuario"></asp:Label>
@@ -46,8 +51,9 @@
         <asp:TextBox ID="txtClave" runat="server"></asp:TextBox>
         <br />
         <asp:Label ID="lblRepertirClave" runat="server" Text="Repetir clave"></asp:Label>
-        <asp:TextBox ID="txtRepetirClave" runat="server"></asp:TextBox>        
+        <asp:TextBox ID="txtRepetirClave" runat="server"></asp:TextBox>
         <asp:CustomValidator ID="CustomValidator2" runat="server" ErrorMessage="Las claves no coinciden" ForeColor="Red" OnServerValidate="CustomValidator2_ServerValidate" ValidationGroup="vg">*</asp:CustomValidator>
+        <br />
         <br />
         <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" ValidationGroup="vg" />
         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />

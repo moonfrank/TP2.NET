@@ -44,6 +44,7 @@ namespace UI.Desktop
             this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
             this.txtClave.Text = this.UsuarioActual.Clave;
             this.txtEmail.Text = this.UsuarioActual.Email;
+            this.cmbxIDPersona.SelectedIndex = this.UsuarioActual.IDPersona;
             switch (this.Modo)
             {
                 case ModoForm.Alta:
@@ -72,14 +73,16 @@ namespace UI.Desktop
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
             {
                 if (this.Modo == ModoForm.Alta) this.UsuarioActual = new Usuario();
-                else this.UsuarioActual.ID = int.Parse(this.txtID.Text);
 
+                else this.UsuarioActual.ID = int.Parse(this.txtID.Text);
                 this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
                 this.UsuarioActual.Nombre = this.txtNombre.Text;
                 this.UsuarioActual.Apellido = this.txtApellido.Text;
                 this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
                 this.UsuarioActual.Clave = this.txtClave.Text;
                 this.UsuarioActual.Email = this.txtEmail.Text;
+                this.cmbxIDPersona.SelectedIndex = this.UsuarioActual.IDPersona;
+
 
                 switch (Modo)
                 {

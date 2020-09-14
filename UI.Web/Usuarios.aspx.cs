@@ -68,6 +68,7 @@ namespace UI.Web
             txtEmail.Text = Entity.Email;
             txtNombreUsuario.Text = Entity.NombreUsuario;
             ckbHabilitado.Checked = Entity.Habilitado;
+            ddlIDPersona.Text = Entity.IDPersona.ToString();
         }
         private void EnableForm(bool enable)
         {
@@ -79,6 +80,8 @@ namespace UI.Web
             lblClave.Visible = enable;
             txtRepetirClave.Enabled = enable;
             lblRepertirClave.Visible = enable;
+            ddlIDPersona.Enabled = enable;
+            ListarCBX();
         }
         private void ClearForm()
         {
@@ -87,6 +90,7 @@ namespace UI.Web
             this.txtEmail.Text = string.Empty;
             this.ckbHabilitado.Checked = false;
             this.txtNombreUsuario.Text = string.Empty;
+            ddlIDPersona.DataSource = string.Empty;
         }
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -100,6 +104,7 @@ namespace UI.Web
             usuario.NombreUsuario = this.txtNombreUsuario.Text;
             usuario.Clave = this.txtClave.Text;
             usuario.Habilitado = this.ckbHabilitado.Checked;
+            usuario.IDPersona = ddlIDPersona.SelectedIndex;
         }
         private void SaveEntity(Usuario usuario)
         {
@@ -180,6 +185,20 @@ namespace UI.Web
         {
             if (txtClave.Text == txtRepetirClave.Text) args.IsValid = true;
             else args.IsValid = false;
+        }
+
+        protected void ddlIDPersona_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Persona persona = new PersonaLogic().GetOne(Convert.ToInt32(ddlIDPersona.SelectedItem));
+            txtNombre.Text = persona.Nombre;
+            txtApellido.Text = persona.Apellido;
+        }
+        private void ListarCBX()
+        {
+            foreach (Persona persona in new PersonaLogic().GetAll())
+            {
+                ddlIDPersona.Items.Add(persona.ID.ToString());
+            }
         }
     }
 }

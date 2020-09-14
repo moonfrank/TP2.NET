@@ -22,11 +22,27 @@ namespace UI.Web
             if (usr.Nombre != null)
             {
                 args.IsValid = true;
+                ManejoSession(usr);
                 Response.Redirect("Home.aspx");
             }
             else
             {
                 args.IsValid = false;
+            }
+        }
+
+        protected void ManejoSession(Usuario usu)
+        {
+            switch (usu.IDPersona)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
             }
         }
     }

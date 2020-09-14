@@ -120,6 +120,9 @@
   <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="IDPersona.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="nombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -152,9 +155,9 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADDSURBVDhPYyAJND5yZ6h/fI+h8cl/hvpHRxjqnytAZYgA
-        9U/8GOrvfmFoepLA0PpCHGjIDLAhRAGYZjAGskEAYsh/MBsvgGsG0UhskEtA3sELkDXAAFwMiEFhghNg
+        9U/8GOrvfGFoepLA0PpCHGjIDLAhRAGYZjAGskEAYsh/MBsvgGsG0UhskEtA3sELkDXAAFwMiEFhghNg
         0wwCuMRRwKhmBCBK8///jAyN91+DccPjWKgokZpBoP6RDlDROyD2ASaMF2BDiNYMAo1Pc4AaN4DZIENA
-        LiFaMwg0Pl4BTNMHgRq2AOn3YFcQrRkE6p9cgBqSwVD/VAMqSiRgYAAAavjAH4uWHtQAAAAASUVORK5C
+        LiFaMwg0Pl4BTNMHgRq2AOn3YFcQrRkE6p9cgBqSwVD/VAMqSiRgYAAANrLACOlKUp4AAAAASUVORK5C
         YII=
 </value>
   </data>
