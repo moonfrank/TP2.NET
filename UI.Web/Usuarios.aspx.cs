@@ -187,18 +187,19 @@ namespace UI.Web
             else args.IsValid = false;
         }
 
-        //protected void ddlIDPersona_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    Persona persona = new PersonaLogic().GetOne(Convert.ToInt32(ddlIDPersona.SelectedItem));
-        //    txtNombre.Text = persona.Nombre;
-        //    txtApellido.Text = persona.Apellido;
-        //}
         private void ListarCBX()
         {
             foreach (Persona persona in new PersonaLogic().GetAll())
             {
                 ddlIDPersona.Items.Add(persona.ID.ToString());
             }
+        }
+
+        protected void ddlIDPersona_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Persona persona = new PersonaLogic().GetOne(Convert.ToInt32(ddlIDPersona.SelectedItem.text));
+            txtNombre.Text = persona.Nombre;
+            txtApellido.Text = persona.Apellido;
         }
     }
 }
