@@ -68,12 +68,13 @@ namespace UI.Web
         {
             Entity = this.Logic.GetOne(id);
             txtDescripcion.Text = this.Entity.Descripcion;
-            ListarEspecialidades();
+            ddlIDEspecialidad.Text = this.Entity.IDEspecialidad.ToString();
         }
         private void EnableForm(bool enable)
         {
             txtDescripcion.Enabled = enable;
             ddlIDEspecialidad.Enabled = enable;
+            ListarEspecialidades();
         }
         private void ClearForm()
         {

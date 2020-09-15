@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace UI.Web
 {
@@ -11,24 +9,29 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            #region probando de hacer cosas con roles (parcialmente implementado, falta bastante)
+            /*
+            string[] rol = {Session["Persona"].ToString()};
+            HttpContext.Current.User = new GenericPrincipal(HttpContext.Current.User.Identity, rol);
+            */
+            #endregion
+
+            menu.DataSource = SiteMapDataSource;
+            menu.DataBind();
+            
+            var menuitem = menu.FindItem(@"Home");
+
             switch (Session["Persona"].ToString())
             {
                 case "Alumno":
-                    //menu..Remove(menu.FindItem(@"Home\Planes"));
-                    //MenuItem mnuItem = Menu1.FindItem("@"Home\Planes""); // Find particular item
-                    //Menu1.Items.Remove(mnuItem);
-
-                    SiteMapNodeItem homeMenuItem = SiteMapNode.;
-
-                    MenuItem movieSubMenuItem = menu.FindItem(@"Home\Planes");
-
-                    // Remove the Movie submenu item.
-                    if (movieSubMenuItem != null)
-                    {
-                        homeMenuItem.ChildItems.Remove(movieSubMenuItem);
-                    }
+                    if (menuitem != null)
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Planes"));
+                    else throw new Exception();
+                    break;
+                default:
                     break;
             }
+                
         }
     }
 }

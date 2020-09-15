@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 using Business.Entities;
 using System.Data;
 using System.Data.SqlClient;
-using Business.Entities;
-using System.Data;
-using System.Data.SqlClient;
 
 using static Business.Entities.DocenteCurso;
 

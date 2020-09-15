@@ -25,7 +25,7 @@
     </asp:GridView>
     <asp:Panel ID="formPanel" runat="server" Visible="False" Height="232px">
         <asp:Label ID="lblIDPersona" runat="server" Text="ID Persona"></asp:Label>
-        <asp:DropDownList ID="ddlIDPersona" runat="server" OnSelectedIndexChanged="ddlIDPersona_SelectedIndexChanged">
+        <asp:DropDownList ID="ddlIDPersona" runat="server" OnSelectedIndexChanged="ddlIDPersona_SelectedIndexChanged" AutoPostBack="true">
         </asp:DropDownList>
         <br />
         <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>

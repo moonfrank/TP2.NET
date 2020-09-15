@@ -5,7 +5,7 @@
 </head>
 <body>
     <form id="bodyform" runat="server">
-        <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource"></asp:Menu>
+        <asp:Menu runat="server" ID="menu" PathSeparator="\"></asp:Menu>
         <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server"></asp:SiteMapDataSource>
         <div>
             <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
