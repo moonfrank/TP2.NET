@@ -12,6 +12,5 @@ namespace Business.Entities
         public int IDMateria { get; set; }
         public int Cupo { get; set; }
         public int AnioCalendario { get; set; }
-        public string Descripcion { get; set; }
     }
 }

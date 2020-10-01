@@ -125,8 +125,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand(" INSERT INTO alumnos_inscripciones(id_inscripcion,id_alumno,id_curso,condicion,nota) " +
-                                                " VALUES (@id_inscripcion,@id_alumno,@id_curso,@condicion,@nota)" +
+                SqlCommand cmdSave = new SqlCommand(" INSERT INTO alumnos_inscripciones(id_alumno,id_curso,condicion,nota) " +
+                                                " VALUES (@id_alumno,@id_curso,@condicion,@nota)" +
                                                   "select @@identity", sqlConnection);
                 cmdSave.Parameters.Add("@id_alumno", SqlDbType.Int).Value = inscripcion.IDAlumno;
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = inscripcion.IDCurso;

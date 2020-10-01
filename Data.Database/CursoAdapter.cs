@@ -99,7 +99,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("UPDATE cursos SET id_materia = @id_materia, id_comision = @id_comision, anio_calendario = @anio_calendario" +
+                SqlCommand cmdSave = new SqlCommand("UPDATE cursos SET id_materia = @id_materia, id_comision = @id_comision, anio_calendario = @anio_calendario, " +
                                                     " cupo = @cupo WHERE id_curso=@id_curso ", sqlConnection);
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = curso.ID;
                 cmdSave.Parameters.Add("@id_materia", SqlDbType.Int).Value = curso.IDMateria;

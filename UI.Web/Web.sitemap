@@ -6,5 +6,7 @@
     <siteMapNode url="Planes.aspx" title="Planes"  roles="Ad" />
 	  <siteMapNode url="Comisiones.aspx" title="Comisiones"  roles="Ad" />
     <siteMapNode url="Especialidades.aspx" title="Especialidades"  roles="Ad" />
+	  <siteMapNode url="Cursos.aspx" title="Cursos"  roles="Ad" />
+	  <siteMapNode url="Alumno_Incripciones.aspx" title="Alumno Incripciones"  roles="Ad" />
   </siteMapNode>
 </siteMap>
