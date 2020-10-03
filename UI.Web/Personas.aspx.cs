@@ -5,9 +5,10 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Comisiones : Page
+    public partial class Personas : System.Web.UI.Page
     {
-        private Comision Entity { get; set; }
+
+        private Persona Entity { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) LoadGrid();
@@ -50,49 +51,69 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
-            gridViewComision.DataSource = new ComisionLogic().GetAll();
-            gridViewComision.DataBind();
+            gridViewPersona.DataSource = new PersonaLogic().GetAll();
+            gridViewPersona.DataBind();
+            ddlTipoPersona.DataSource = Enum.GetNames(typeof(Persona.TiposPersonas));
+            ddlTipoPersona.DataBind();
         }
         private void LoadForm(int ID)
         {
-            Comision Comision = new ComisionLogic().GetOne(ID);
-            txtDescripcion.Text = Comision.Descripcion;
-            txtAño.Text = Comision.AnioEspecialidad.ToString();
-            ddlID.Text = Comision.IDPlan.ToString();                      
+            Persona persona = new PersonaLogic().GetOne(ID);
+            ddlTipoPersona.Text = persona.TipoPersona.ToString();
+            txtLegajo.Text = persona.Legajo.ToString();
+            txtNombre.Text = persona.Nombre;
+            txtApellido.Text = persona.Apellido;
+            txtDireccion.Text = persona.Direccion;
+            txtTelefono.Text = persona.Telefono;
+            txtFechaNacimiento.Text = persona.FechaNacimiento.ToString();
+            ddlIDPlan.Text = persona.IDPlan.ToString();
         }
         private void EnableForm(bool enable)
         {
-            txtAño.Enabled = enable;
-            txtDescripcion.Enabled = enable;
-            ddlID.Enabled = enable;
+            txtLegajo.Enabled = enable;
+            txtNombre.Enabled = enable;
+            txtApellido.Enabled = enable;
+            txtDireccion.Enabled = enable;
+            txtTelefono.Enabled = enable;
+            txtFechaNacimiento.Enabled = enable;
+            ddlIDPlan.Enabled = enable;
+            ddlTipoPersona.Enabled = enable;
             foreach (Plan plan in new PlanLogic().GetAll())
             {
-                ddlID.Items.Add(plan.ID.ToString());
+                ddlIDPlan.Items.Add(plan.ID.ToString());
             }
         }
         private void ClearForm()
         {
-            txtDescripcion.Text = string.Empty;
-            txtAño.Text = string.Empty;
-            ddlID.DataSource = string.Empty;
+            txtLegajo.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtFechaNacimiento.Text = string.Empty;
         }
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedID = (int)gridViewComision.SelectedValue;
+            SelectedID = (int)gridViewPersona.SelectedValue;
         }
-        private void LoadEntity(Comision comision)
+        private void LoadEntity(Persona persona)
         {
-            comision.Descripcion = txtDescripcion.Text;
-            comision.AnioEspecialidad = int.Parse(txtAño.Text);
-            comision.IDPlan = Convert.ToInt32(ddlID.SelectedValue);
+            persona.Legajo = Convert.ToInt32(txtLegajo.Text);
+            persona.Nombre = txtNombre.Text;
+            persona.Apellido = txtApellido.Text;
+            persona.Direccion = txtDireccion.Text;
+            persona.Telefono = txtTelefono.Text;
+            persona.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
+            persona.IDPlan = Convert.ToInt32(ddlIDPlan.SelectedValue);
+            persona.TipoPersona = (Persona.TiposPersonas)Enum.Parse(typeof(Persona.TiposPersonas), ddlTipoPersona.SelectedValue);
         }
-        private void SaveEntity(Comision comision)
+        private void SaveEntity(Persona persona)
         {
-            new ComisionLogic().Save(comision);
+            new PersonaLogic().Save(persona);
         }
         private void DeleteEntity(int ID)
         {
-            new ComisionLogic().Delete(ID);
+            new PersonaLogic().Delete(ID);
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -134,7 +155,7 @@ namespace UI.Web
                     LoadGrid();
                     break;
                 case FormModes.Modificacion:
-                    Entity = new Comision();
+                    Entity = new Persona();
                     Entity.ID = SelectedID;
                     Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
@@ -142,7 +163,7 @@ namespace UI.Web
                     LoadGrid();
                     break;
                 case FormModes.Alta:
-                    Entity = new Comision();
+                    Entity = new Persona();
                     Entity.State = BusinessEntity.States.New;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);

@@ -3,6 +3,7 @@
   
   <siteMapNode url="Home.aspx" title="Home"  description="" >
     <siteMapNode url="Usuarios.aspx" title="Usuarios" roles="Ad" />
+    <siteMapNode url="Personas.aspx" title="Personas"  roles="Ad" />
     <siteMapNode url="Planes.aspx" title="Planes"  roles="Ad" />
 	  <siteMapNode url="Comisiones.aspx" title="Comisiones"  roles="Ad" />
     <siteMapNode url="Especialidades.aspx" title="Especialidades"  roles="Ad" />
