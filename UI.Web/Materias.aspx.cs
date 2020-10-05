@@ -103,10 +103,12 @@ namespace UI.Web
             {
                 case FormModes.Alta:
                     this.Entity = new Materia();
+                    this.Entity.State = BusinessEntity.States.New;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid(); break;
                 case FormModes.Baja:
+                    this.Entity.State = BusinessEntity.States.Deleted;
                     this.DeleteEntity(SelectedID);
                     this.LoadGrid(); break;
                 case FormModes.Modificacion:
