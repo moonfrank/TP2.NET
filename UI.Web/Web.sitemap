@@ -5,9 +5,11 @@
     <siteMapNode url="Usuarios.aspx" title="Usuarios" roles="Ad" />
     <siteMapNode url="Personas.aspx" title="Personas"  roles="Ad" />
     <siteMapNode url="Planes.aspx" title="Planes"  roles="Ad" />
-	  <siteMapNode url="Comisiones.aspx" title="Comisiones"  roles="Ad" />
+	<siteMapNode url="Comisiones.aspx" title="Comisiones"  roles="Ad" />
     <siteMapNode url="Especialidades.aspx" title="Especialidades"  roles="Ad" />
-	  <siteMapNode url="Cursos.aspx" title="Cursos"  roles="Ad" />
-	  <siteMapNode url="Alumno_Incripciones.aspx" title="Alumno Incripciones"  roles="Ad" />
+	<siteMapNode url="Cursos.aspx" title="Cursos"  roles="Ad" />
+	<siteMapNode url="Alumno_Incripciones.aspx" title="Alumno Incripciones"  roles="Ad" />
+	<siteMapNode url="Materias.aspx" title="Materias"  roles="Ad" />
+	<siteMapNode url="Docentes_Cursos.aspx" title="Docentes Cursos"  roles="Ad" />
   </siteMapNode>
 </siteMap>

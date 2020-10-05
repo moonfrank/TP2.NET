@@ -70,10 +70,12 @@
     <Content Include="Alumno_Incripciones.aspx" />
     <Content Include="Comisiones.aspx" />
     <Content Include="Cursos.aspx" />
+    <Content Include="Docentes_Cursos.aspx" />
     <Content Include="Especialidades.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
+    <Content Include="Materias.aspx" />
     <Content Include="Personas.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="Usuarios.aspx" />
@@ -100,6 +102,13 @@
     <Compile Include="Cursos.aspx.designer.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Docentes_Cursos.aspx.cs">
+      <DependentUpon>Docentes_Cursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Docentes_Cursos.aspx.designer.cs">
+      <DependentUpon>Docentes_Cursos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Especialidades.aspx.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,6 +132,12 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Materias.aspx.cs">
+      <DependentUpon>Materias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Materias.aspx.designer.cs">
+      <DependentUpon>Materias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Personas.aspx.cs">
       <DependentUpon>Personas.aspx</DependentUpon>
