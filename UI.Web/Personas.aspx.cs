@@ -65,7 +65,7 @@ namespace UI.Web
             txtApellido.Text = persona.Apellido;
             txtDireccion.Text = persona.Direccion;
             txtTelefono.Text = persona.Telefono;
-            txtFechaNacimiento.Text = persona.FechaNacimiento.ToString();
+            txtFechaNacimiento.Text = persona.FechaNacimiento.ToString("dd/MM/yyyy");
             ddlIDPlan.Text = persona.IDPlan.ToString();
         }
         private void EnableForm(bool enable)

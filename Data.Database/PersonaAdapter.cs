@@ -1,12 +1,8 @@
-﻿using Business.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using static Business.Entities.Persona;
+using Business.Entities;
 
 namespace Data.Database
 {
@@ -30,7 +26,7 @@ namespace Data.Database
                     per.Telefono = (string)drPersona["telefono"];
                     per.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
                     per.Legajo = (int)drPersona["legajo"];
-                    per.TipoPersona = (TiposPersonas)drPersona["tipo_persona"];
+                    per.TipoPersona = (Persona.TiposPersonas)drPersona["tipo_persona"];
                     per.IDPlan = (int)drPersona["id_plan"];
                     personas.Add(per);
                 }
@@ -66,7 +62,7 @@ namespace Data.Database
                     per.Telefono = (string)drPersona["telefono"];
                     per.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
                     per.Legajo = (int)drPersona["legajo"];
-                    per.TipoPersona = (TiposPersonas)drPersona["tipo_persona"];
+                    per.TipoPersona = (Persona.TiposPersonas)drPersona["tipo_persona"];
                     per.IDPlan = (int)drPersona["id_plan"];
                 }
                 drPersona.Close();
@@ -107,9 +103,9 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("UPDATE personas SET nombre = @nombre, apellido = @apellido, id_plan=@id_plan" +
-                                                    "direccion = @direccion, telefono=@telefono, fecha_nac=@fecha_nac " +
-                                                    "legajo=@legajo, tipo_persona=@tipo_persona" +
+                SqlCommand cmdSave = new SqlCommand("UPDATE personas SET nombre = @nombre, apellido = @apellido, id_plan=@id_plan, " +
+                                                    "direccion = @direccion, telefono=@telefono, fecha_nac=@fecha_nac, " +
+                                                    "legajo=@legajo, tipo_persona=@tipo_persona " +
                                                    "WHERE id_persona=@id", sqlConnection);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = persona.ID;
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
