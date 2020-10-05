@@ -30,7 +30,7 @@
     <asp:Label ID="lblAño" runat="server" Text="Año"></asp:Label>
     <asp:TextBox ID="txtAño" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtAño" ErrorMessage="Año no puede estar vacío" ForeColor="Red">*</asp:RequiredFieldValidator>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtAño" ErrorMessage="Año no valido" ForeColor="Red" ValidationExpression="^[0-9]+$"></asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtAño" ErrorMessage="Año no valido" ForeColor="Red" ValidationExpression="^[0-9]+$">*</asp:RegularExpressionValidator>
     <br />
     <asp:Label ID="lblIDPlan" runat="server" Text="ID Plan"></asp:Label>
     <asp:DropDownList ID="ddlID" runat="server">

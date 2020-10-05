@@ -22,19 +22,23 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
     <asp:Panel ID="formPanel" runat="server" Visible="False" Height="232px">
-        <asp:Label ID="lblIDAlumno0" runat="server" Text="ID Persona"></asp:Label>
+        <asp:Label ID="lblIDAlumno0" runat="server" Text="ID Alumno"></asp:Label>
         <asp:DropDownList ID="ddlIDAlumno" runat="server" AutoPostBack="true">
         </asp:DropDownList>
         <br />
-        <asp:Label ID="lblIDCurso" runat="server" Text="ID Persona"></asp:Label>
+        <asp:Label ID="lblIDCurso" runat="server" Text="ID Curso"></asp:Label>
         <asp:DropDownList ID="ddlIDCurso" runat="server" AutoPostBack="true">
         </asp:DropDownList>
         <br />
         <asp:Label ID="lblCondicion" runat="server" Text="Condicion"></asp:Label>
         <asp:TextBox ID="txtCondicion" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtCondicion" ErrorMessage="Campo no puede estar vacio" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="Label2" runat="server" Text="Nota"></asp:Label>
         <asp:TextBox ID="txtNota" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtNota" ErrorMessage="Campo no puede estar vacio" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNota" ErrorMessage="Nota no valida" ForeColor="Red" ValidationExpression="^[0-9]+$" ValidationGroup="vg">*</asp:RegularExpressionValidator>
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="vg" />
         <br />
         <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" ValidationGroup="vg" />
         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
