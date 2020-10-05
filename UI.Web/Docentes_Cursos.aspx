@@ -21,7 +21,7 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
     </asp:Panel>
-    <asp:Panel ID="formPanel" runat="server" Height="91px">
+    <asp:Panel ID="formPanel" runat="server" Height="91px" Visible="False">
         <asp:Label ID="lblIDDocente" runat="server" Text="ID Docente"></asp:Label>
         <asp:DropDownList ID="ddlIDDocente" runat="server">
         </asp:DropDownList>
@@ -36,16 +36,16 @@
         <asp:DropDownList ID="ddlCargo" runat="server">
         </asp:DropDownList>
         <asp:RequiredFieldValidator ID="validCargo" runat="server" ControlToValidate="ddlCargo" ErrorMessage="El cargo no puede estar vacío" ForeColor="Red" ValidationGroup="vgDocentesCursos">*</asp:RequiredFieldValidator>
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="vgDocentesCursos" />
-        <asp:Panel ID="gridActionsPanel" runat="server" style="margin-top: 0px">
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="vgDocentesCursos" />   
+    </asp:Panel>
+    <asp:Panel ID="gridActionsPanel" runat="server" style="margin-top: 0px">
             <asp:Button ID="btnEditar" runat="server" OnClick="btnEditar_Click" Text="Editar" />
             <asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
             <asp:Button ID="btnNuevo" runat="server" OnClick="btnNuevo_Click" Text="Nuevo" />
-            <asp:Panel ID="formActionsPanel" runat="server">
+        </asp:Panel>
+    <asp:Panel ID="formActionsPanel" runat="server">
                 <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" />
                 <asp:Button ID="btnCancelar" runat="server" OnClick="btnCancelar_Click" Text="Cancelar" />
             </asp:Panel>
-        </asp:Panel>
-    </asp:Panel>
 </asp:Content>
 

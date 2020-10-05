@@ -127,6 +127,14 @@ namespace UI.Web
             txtHorasSem.Enabled = enable;
             txtHorasTot.Enabled = enable;
             ddlIDPlan.Enabled = enable;
+            ListarCBX();
+        }
+        private void ListarCBX()
+        {
+            foreach (Plan plan in new PlanLogic().GetAll())
+            {
+                ddlIDPlan.Items.Add(plan.ID.ToString());
+            }
         }
         protected void btnEliminar_Click(object sender, EventArgs e)
         {

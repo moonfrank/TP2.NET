@@ -126,6 +126,21 @@ namespace UI.Web
             ddlIDCurso.Enabled = enable;
             ddlCargo.Enabled = enable;
         }
+        private void ListarCBX()
+        {
+            foreach (Curso curso in new CursoLogic().GetAll())
+            {
+                ddlIDCurso.Items.Add(curso.ID.ToString());
+            }
+
+            var profesor = from a in new PersonaLogic().GetAll()
+                         where a.TipoPersona.ToString() == "Profesor"
+                         select a;
+            foreach (Persona persona in profesor)
+            {
+                ddlIDDocente.Items.Add(persona.ID.ToString());
+            }
+        }
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             if (this.IsEntitySelected)
