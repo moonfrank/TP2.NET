@@ -1,10 +1,6 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static Business.Entities.Persona;

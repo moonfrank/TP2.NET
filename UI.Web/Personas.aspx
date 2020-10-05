@@ -46,13 +46,14 @@
     <br />
         <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento"/>
         <asp:TextBox ID="txtFechaNacimiento" runat="server"/>
-        <asp:RequiredFieldValidator ID="vldFechaNacimiento" runat="server" ControlToValidate="txtFechaNacimiento" ErrorMessage="*" ForeColor="Red"/>
+        <asp:RequiredFieldValidator ID="vldFechaNacimiento" runat="server" ControlToValidate="txtFechaNacimiento" ErrorMessage="Formato de fecha inválido" ForeColor="Red"/>
         <asp:CompareValidator
             id="dateValidator" runat="server" 
             Type="Date"
             Operator="DataTypeCheck"
             ControlToValidate="txtFechaNacimiento" 
-            ErrorMessage="Formato de fecha inválido">
+            ErrorMessage="Formato de fecha inválido"
+            ForeColor="Red">
         </asp:CompareValidator>
     <br />
         <asp:ValidationSummary ID="vldsFormPanel" runat="server" ForeColor="Red" />
