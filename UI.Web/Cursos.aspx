@@ -27,18 +27,25 @@
         <asp:Label ID="lblMateria" runat="server" Text="ID Materia"></asp:Label>
         <asp:DropDownList ID="ddlMateria" runat="server">
         </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlMateria" ErrorMessage="Este Campo no puede estar vacio" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblComision" runat="server" Text="ID Comision"></asp:Label>
         <asp:DropDownList ID="ddlComision" runat="server">
         </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlComision" ErrorMessage="Este Campo no puede estar vacio" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblAño" runat="server" Text="Año"></asp:Label>
         <asp:TextBox ID="txtAño" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtAño" ErrorMessage="Este Campo no puede estar vacio" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtAño" ErrorMessage="Contenido no valido" ForeColor="Red" ValidationExpression="^[1-9]+$" ValidationGroup="vg">*</asp:RegularExpressionValidator>
         <br />
         <asp:Label ID="lblCupo" runat="server" Text="Cupo"></asp:Label>
         <asp:TextBox ID="txtCupo" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtCupo" ErrorMessage="Este Campo no puede estar vacio" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCupo" ErrorMessage="Contenido no valido" ForeColor="Red" ValidationExpression="^[1-9]+$" ValidationGroup="vg">*</asp:RegularExpressionValidator>
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="vg" />
     <br />
-    <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" />
+    <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" ValidationGroup="vg" />
     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CausesValidation="False" />
     </asp:Panel>
     <asp:Panel ID="panelActions" runat="server">

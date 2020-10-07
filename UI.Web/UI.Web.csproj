@@ -78,6 +78,7 @@
     <Content Include="Materias.aspx" />
     <Content Include="Personas.aspx" />
     <Content Include="Planes.aspx" />
+    <Content Include="CSS\Style.css" />
     <Content Include="Usuarios.aspx" />
   </ItemGroup>
   <ItemGroup>
