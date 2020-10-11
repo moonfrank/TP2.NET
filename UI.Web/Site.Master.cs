@@ -22,10 +22,33 @@ namespace UI.Web
             {
                 case "Alumno":
                     if (menuitem != null)
+                    {
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Planes"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Comisiones"));
+                        //menuitem.ChildItems.Remove(menu.FindItem(@"Home\Docentes_Cursos")); da error
+                        //menuitem.ChildItems.Remove(menu.FindItem(@"Home\Alumnos_Inscripciones")); da error
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Especialidades"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Materias"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Usuarios"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Personas"));
+                    }                        
                     else throw new Exception();
                     break;
-                default:
+                case "Profesor":
+                    if (menuitem != null)
+                    {
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Planes"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Comisiones"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Especialidades"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Materias"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Usuarios"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Personas"));
+                    }
+                    else throw new Exception();
+                    break;
+                case "Admin":
+                    if (menuitem != null) { }
+                    else throw new Exception();
                     break;
             }
                 
