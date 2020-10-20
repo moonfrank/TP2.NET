@@ -67,10 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Alumno_Incripciones.aspx" />
+    <Content Include="AlumnoInscripciones.aspx" />
     <Content Include="Comisiones.aspx" />
     <Content Include="Cursos.aspx" />
-    <Content Include="Docentes_Cursos.aspx" />
+    <Content Include="DocentesCursos.aspx" />
     <Content Include="Especialidades.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Global.asax" />
@@ -82,12 +82,12 @@
     <Content Include="Usuarios.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alumno_Incripciones.aspx.cs">
-      <DependentUpon>Alumno_Incripciones.aspx</DependentUpon>
+    <Compile Include="AlumnoInscripciones.aspx.cs">
+      <DependentUpon>AlumnoInscripciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Alumno_Incripciones.aspx.designer.cs">
-      <DependentUpon>Alumno_Incripciones.aspx</DependentUpon>
+    <Compile Include="AlumnoInscripciones.aspx.designer.cs">
+      <DependentUpon>AlumnoInscripciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Comisiones.aspx.cs">
       <DependentUpon>Comisiones.aspx</DependentUpon>
@@ -103,12 +103,12 @@
     <Compile Include="Cursos.aspx.designer.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Docentes_Cursos.aspx.cs">
-      <DependentUpon>Docentes_Cursos.aspx</DependentUpon>
+    <Compile Include="DocentesCursos.aspx.cs">
+      <DependentUpon>DocentesCursos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Docentes_Cursos.aspx.designer.cs">
-      <DependentUpon>Docentes_Cursos.aspx</DependentUpon>
+    <Compile Include="DocentesCursos.aspx.designer.cs">
+      <DependentUpon>DocentesCursos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Especialidades.aspx.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>

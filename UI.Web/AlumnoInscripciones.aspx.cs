@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace UI.Web
 {
-    public partial class Alumno_Incripciones : System.Web.UI.Page
+    public partial class Alumno_Inscripciones : System.Web.UI.Page
     {
         public enum FormModes
         {

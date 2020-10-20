@@ -18,6 +18,7 @@ namespace UI.Web
             
             var menuitem = menu.FindItem(@"Home");
 
+
             switch (Session["Persona"].ToString())
             {
                 case "Alumno":
@@ -25,8 +26,8 @@ namespace UI.Web
                     {
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Planes"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Comisiones"));
-                        //menuitem.ChildItems.Remove(menu.FindItem(@"Home\Docentes_Cursos")); da error
-                        //menuitem.ChildItems.Remove(menu.FindItem(@"Home\Alumnos_Inscripciones")); da error
+                        // menuitem.ChildItems.Remove(menu.FindItem(@"Home\DocentesCursos")); // da error
+                        // menuitem.ChildItems.Remove(menu.FindItem(@"Home\AlumnosInscripciones")); // da error
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Especialidades"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Materias"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Usuarios"));

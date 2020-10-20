@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Docentes_Cursos.aspx.cs" Inherits="UI.Web.Docentes_Cursos" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DocentesCursos.aspx.cs" Inherits="UI.Web.Docentes_Cursos" %>
 <asp:Content ID="Content1" runat="server" contentplaceholderid="bodyContentPlaceHolder">
     <asp:Panel ID="gridPanel" runat="server" Height="177px">
         <asp:GridView ID="GridView" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView_SelectedIndexChanged">
