@@ -74,6 +74,38 @@ namespace Data.Database
             return DocenteCurso;
         }
 
+        public List<DocenteCurso> GetAllByDocente(int id)
+        {
+            List<DocenteCurso> DocentesCursos = new List<DocenteCurso>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdDocenteCurso = new SqlCommand("select * from docentes_cursos where id_docente=@id", sqlConnection);
+                cmdDocenteCurso.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlDataReader drDocenteCurso = cmdDocenteCurso.ExecuteReader();
+                while (drDocenteCurso.Read())
+                {
+                    DocenteCurso DocenteCurso = new DocenteCurso();
+                    DocenteCurso.ID = (int)drDocenteCurso["id_dictado"];
+                    DocenteCurso.IDCurso = (int)drDocenteCurso["id_curso"];
+                    DocenteCurso.IDDocente = (int)drDocenteCurso["id_docente"];
+                    DocenteCurso.Cargo = (TiposCargos)drDocenteCurso["cargo"];
+                    DocentesCursos.Add(DocenteCurso);
+                }
+                drDocenteCurso.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return DocentesCursos;
+        }
+
         public void Delete(int ID)
         {
             try

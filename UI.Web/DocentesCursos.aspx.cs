@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
 
@@ -13,20 +9,22 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { LoadGrid(); }
+            if (!IsPostBack) LoadGrid();
         }
         DocenteCursoLogic _logic;
         private DocenteCursoLogic Logic
         {
             get
             {
-                if (_logic == null) { _logic = new DocenteCursoLogic(); }
+                if (_logic == null) _logic = new DocenteCursoLogic();
                 return _logic;
             }
         }
         private void LoadGrid()
         {
-            this.GridView.DataSource = this.Logic.GetAll();
+            if (Session["Persona"].ToString() == "Profesor") this.Logic.GetAllByDocente(int.Parse(Session["IDPersona"].ToString()));
+
+            else this.GridView.DataSource = this.Logic.GetAll();
             this.GridView.DataBind();
         }
         public enum FormModes
@@ -40,10 +38,7 @@ namespace UI.Web
             get { return (FormModes)this.ViewState["FormMode"]; }
             set { this.ViewState["FormMode"] = value; }
         }
-        private DocenteCurso Entity
-        {
-            get; set;
-        }
+        private DocenteCurso Entity { get; set; }
         private int SelectedID
         {
             get
@@ -73,15 +68,21 @@ namespace UI.Web
             this.ddlCargo.SelectedValue = this.Entity.Cargo.ToString();
             this.ddlIDCurso.SelectedValue = this.Entity.IDCurso.ToString();
             this.ddlIDDocente.SelectedValue = this.Entity.IDDocente.ToString();
+            this.ListarDocentes();
         }
-        protected void btnEditar_Click(object sender, EventArgs e)
+        private void ListarDocentes()
         {
-            if (this.IsEntitySelected)
+            foreach (Curso curso in new CursoLogic().GetAll())
             {
-                this.EnableForm(true);
-                this.formPanel.Visible = true;
-                this.FormMode = FormModes.Modificacion;
-                this.LoadForm(SelectedID);
+                ddlIDCurso.Items.Add(curso.ID.ToString());
+            }
+
+            var profesor = from a in new PersonaLogic().GetAll()
+                           where a.TipoPersona.ToString() == "Profesor"
+                           select a;
+            foreach (Persona persona in profesor)
+            {
+                ddlIDDocente.Items.Add(persona.ID.ToString());
             }
         }
         private void LoadEntity(DocenteCurso docenteCurso)
@@ -95,7 +96,49 @@ namespace UI.Web
         {
             this.Logic.Save(docenteCurso);  
         }
-
+        private void DeleteEntity(int id)
+        {
+            this.Logic.Delete(SelectedID);
+        }
+        private void EnableForm(bool enable)
+        {
+            ddlIDDocente.Enabled = enable;
+            ddlIDCurso.Enabled = enable;
+            ddlCargo.Enabled = enable;
+        }
+        private void ClearForm()
+        {
+            this.ddlCargo.SelectedValue = string.Empty;
+            this.ddlIDCurso.SelectedValue = string.Empty;
+            this.ddlIDDocente.SelectedValue = string.Empty;
+        }
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            this.formPanel.Visible = true;
+            this.FormMode = FormModes.Alta;
+            this.ClearForm(); // limpia los controles
+            this.EnableForm(true);
+        }
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (this.IsEntitySelected)
+            {
+                this.EnableForm(true);
+                this.formPanel.Visible = true;
+                this.FormMode = FormModes.Modificacion;
+                this.LoadForm(SelectedID);
+            }
+        }
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (this.IsEntitySelected)
+            {
+                this.formPanel.Visible = false;
+                this.FormMode = FormModes.Baja;
+                this.EnableForm(false);
+                this.LoadForm(this.SelectedID);
+            }
+        }
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
             switch (this.FormMode)
@@ -119,54 +162,6 @@ namespace UI.Web
                     break;
             }
             this.formPanel.Visible = false;
-        }
-        private void EnableForm(bool enable)
-        {
-            ddlIDDocente.Enabled = enable;
-            ddlIDCurso.Enabled = enable;
-            ddlCargo.Enabled = enable;
-        }
-        private void ListarCBX()
-        {
-            foreach (Curso curso in new CursoLogic().GetAll())
-            {
-                ddlIDCurso.Items.Add(curso.ID.ToString());
-            }
-
-            var profesor = from a in new PersonaLogic().GetAll()
-                         where a.TipoPersona.ToString() == "Profesor"
-                         select a;
-            foreach (Persona persona in profesor)
-            {
-                ddlIDDocente.Items.Add(persona.ID.ToString());
-            }
-        }
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (this.IsEntitySelected)
-            {
-                this.formPanel.Visible = false;
-                this.FormMode = FormModes.Baja;
-                this.EnableForm(false);
-                this.LoadForm(this.SelectedID);
-            }
-        }
-        private void DeleteEntity(int id)
-        {
-            this.Logic.Delete(SelectedID);
-        }
-        protected void btnNuevo_Click(object sender, EventArgs e)
-        {
-            this.formPanel.Visible = true;
-            this.FormMode = FormModes.Alta;
-            this.ClearForm(); // limpia los controles
-            this.EnableForm(true);
-        }
-        private void ClearForm()
-        {
-            this.ddlCargo.SelectedValue = string.Empty;
-            this.ddlIDCurso.SelectedValue = string.Empty;
-            this.ddlIDDocente.SelectedValue = string.Empty;
         }
         protected void btnCancelar_Click(object sender, EventArgs e)
         {

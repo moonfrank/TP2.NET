@@ -30,7 +30,9 @@ namespace UI.Web
         }
 
         protected void ManejoSession(Usuario usu)
-        {           
+        {
+            Session["ID"] = usu.ID;
+            Session["IDPersona"] = usu.IDPersona;
             switch (new PersonaLogic().GetOne(usu.IDPersona).TipoPersona)
             {
                 case TiposPersonas.Alumno: 
