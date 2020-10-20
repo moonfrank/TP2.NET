@@ -26,8 +26,8 @@ namespace UI.Web
                     {
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Planes"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Comisiones"));
-                        // menuitem.ChildItems.Remove(menu.FindItem(@"Home\DocentesCursos")); // da error
-                        // menuitem.ChildItems.Remove(menu.FindItem(@"Home\AlumnosInscripciones")); // da error
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Docentes Cursos"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Alumnos Inscripciones"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Especialidades"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Materias"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Usuarios"));

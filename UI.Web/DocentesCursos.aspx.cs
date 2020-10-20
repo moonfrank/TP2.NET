@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Docentes_Cursos : System.Web.UI.Page
+    public partial class DocentesCursos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

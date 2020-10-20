@@ -8,7 +8,7 @@
     <siteMapNode url="Comisiones.aspx" title="Comisiones"  roles="Ad" />
     <siteMapNode url="Especialidades.aspx" title="Especialidades"  roles="Ad" />
     <siteMapNode url="Cursos.aspx" title="Cursos"  roles="Ad" />
-    <siteMapNode url="AlumnosInscripciones.aspx" title="Alumno Inscripciones"  roles="Ad" />
+    <siteMapNode url="AlumnosInscripciones.aspx" title="Alumnos Inscripciones"  roles="Ad" />
     <siteMapNode url="Materias.aspx" title="Materias"  roles="Ad" />
     <siteMapNode url="DocentesCursos.aspx" title="Docentes Cursos"  roles="Ad" />
   </siteMapNode>

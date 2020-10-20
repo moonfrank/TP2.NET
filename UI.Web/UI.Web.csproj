@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AlumnoInscripciones.aspx" />
+    <Content Include="AlumnosInscripciones.aspx" />
     <Content Include="Comisiones.aspx" />
     <Content Include="Cursos.aspx" />
     <Content Include="DocentesCursos.aspx" />
@@ -82,12 +82,12 @@
     <Content Include="Usuarios.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlumnoInscripciones.aspx.cs">
-      <DependentUpon>AlumnoInscripciones.aspx</DependentUpon>
+    <Compile Include="AlumnosInscripciones.aspx.cs">
+      <DependentUpon>AlumnosInscripciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AlumnoInscripciones.aspx.designer.cs">
-      <DependentUpon>AlumnoInscripciones.aspx</DependentUpon>
+    <Compile Include="AlumnosInscripciones.aspx.designer.cs">
+      <DependentUpon>AlumnosInscripciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Comisiones.aspx.cs">
       <DependentUpon>Comisiones.aspx</DependentUpon>
