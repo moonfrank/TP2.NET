@@ -22,8 +22,8 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
-            if (Session["Persona"].ToString() == "Profesor") this.Logic.GetAllByDocente(int.Parse(Session["IDPersona"].ToString()));
-
+            if (Session["Persona"].ToString() == "Profesor")
+                this.Logic.GetAllByDocente(int.Parse(Session["IDPersona"].ToString()));
             else this.GridView.DataSource = this.Logic.GetAll();
             this.GridView.DataBind();
         }
