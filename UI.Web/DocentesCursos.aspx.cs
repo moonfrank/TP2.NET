@@ -23,7 +23,10 @@ namespace UI.Web
         private void LoadGrid()
         {
             if (Session["Persona"].ToString() == "Profesor")
-                this.Logic.GetAllByDocente(int.Parse(Session["IDPersona"].ToString()));
+            {
+                this.GridView.DataSource = this.Logic.GetAllByDocente(int.Parse(Session["IDPersona"].ToString()));
+                this.gridActionsPanel.Visible = false;
+            }
             else this.GridView.DataSource = this.Logic.GetAll();
             this.GridView.DataBind();
         }
@@ -65,10 +68,11 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
+            this.ListarDocentes();
             this.ddlCargo.SelectedValue = this.Entity.Cargo.ToString();
             this.ddlIDCurso.SelectedValue = this.Entity.IDCurso.ToString();
             this.ddlIDDocente.SelectedValue = this.Entity.IDDocente.ToString();
-            this.ListarDocentes();
+
         }
         private void ListarDocentes()
         {
@@ -77,17 +81,17 @@ namespace UI.Web
                 ddlIDCurso.Items.Add(curso.ID.ToString());
             }
 
-            var profesor = from a in new PersonaLogic().GetAll()
-                           where a.TipoPersona.ToString() == "Profesor"
+            var profesores = from a in new PersonaLogic().GetAll()
+                           where (int)a.TipoPersona == 1
                            select a;
-            foreach (Persona persona in profesor)
+            foreach (Persona persona in profesores)
             {
                 ddlIDDocente.Items.Add(persona.ID.ToString());
             }
         }
         private void LoadEntity(DocenteCurso docenteCurso)
         {
-            Enum.TryParse<DocenteCurso.TiposCargos>(this.ddlCargo.SelectedValue.ToString(), out DocenteCurso.TiposCargos tipoCargo);
+            Enum.TryParse(this.ddlCargo.SelectedValue.ToString(), out DocenteCurso.TiposCargos tipoCargo);
             docenteCurso.Cargo = tipoCargo; 
             docenteCurso.IDCurso = int.Parse(this.ddlIDCurso.SelectedValue);
             docenteCurso.IDDocente = int.Parse(this.ddlIDDocente.SelectedValue);
@@ -105,6 +109,8 @@ namespace UI.Web
             ddlIDDocente.Enabled = enable;
             ddlIDCurso.Enabled = enable;
             ddlCargo.Enabled = enable;
+            this.formPanel.Visible = enable;
+            this.formActionsPanel.Visible = enable;
         }
         private void ClearForm()
         {
@@ -116,7 +122,9 @@ namespace UI.Web
         {
             this.formPanel.Visible = true;
             this.FormMode = FormModes.Alta;
+
             this.ClearForm(); // limpia los controles
+            this.ListarDocentes();
             this.EnableForm(true);
         }
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -162,10 +170,12 @@ namespace UI.Web
                     break;
             }
             this.formPanel.Visible = false;
+            this.formActionsPanel.Visible = false;
         }
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            formPanel.Visible = true;
+            formPanel.Visible = false;
+            formActionsPanel.Visible = false;
         }
     }
 }

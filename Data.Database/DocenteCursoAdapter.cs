@@ -157,9 +157,9 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("INSERT INTO docentes_cursos(id_curso,id_docente,cargo) " +
                                                     " VALUES (@id_curso,@id_docente,@cargo) select @@identity", sqlConnection);
-                cmdSave.Parameters.Add("@id_comision", SqlDbType.Int).Value = DocenteCurso.IDCurso;
-                cmdSave.Parameters.Add("@anio_calendario", SqlDbType.Int).Value = DocenteCurso.IDDocente;
-                cmdSave.Parameters.Add("@cupo", SqlDbType.Int).Value = DocenteCurso.Cargo;
+                cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = DocenteCurso.IDCurso;
+                cmdSave.Parameters.Add("@id_docente", SqlDbType.Int).Value = DocenteCurso.IDDocente;
+                cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = DocenteCurso.Cargo;
                 DocenteCurso.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
             }
             catch (Exception Ex)

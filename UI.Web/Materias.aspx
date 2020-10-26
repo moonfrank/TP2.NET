@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="bodyContentPlaceHolder">
     <asp:Panel ID="Panel1" runat="server" Height="216px">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="grdMaterias" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdMaterias_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
@@ -48,7 +48,7 @@
         <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
     </asp:Panel>
-    <asp:Panel ID="formActionsPanel" runat="server">
+    <asp:Panel ID="formActionsPanel" runat="server" Visible="false">
         <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" ValidateRequestMode="Enabled" ValidationGroup="grupo" />
         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
     </asp:Panel>

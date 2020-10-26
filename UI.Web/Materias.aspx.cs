@@ -21,8 +21,12 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
-            this.GridView1.DataSource = this.Logic.GetAll();
-            this.GridView1.DataBind();
+            if (Session["Persona"].ToString() != "Admin")
+            {
+                this.gridActionsPanel.Visible = false;
+            }
+            this.grdMaterias.DataSource = this.Logic.GetAll();
+            this.grdMaterias.DataBind();
         }
         public enum FormModes
         {
@@ -59,9 +63,9 @@ namespace UI.Web
             }
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void grdMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SelectedID = (int)this.GridView1.SelectedValue;
+            this.SelectedID = (int)this.grdMaterias.SelectedValue;
         }
         private void LoadForm(int id)
         {
@@ -117,6 +121,7 @@ namespace UI.Web
                     break;
             }
             this.formPanel.Visible = false;
+            this.gridActionsPanel.Visible = false;
         }
         private void EnableForm(bool enable)
         {
@@ -163,7 +168,8 @@ namespace UI.Web
         }
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.formPanel.Visible = true;
+            this.formPanel.Visible = false;
+            this.gridActionsPanel.Visible = false;
         }
     }
 }

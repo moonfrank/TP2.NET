@@ -43,7 +43,7 @@
             <asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
             <asp:Button ID="btnNuevo" runat="server" OnClick="btnNuevo_Click" Text="Nuevo" />
         </asp:Panel>
-    <asp:Panel ID="formActionsPanel" runat="server">
+    <asp:Panel ID="formActionsPanel" runat="server" Visible="false">
                 <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" />
                 <asp:Button ID="btnCancelar" runat="server" OnClick="btnCancelar_Click" Text="Cancelar" />
             </asp:Panel>

@@ -5,7 +5,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Especialidades : System.Web.UI.Page
+    public partial class Especialidades : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +26,10 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
+            if (Session["Persona"].ToString() == "Profesor")
+            {
+                this.gridActionsPanel.Visible = false;
+            }
             this.grdEspecialidades.DataSource = this.Logic.GetAll();
             this.grdEspecialidades.DataBind();
         }
