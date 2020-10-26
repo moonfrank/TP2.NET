@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace UI.Web
 {
@@ -10,7 +11,6 @@ namespace UI.Web
             menu.DataBind();
             
             var menuitem = menu.FindItem(@"Home");
-
 
             switch (Session["Persona"].ToString())
             {
@@ -24,7 +24,7 @@ namespace UI.Web
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Especialidades"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Usuarios"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Personas"));
-                    }                        
+                    }
                     else throw new Exception();
                     break;
                 case "Profesor":
@@ -41,7 +41,6 @@ namespace UI.Web
                     else throw new Exception();
                     break;
             }
-                
         }
     }
 }

@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Web.UI;
 using Business.Entities;
 using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Materias : System.Web.UI.Page
+    public partial class Materias : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { LoadGrid(); }
+            if (Session.SessionID != null) Response.Redirect("Login.aspx");
+            else if (!IsPostBack) LoadGrid();
         }
         MateriaLogic _logic;
         private MateriaLogic Logic
