@@ -25,6 +25,12 @@ namespace UI.Desktop
         {
             formLogin appLogin = new formLogin();
             if (appLogin.ShowDialog() != DialogResult.OK) this.Dispose();
+            if (session.tipoPersona.ToString() != "Admin")
+            {
+                this.mnuEspecialidades.Enabled = false;
+                this.mnuPersonas.Enabled = false;
+                this.mnuPlanes.Enabled = false;
+            }
         }
 
         private void mnuUsuarios_Click(object sender, EventArgs e)

@@ -34,7 +34,6 @@
             this.btnIngresar = new System.Windows.Forms.Button();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
-            this.linkOlvidaPass = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -90,24 +89,12 @@
             this.txtPass.Size = new System.Drawing.Size(140, 20);
             this.txtPass.TabIndex = 5;
             // 
-            // linkOlvidaPass
-            // 
-            this.linkOlvidaPass.AutoSize = true;
-            this.linkOlvidaPass.Location = new System.Drawing.Point(12, 242);
-            this.linkOlvidaPass.Name = "linkOlvidaPass";
-            this.linkOlvidaPass.Size = new System.Drawing.Size(106, 13);
-            this.linkOlvidaPass.TabIndex = 6;
-            this.linkOlvidaPass.TabStop = true;
-            this.linkOlvidaPass.Text = "Olvidé mi contraseña";
-            this.linkOlvidaPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkOlvidaPass_LinkClicked);
-            // 
             // formLogin
             // 
             this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 265);
-            this.Controls.Add(this.linkOlvidaPass);
+            this.ClientSize = new System.Drawing.Size(310, 223);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnIngresar);
@@ -133,6 +120,5 @@
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.LinkLabel linkOlvidaPass;
     }
 }

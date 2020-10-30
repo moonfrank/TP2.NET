@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
@@ -21,10 +14,13 @@ namespace UI.Desktop
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            session = null;
             Usuario usr = new UsuarioLogic().GetOne(txtUsuario.Text, txtPass.Text);
-            if (usr.Nombre!=null)
+            Persona.TiposPersonas tipoPersona = new PersonaLogic().GetOne(usr.IDPersona).TipoPersona;
+            if (usr.Nombre != null)
             {
-                MessageBox.Show("Bienvienido "+usr.Nombre+' '+usr.Apellido+'!',
+                session = new Session(usr.ID, usr.IDPersona, tipoPersona);
+                MessageBox.Show("Bienvienido " + usr.Nombre + ' ' + usr.Apellido + '!',
                                 "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
             }
@@ -33,12 +29,6 @@ namespace UI.Desktop
                 MessageBox.Show("Usuario y/o contraseña incorrectos.",
                                 "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void linkOlvidaPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MessageBox.Show("Qué macana, che...",
-                               "Olvidé mi contraseña", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

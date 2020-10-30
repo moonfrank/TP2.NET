@@ -160,6 +160,7 @@
     <Compile Include="Plan\PlanDesktop.Designer.cs">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Session.cs" />
     <Compile Include="Usuario\formListaUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -12,6 +12,7 @@ namespace UI.Desktop
 {
     public partial class ApplicationForm : Form
     {
+        public static Session session;
         public enum ModoForm
         {
             Alta,

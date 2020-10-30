@@ -35,7 +35,6 @@ namespace UI.Web
                 this.GridView.DataSource = from docentecurso in getall
                                            where docentecurso.IDDocente == int.Parse(Session["IDPersona"].ToString())
                                            select docentecurso;
-                // this.GridView.DataSource = this.Logic.GetAllByDocente(int.Parse(Session["IDPersona"].ToString()));
                 this.gridActionsPanel.Visible = false;
             }
             else this.GridView.DataSource = getall;
