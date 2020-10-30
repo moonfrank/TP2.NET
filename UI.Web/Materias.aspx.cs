@@ -131,9 +131,9 @@ namespace UI.Web
             txtHorasSem.Enabled = enable;
             txtHorasTot.Enabled = enable;
             ddlIDPlan.Enabled = enable;
-            ListarCBX();
+            ListarIDPlanes();
         }
-        private void ListarCBX()
+        private void ListarIDPlanes()
         {
             foreach (Plan plan in new PlanLogic().GetAll())
             {

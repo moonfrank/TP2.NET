@@ -9,7 +9,13 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) LoadGrid();
+            if (Session.SessionID != null)
+            {
+                if (Session["Persona"].ToString() != "Alumno" && !Page.IsPostBack)
+                    LoadGrid();
+                else Response.Redirect("Home.aspx");
+            }
+            else Response.Redirect("Login.aspx");
         }
         DocenteCursoLogic _logic;
         private DocenteCursoLogic Logic

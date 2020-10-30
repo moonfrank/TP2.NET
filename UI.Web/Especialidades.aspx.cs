@@ -9,7 +9,13 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) LoadGrid();
+            if (Session.SessionID != null)
+            {
+                if (Session["Persona"].ToString() == "Admin" && !Page.IsPostBack)
+                    LoadGrid();
+                else Response.Redirect("Home.aspx");
+            }
+            else Response.Redirect("Login.aspx");
         }
         EspecialidadLogic _logic;
         private EspecialidadLogic Logic
