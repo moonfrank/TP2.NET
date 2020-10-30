@@ -63,14 +63,14 @@ namespace UI.Web
             Curso Curso = new CursoLogic().GetOne(ID);
             ddlMateria.Text = Curso.IDMateria.ToString();
             ddlComision.Text = Curso.IDComision.ToString();
-            txtAño.Text = Curso.AnioCalendario.ToString();
+            ddlAño.Text = Curso.AnioCalendario.ToString();
             txtCupo.Text = Curso.Cupo.ToString();
         }
         private void EnableForm(bool enable)
         {
             ddlMateria.Enabled = enable;
             ddlComision.Enabled = enable;
-            txtAño.Enabled = enable;
+            ddlAño.Enabled = enable;
             txtCupo.Enabled = enable;
             ListarCBX();
         }
@@ -84,13 +84,18 @@ namespace UI.Web
             {
                 ddlComision.Items.Add(comision.ID.ToString());
             }
+            List<int> años = Enumerable.Range(1950, DateTime.UtcNow.AddYears(5).Year - 1949).ToList();
+            foreach (int año in años)
+            {
+                ddlAño.Items.Add(año.ToString());
+            }
         }
         private void ClearForm()
         {
             ddlComision.DataSource = string.Empty;
             ddlMateria.DataSource = string.Empty;
             this.txtCupo.Text = string.Empty;
-            this.txtAño.Text = string.Empty;
+            this.ddlAño.Text = string.Empty;
         }
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -100,7 +105,7 @@ namespace UI.Web
         {
             curso.IDMateria = Convert.ToInt32(ddlMateria.SelectedValue);
             curso.IDComision = Convert.ToInt32(ddlComision.SelectedValue);
-            curso.AnioCalendario = int.Parse(txtAño.Text);
+            curso.AnioCalendario = int.Parse(ddlAño.Text);
             curso.Cupo = int.Parse(txtCupo.Text);
         }
         private void SaveEntity(Curso curso)

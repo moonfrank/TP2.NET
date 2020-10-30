@@ -150,8 +150,31 @@ namespace UI.Desktop
         {
             if (Validar())
             {
-                GuardarCambios();
-                this.Close();
+                if (cbxIDAlumno.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor seleccionar un alumno!"); return;
+                }
+                else if (cbxIDCurso.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor seleccionar un curso!"); return;
+                }
+                else if (string.IsNullOrWhiteSpace(txtCondicion.Text))
+                {
+                    MessageBox.Show("Por favor especificar la condición!"); return;
+                }
+                else if (string.IsNullOrWhiteSpace(txtNota.Text))
+                {
+                    MessageBox.Show("Por favor especificar la nota!"); return;
+                }
+                else if (int.Parse(txtNota.Text)<1 || int.Parse(txtNota.Text) > 10)
+                {
+                    MessageBox.Show("La nota tiene que estar entre 1 y 10!");
+                }
+                else
+                {
+                    GuardarCambios();
+                    this.Close();
+                }
             }
         }
 

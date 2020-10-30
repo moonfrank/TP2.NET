@@ -35,9 +35,9 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlComision" ErrorMessage="Este Campo no puede estar vacio" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblAño" runat="server" Text="Año"></asp:Label>
-        <asp:TextBox ID="txtAño" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtAño" ErrorMessage="Este Campo no puede estar vacio" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtAño" ErrorMessage="Contenido no valido" ForeColor="Red" ValidationExpression="^[1-9]+$" ValidationGroup="vg">*</asp:RegularExpressionValidator>
+        <asp:DropDownList ID="ddlAño" runat="server">
+        </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlAño" ErrorMessage="Este Campo no puede estar vacio" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblCupo" runat="server" Text="Cupo"></asp:Label>
         <asp:TextBox ID="txtCupo" runat="server"></asp:TextBox>

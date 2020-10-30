@@ -142,8 +142,27 @@ namespace UI.Desktop
         {
             if (Validar())
             {
-                GuardarCambios();
-                this.Close();
+                if (cboxIDPlan.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor seleccionar un plan!"); return;
+                }
+                else if (string.IsNullOrEmpty(txtDescripcion.Text))
+                {
+                    MessageBox.Show("Por favor completar la descripción!"); return;
+                }
+                else if (string.IsNullOrEmpty(txtAnioEspecialidad.Text))
+                {
+                    MessageBox.Show("Por favor especificar un año!"); return;
+                }
+                else if (0 > int.Parse(txtAnioEspecialidad.Text) || int.Parse(txtAnioEspecialidad.Text) > 9)
+                {
+                    MessageBox.Show("El año de la especialidad no tiene que ser menor que 0 ni mayor que 9!"); return;
+                }
+                else 
+                {
+                    GuardarCambios();
+                    this.Close();
+                }
             }
         }
 

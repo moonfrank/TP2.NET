@@ -16,7 +16,7 @@ namespace UI.Desktop
     {
         public CursoDesktop()
         {
-            List<int> anios = Enumerable.Range(1950, DateTime.UtcNow.Year - 1949).ToList();
+            List<int> anios = Enumerable.Range(1950, DateTime.UtcNow.AddYears(5).Year - 1949).ToList();
             InitializeComponent();
             cboxAnioCalendario.DataSource = anios;
         }
@@ -148,8 +148,27 @@ namespace UI.Desktop
         {
             if (Validar())
             {
-                GuardarCambios();
-                this.Close();
+                if (cboxIDMateria.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor seleccionar una materia!"); return;
+                }
+                else if (cboxIDComision.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor seleccionar una comisión!"); return;
+                }
+                else if (cboxAnioCalendario.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor seleccionar un año!"); return;
+                }
+                else if (string.IsNullOrWhiteSpace(txtCupo.Text))
+                {
+                    MessageBox.Show("Por favor especificar el cupo!"); return;
+                }
+                else
+                {
+                    GuardarCambios();
+                    this.Close();
+                }
             }
         }
 
@@ -191,6 +210,6 @@ namespace UI.Desktop
                 MessageBox.Show("No se ha encontrado ninguna comision cargada", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }
-        }
+        }        
     }
 }
