@@ -26,10 +26,6 @@ namespace Business.Logic
         {
             return CursoData.GetAll();
         }
-        public List<DocenteCurso> GetAllByDocente(int id)
-        {
-            return CursoData.GetAllByDocente(id);
-        }
         public void Save(DocenteCurso DocenteCurso)
         {
             CursoData.Save(DocenteCurso);

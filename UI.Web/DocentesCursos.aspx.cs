@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Business.Entities;
 using Business.Logic;
@@ -28,12 +29,16 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
+            var getall = this.Logic.GetAll();
             if (Session["Persona"].ToString() == "Profesor")
             {
-                this.GridView.DataSource = this.Logic.GetAllByDocente(int.Parse(Session["IDPersona"].ToString()));
+                this.GridView.DataSource = from docentecurso in getall
+                                           where docentecurso.IDDocente == int.Parse(Session["IDPersona"].ToString())
+                                           select docentecurso;
+                // this.GridView.DataSource = this.Logic.GetAllByDocente(int.Parse(Session["IDPersona"].ToString()));
                 this.gridActionsPanel.Visible = false;
             }
-            else this.GridView.DataSource = this.Logic.GetAll();
+            else this.GridView.DataSource = getall;
             this.GridView.DataBind();
         }
         public enum FormModes
