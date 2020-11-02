@@ -126,17 +126,11 @@ namespace UI.Desktop
         /// <returns>Validez de datos</returns>
         public override bool Validar()
         {
-            /*
-            if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 &&
-                Regex.IsMatch(this.txtEmail.Text, expresion) && Regex.Replace(this.txtEmail.Text, expresion, string.Empty).Length == 0 &&
-            !string.IsNullOrEmpty(this.txtNombre.Text) && !string.IsNullOrEmpty(this.txtApellido.Text) && !string.IsNullOrEmpty(this.txtUsuario.Text)) return true;
-            else
-            {
+            if (!string.IsNullOrEmpty(this.txtDescripcion.Text)) return true;
+            else {
                 Notificar("Error", "Ingreso de datos inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            */
-            return true;
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {

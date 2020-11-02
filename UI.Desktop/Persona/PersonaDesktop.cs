@@ -37,7 +37,7 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             this.txtID.Text = this.PersonaActual.ID.ToString();
-            this.textNombre.Text = this.PersonaActual.Nombre.ToString();
+            this.txtNombre.Text = this.PersonaActual.Nombre.ToString();
             this.textApellido.Text = this.PersonaActual.Apellido.ToString();
             this.txtDireccion.Text = this.PersonaActual.Direccion.ToString();
             this.txtTelefono.Text = this.PersonaActual.Telefono.ToString();
@@ -76,7 +76,7 @@ namespace UI.Desktop
                 if (this.Modo == ModoForm.Alta) this.PersonaActual = new Persona();
                 else this.PersonaActual.ID = int.Parse(this.txtID.Text);
 
-                this.PersonaActual.Nombre = this.textNombre.Text;
+                this.PersonaActual.Nombre = this.txtNombre.Text;
                 this.PersonaActual.Apellido = this.textApellido.Text;
                 this.PersonaActual.Direccion = this.txtDireccion.Text;
                 this.PersonaActual.Telefono = this.txtTelefono.Text;
@@ -139,16 +139,13 @@ namespace UI.Desktop
         /// <returns>Validez de datos</returns>
         public override bool Validar()
         {
-            /*string expresion = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
-            if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 &&
-                Regex.IsMatch(this.txtHsSemanales.Text, expresion) && Regex.Replace(this.txtHsSemanales.Text, expresion, string.Empty).Length == 0 &&
-            !string.IsNullOrEmpty(this.txtDescripcion.Text) && !string.IsNullOrEmpty(this.txtApellido.Text) && !string.IsNullOrEmpty(this.txtHsTotales.Text)) return true;
-            else
-            {
+            if (!string.IsNullOrEmpty(this.txtNombre.Text) && !string.IsNullOrEmpty(this.textApellido.Text) &&
+                 !string.IsNullOrEmpty(this.txtDireccion.Text) && !string.IsNullOrEmpty(this.txtLegajo.Text) &&
+                  !string.IsNullOrEmpty(this.txtTelefono.Text)) return true;
+            else {
                 Notificar("Error", "Ingreso de datos inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }*/
-            return true;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

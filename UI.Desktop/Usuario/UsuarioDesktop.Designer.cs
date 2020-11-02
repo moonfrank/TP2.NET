@@ -239,7 +239,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEmail.Location = new System.Drawing.Point(434, 115);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(211, 20);
             this.txtEmail.TabIndex = 12;
             // 

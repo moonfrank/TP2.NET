@@ -81,7 +81,7 @@ namespace UI.Desktop
                 this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
                 this.UsuarioActual.Clave = this.txtClave.Text;
                 this.UsuarioActual.Email = this.txtEmail.Text;
-                this.cmbxIDPersona.SelectedIndex = this.UsuarioActual.IDPersona;
+                this.UsuarioActual.IDPersona = this.cmbxIDPersona.SelectedIndex;
 
 
                 switch (Modo)

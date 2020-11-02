@@ -38,7 +38,7 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.textNombre = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.textApellido = new System.Windows.Forms.TextBox();
             this.lblFechaNac = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 168F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
             this.tableLayoutPanel1.Controls.Add(this.txtDireccion, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblDireccion, 0, 1);
@@ -70,7 +70,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblNombre, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textNombre, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtNombre, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblApellido, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.textApellido, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblFechaNac, 2, 1);
@@ -97,7 +97,7 @@
             // 
             this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDireccion.Location = new System.Drawing.Point(92, 143);
+            this.txtDireccion.Location = new System.Drawing.Point(91, 143);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(171, 20);
             this.txtDireccion.TabIndex = 10;
@@ -132,7 +132,7 @@
             // lblIDPlan
             // 
             this.lblIDPlan.AutoSize = true;
-            this.lblIDPlan.Location = new System.Drawing.Point(269, 280);
+            this.lblIDPlan.Location = new System.Drawing.Point(268, 280);
             this.lblIDPlan.Name = "lblIDPlan";
             this.lblIDPlan.Size = new System.Drawing.Size(42, 13);
             this.lblIDPlan.TabIndex = 6;
@@ -142,7 +142,7 @@
             // 
             this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtID.Location = new System.Drawing.Point(92, 3);
+            this.txtID.Location = new System.Drawing.Point(91, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(171, 20);
@@ -150,7 +150,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(269, 423);
+            this.btnAceptar.Location = new System.Drawing.Point(268, 423);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 16;
@@ -161,7 +161,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(358, 423);
+            this.btnCancelar.Location = new System.Drawing.Point(356, 423);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 17;
@@ -172,23 +172,23 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(269, 0);
+            this.lblNombre.Location = new System.Drawing.Point(268, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 3;
             this.lblNombre.Text = "Nombre";
             // 
-            // textNombre
+            // txtNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(358, 3);
-            this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(100, 20);
-            this.textNombre.TabIndex = 18;
+            this.txtNombre.Location = new System.Drawing.Point(356, 3);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.TabIndex = 18;
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(535, 0);
+            this.lblApellido.Location = new System.Drawing.Point(533, 0);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 19;
@@ -196,7 +196,7 @@
             // 
             // textApellido
             // 
-            this.textApellido.Location = new System.Drawing.Point(633, 3);
+            this.textApellido.Location = new System.Drawing.Point(631, 3);
             this.textApellido.Name = "textApellido";
             this.textApellido.Size = new System.Drawing.Size(100, 20);
             this.textApellido.TabIndex = 20;
@@ -204,7 +204,7 @@
             // lblFechaNac
             // 
             this.lblFechaNac.AutoSize = true;
-            this.lblFechaNac.Location = new System.Drawing.Point(269, 140);
+            this.lblFechaNac.Location = new System.Drawing.Point(268, 140);
             this.lblFechaNac.Name = "lblFechaNac";
             this.lblFechaNac.Size = new System.Drawing.Size(60, 26);
             this.lblFechaNac.TabIndex = 21;
@@ -212,7 +212,7 @@
             // 
             // DTPFechaNac
             // 
-            this.DTPFechaNac.Location = new System.Drawing.Point(358, 143);
+            this.DTPFechaNac.Location = new System.Drawing.Point(356, 143);
             this.DTPFechaNac.MaxDate = new System.DateTime(2020, 8, 10, 0, 0, 0, 0);
             this.DTPFechaNac.Name = "DTPFechaNac";
             this.DTPFechaNac.Size = new System.Drawing.Size(171, 20);
@@ -222,7 +222,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(535, 140);
+            this.label1.Location = new System.Drawing.Point(533, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 23;
@@ -230,7 +230,7 @@
             // 
             // txtLegajo
             // 
-            this.txtLegajo.Location = new System.Drawing.Point(633, 143);
+            this.txtLegajo.Location = new System.Drawing.Point(631, 143);
             this.txtLegajo.Name = "txtLegajo";
             this.txtLegajo.Size = new System.Drawing.Size(100, 20);
             this.txtLegajo.TabIndex = 24;
@@ -238,7 +238,7 @@
             // comboBoxTipoPersona
             // 
             this.comboBoxTipoPersona.FormattingEnabled = true;
-            this.comboBoxTipoPersona.Location = new System.Drawing.Point(92, 283);
+            this.comboBoxTipoPersona.Location = new System.Drawing.Point(91, 283);
             this.comboBoxTipoPersona.Name = "comboBoxTipoPersona";
             this.comboBoxTipoPersona.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTipoPersona.TabIndex = 25;
@@ -246,7 +246,7 @@
             // comboBoxIDPlan
             // 
             this.comboBoxIDPlan.FormattingEnabled = true;
-            this.comboBoxIDPlan.Location = new System.Drawing.Point(358, 283);
+            this.comboBoxIDPlan.Location = new System.Drawing.Point(356, 283);
             this.comboBoxIDPlan.Name = "comboBoxIDPlan";
             this.comboBoxIDPlan.Size = new System.Drawing.Size(100, 21);
             this.comboBoxIDPlan.TabIndex = 26;
@@ -254,7 +254,7 @@
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(535, 280);
+            this.lblTelefono.Location = new System.Drawing.Point(533, 280);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(49, 13);
             this.lblTelefono.TabIndex = 27;
@@ -262,7 +262,7 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(633, 283);
+            this.txtTelefono.Location = new System.Drawing.Point(631, 283);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(128, 20);
             this.txtTelefono.TabIndex = 28;
@@ -294,7 +294,7 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox textNombre;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.TextBox textApellido;
         private System.Windows.Forms.Label lblFechaNac;
