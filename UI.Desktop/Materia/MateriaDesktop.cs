@@ -144,7 +144,23 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Validar())
+            if (cboxIDPlan.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor seleccionar un plan!"); return;
+            }
+            else if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Por favor especificar la descripción!"); return;
+            }
+            else if (string.IsNullOrWhiteSpace(txtHsSemanales.Text) && !int.TryParse(txtHsSemanales.Text, out int a))
+            {
+                MessageBox.Show("Por favor especificar las horas semanales!"); return;
+            }
+            else if (string.IsNullOrWhiteSpace(txtHsTotales.Text) && !int.TryParse(txtHsTotales.Text, out int b))
+            {
+                MessageBox.Show("Por favor especificar las horas semanales!"); return;
+            }
+            else
             {
                 GuardarCambios();
                 this.Close();

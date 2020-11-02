@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
@@ -125,27 +120,18 @@ namespace UI.Desktop
                 default: break;
             }
         }
-        /// <summary>
-        /// Valida datos para poder registrar los cambios realizados.
-        /// </summary>
-        /// <returns>Validez de datos</returns>
-        public override bool Validar()
-        {
-            /*string expresion = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
-            if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 &&
-                Regex.IsMatch(this.txtEmail.Text, expresion) && Regex.Replace(this.txtEmail.Text, expresion, string.Empty).Length == 0 &&
-            !string.IsNullOrEmpty(this.txtNombre.Text) && !string.IsNullOrEmpty(this.txtApellido.Text) && !string.IsNullOrEmpty(this.txtUsuario.Text)) return true;
-            else
-            {
-                Notificar("Error", "Ingreso de datos inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }*/
-            return true;
-        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Validar())
+            if (cboxIDCurso.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor seleccionar un curso!"); return;
+            }
+            else if (cboxIDDocente.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor seleccionar un docente!"); return;
+            }
+            else
             {
                 GuardarCambios();
                 this.Close();

@@ -218,7 +218,7 @@
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
-        private System.Windows.Forms.BindingSource planesBindingSource;
+        // private System.Windows.Forms.BindingSource planesBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDEspecialidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;

@@ -32,6 +32,7 @@
         <asp:Label ID="lblHorasSem" runat="server" Text="Horas Semanales"></asp:Label>
         <asp:TextBox ID="txtHorasSem" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="validHorasSem" runat="server" ControlToValidate="txtHorasSem" ErrorMessage="Las horas semanales no pueden estar vacías" ForeColor="Red" ValidationGroup="grupo">*</asp:RequiredFieldValidator>
+        
         <br />
         <asp:Label ID="lblHorasTot" runat="server" Text="Horas Totales"></asp:Label>
         <asp:TextBox ID="txtHorasTot" runat="server"></asp:TextBox>

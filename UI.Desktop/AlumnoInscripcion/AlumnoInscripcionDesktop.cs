@@ -127,19 +127,6 @@ namespace UI.Desktop
         /// Valida datos para poder registrar los cambios realizados.
         /// </summary>
         /// <returns>Validez de datos</returns>
-        public override bool Validar()
-        {
-            //string expresion = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
-            //if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 &&
-            //    Regex.IsMatch(this.txtEmail.Text, expresion) && Regex.Replace(this.txtEmail.Text, expresion, string.Empty).Length == 0 &&
-            //!string.IsNullOrEmpty(this.txtNombre.Text) && !string.IsNullOrEmpty(this.txtApellido.Text) && !string.IsNullOrEmpty(this.txtUsuario.Text)) return true;
-            //else
-            //{
-            //    Notificar("Error", "Ingreso de datos inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
-            return true;
-        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -148,33 +135,30 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Validar())
+            if (cbxIDAlumno.SelectedIndex == -1)
             {
-                if (cbxIDAlumno.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Por favor seleccionar un alumno!"); return;
-                }
-                else if (cbxIDCurso.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Por favor seleccionar un curso!"); return;
-                }
-                else if (string.IsNullOrWhiteSpace(txtCondicion.Text))
-                {
-                    MessageBox.Show("Por favor especificar la condición!"); return;
-                }
-                else if (string.IsNullOrWhiteSpace(txtNota.Text))
-                {
-                    MessageBox.Show("Por favor especificar la nota!"); return;
-                }
-                else if (int.Parse(txtNota.Text)<1 || int.Parse(txtNota.Text) > 10)
-                {
-                    MessageBox.Show("La nota tiene que estar entre 1 y 10!");
-                }
-                else
-                {
-                    GuardarCambios();
-                    this.Close();
-                }
+                MessageBox.Show("Por favor seleccionar un alumno!"); return;
+            }
+            else if (cbxIDCurso.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor seleccionar un curso!"); return;
+            }
+            else if (string.IsNullOrWhiteSpace(txtCondicion.Text))
+            {
+                MessageBox.Show("Por favor especificar la condición!"); return;
+            }
+            else if (string.IsNullOrWhiteSpace(txtNota.Text))
+            {
+                MessageBox.Show("Por favor especificar la nota!"); return;
+            }
+            else if (int.Parse(txtNota.Text)<1 || int.Parse(txtNota.Text) > 10)
+            {
+                MessageBox.Show("La nota tiene que estar entre 1 y 10!");
+            }
+            else
+            {
+                GuardarCambios();
+                this.Close();
             }
         }
 
