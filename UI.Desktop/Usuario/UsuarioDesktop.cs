@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
@@ -44,7 +37,7 @@ namespace UI.Desktop
             this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
             this.txtClave.Text = this.UsuarioActual.Clave;
             this.txtEmail.Text = this.UsuarioActual.Email;
-            this.cmbxIDPersona.SelectedIndex = this.UsuarioActual.IDPersona;
+            this.cmbxIDPersona.Text = this.UsuarioActual.IDPersona.ToString();
             switch (this.Modo)
             {
                 case ModoForm.Alta:
@@ -81,7 +74,7 @@ namespace UI.Desktop
                 this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
                 this.UsuarioActual.Clave = this.txtClave.Text;
                 this.UsuarioActual.Email = this.txtEmail.Text;
-                this.UsuarioActual.IDPersona = this.cmbxIDPersona.SelectedIndex;
+                this.UsuarioActual.IDPersona = int.Parse(this.cmbxIDPersona.Text);
 
 
                 switch (Modo)

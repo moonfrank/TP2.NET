@@ -183,7 +183,7 @@ namespace Data.Database
             }
         }
 
-        protected void Insert (Usuario usuario)
+        protected void Insert(Usuario usuario)
         {
             try
             {
