@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Business.Entities;
 using System.Data;
 using System.Data.SqlClient;
@@ -103,7 +100,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@id_dictado", SqlDbType.Int).Value = DocenteCurso.ID;
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = DocenteCurso.IDCurso;
                 cmdSave.Parameters.Add("@id_docente", SqlDbType.Int).Value = DocenteCurso.IDDocente;
-                cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = DocenteCurso.Cargo;
+                cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = (int)DocenteCurso.Cargo;
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -126,7 +123,7 @@ namespace Data.Database
                                                     " VALUES (@id_curso,@id_docente,@cargo) select @@identity", sqlConnection);
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = DocenteCurso.IDCurso;
                 cmdSave.Parameters.Add("@id_docente", SqlDbType.Int).Value = DocenteCurso.IDDocente;
-                cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = DocenteCurso.Cargo;
+                cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = (int)DocenteCurso.Cargo;
                 DocenteCurso.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
             }
             catch (Exception Ex)

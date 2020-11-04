@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using UI.Desktop.Reportes;
 
 namespace UI.Desktop
 {
@@ -82,6 +83,12 @@ namespace UI.Desktop
         {
             formListaCursos appListaCursos = new formListaCursos();
             if (appListaCursos.ShowDialog() != DialogResult.OK) appListaCursos.Dispose();
+        }
+
+        private void mnuCursosPorDocente_Click(object sender, EventArgs e)
+        {
+            formReporteCursosDocente appReporteCursos = new formReporteCursosDocente();
+            if (appReporteCursos.ShowDialog() != DialogResult.OK) appReporteCursos.Dispose();
         }
     }
 }

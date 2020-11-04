@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
+using System.Security.Cryptography;
 
 namespace UI.Desktop.Reportes
 {
@@ -22,19 +23,27 @@ namespace UI.Desktop.Reportes
         {
             // reportCursoDocente.LocalReport.ReportPath = @"";
             // reportCursoDocente.ProcessingMode = ProcessingMode.Local;
-            int docente;
+            int docente = -1;
             if (session.tipoPersona == Persona.TiposPersonas.Profesor)
                 docente = session.personaID;
             else
-                docente = 0;
+            {
+                formIngresoIDDocente ingresoDocente = new formIngresoIDDocente();
+                if (ingresoDocente.ShowDialog() != DialogResult.OK) this.Dispose();
+                else docente = ingresoDocente.docente;
+            }
+            if (docente != -1)
+            {
+                var query = from a in new CursoLogic().GetAll()
+                            join b in new DocenteCursoLogic().GetAll() on a.ID equals b.IDCurso
+                            where b.IDDocente == docente
+                            select a;
 
-            var query = from a in new CursoLogic().GetAll()
-                        join b in new DocenteCursoLogic().GetAll() on a.ID equals b.IDCurso
-                        where b.IDDocente == docente
-                        select a;
-
-            reportCursoDocente.LocalReport.DataSources.Add(new ReportDataSource("Cursos por Docente", query));
-            reportCursoDocente.RefreshReport();
+                reportCursoDocente.LocalReport.DataSources.Add(new ReportDataSource("ReporteCursos", query));
+                reportCursoDocente.RefreshReport();
+            }
+            else
+                this.Dispose();
         }
     }
 }

@@ -68,10 +68,10 @@ namespace UI.Desktop
                 if (this.Modo == ModoForm.Alta) this.DocenteCursoActual = new DocenteCurso();
                 else this.DocenteCursoActual.ID = int.Parse(this.txtID.Text);
 
-                this.txtID.Text = this.DocenteCursoActual.ID.ToString();
-                this.cbxCargo.Text = DocenteCursoActual.Cargo.ToString();
-                this.cboxIDCurso.Text = this.DocenteCursoActual.IDCurso.ToString();
-                this.cboxIDDocente.Text = this.DocenteCursoActual.IDDocente.ToString();
+                Enum.TryParse<DocenteCurso.TiposCargos>(this.cbxCargo.SelectedValue.ToString(), out DocenteCurso.TiposCargos tipos_cargos);
+                this.DocenteCursoActual.Cargo = tipos_cargos;
+                this.DocenteCursoActual.IDCurso = int.Parse(this.cboxIDCurso.Text);
+                this.DocenteCursoActual.IDDocente = int.Parse(this.cboxIDDocente.Text);
 
                 switch (Modo)
                 {

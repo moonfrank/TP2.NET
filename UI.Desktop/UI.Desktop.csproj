@@ -178,6 +178,12 @@
     <Compile Include="Plan\PlanDesktop.Designer.cs">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\formIngresoIDDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\formIngresoIDDocente.Designer.cs">
+      <DependentUpon>formIngresoIDDocente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\formReporteCursosDocente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Plan\PlanDesktop.resx">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\formIngresoIDDocente.resx">
+      <DependentUpon>formIngresoIDDocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\formReporteCursosDocente.resx">
       <DependentUpon>formReporteCursosDocente.cs</DependentUpon>
