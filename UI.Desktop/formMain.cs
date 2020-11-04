@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Desktop
@@ -30,6 +23,10 @@ namespace UI.Desktop
                 this.mnuEspecialidades.Enabled = false;
                 this.mnuPersonas.Enabled = false;
                 this.mnuPlanes.Enabled = false;
+            }
+            if (session.tipoPersona.ToString() == "Alumno")
+            {
+                this.mnuReportes.Enabled = false;
             }
         }
 
