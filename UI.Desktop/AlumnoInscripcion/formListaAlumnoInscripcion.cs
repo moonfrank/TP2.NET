@@ -16,6 +16,8 @@ namespace UI.Desktop
                 tsbEliminar.Enabled = false;
             if (session.tipoPersona == Persona.TiposPersonas.Alumno)
                 tsbEditar.Enabled = false;
+            if (session.tipoPersona == Persona.TiposPersonas.Profesor)
+                tsbNuevo.Enabled = false;
         }
 
         public void Listar()

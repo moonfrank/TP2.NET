@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
@@ -16,6 +11,12 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.dgvCursos.AutoGenerateColumns = false;
+            if (session.tipoPersona != Persona.TiposPersonas.Admin)
+            {
+                tsbEliminar.Enabled = false;
+                tsbNuevo.Enabled = false;
+                tsbEditar.Enabled = false;
+            }
         }
 
         public void Listar()

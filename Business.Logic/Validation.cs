@@ -12,9 +12,12 @@ namespace Business.Logic
         public static bool IsEmailValid(string email)
         {
             string expresion = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
-            if (Regex.IsMatch(email, expresion) && Regex.Replace(email, expresion, string.Empty).Length == 0)
-                return true;
-            else return false;
+            return Regex.IsMatch(email, expresion) && Regex.Replace(email, expresion, string.Empty).Length == 0;
+        }
+
+        public static bool IsPassValid(string pass, string valid)
+        {
+            return pass.Equals(valid) && pass.Length >= 8;
         }
     }
 }

@@ -206,7 +206,7 @@ namespace UI.Desktop
             cbxCondicion.Items.Add("Cursa");
             cbxCondicion.Items.Add("Regular");
             cbxCondicion.Items.Add("Aprobado");
-            cbxCondicion.SelectedIndex = 0;
+            cbxCondicion.SelectedIndex = 1;
         }
     }
 }

@@ -29,7 +29,7 @@ namespace UI.Desktop
             {
                 this.mnuCursosPorDocente.Enabled = false;
             }
-            if (session.tipoPersona.ToString() == "Docente")
+            if (session.tipoPersona.ToString() == "Profesor")
             {
                 this.mnuCursosAprobadosPorAlumno.Enabled = false;
             }

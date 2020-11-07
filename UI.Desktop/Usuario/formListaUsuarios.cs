@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using System.Linq;
 
 namespace UI.Desktop
 {
@@ -20,11 +13,25 @@ namespace UI.Desktop
             InitializeComponent();
             this.dgvUsuarios.AutoGenerateColumns = false;
             this.Listar();
+            if (session.tipoPersona != Persona.TiposPersonas.Admin)
+            {
+                this.tsbNuevo.Enabled = false;
+                this.tsbEliminar.Enabled = false;
+            }
         }
 
         public void Listar()
         {
-            this.dgvUsuarios.DataSource = new UsuarioLogic().GetAll();
+           var usuarios = new UsuarioLogic().GetAll();
+            if (session.tipoPersona != Persona.TiposPersonas.Admin)
+            {
+                this.dgvUsuarios.DataSource = (from a in usuarios
+                                               where a.ID == session.userID
+                                               select a
+                                              ).ToList();
+            }
+            else
+                this.dgvUsuarios.DataSource = usuarios;
         }
 
         private void Usuarios_Load(object sender, EventArgs e)

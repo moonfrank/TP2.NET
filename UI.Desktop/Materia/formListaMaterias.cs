@@ -11,6 +11,12 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.dgvMaterias.AutoGenerateColumns = false;
+            if (session.tipoPersona != Persona.TiposPersonas.Admin)
+            {
+                tsbEliminar.Enabled = false;
+                tsbNuevo.Enabled = false;
+                tsbEditar.Enabled = false;
+            }
         }
 
         public void Listar()

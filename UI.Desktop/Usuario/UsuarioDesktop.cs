@@ -21,6 +21,15 @@ namespace UI.Desktop
         {
             this.UsuarioActual = new UsuarioLogic().GetOne(ID);
             MapearDeDatos();
+            if (session.tipoPersona != Persona.TiposPersonas.Admin)
+            {
+                this.txtUsuario.Enabled = false;
+                this.txtNombre.Enabled = false;
+                this.txtApellido.Enabled = false;
+                this.txtID.Enabled = false;
+                this.cmbxIDPersona.Enabled = false;
+                this.chkHabilitado.Enabled = false;
+            }
         }
 
         public Usuario UsuarioActual { get; set; }
@@ -130,7 +139,7 @@ namespace UI.Desktop
         /// <returns>Validez de datos</returns>
         public override bool Validar()
         {
-            if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 && Validation.IsEmailValid(txtEmail.Text) &&
+            if (Validation.IsPassValid(txtClave.Text, txtConfirm.Text) && Validation.IsEmailValid(txtEmail.Text) &&
             !string.IsNullOrEmpty(this.txtNombre.Text) && !string.IsNullOrEmpty(this.txtApellido.Text) && !string.IsNullOrEmpty(this.txtUsuario.Text)) return true;
             else
             {
