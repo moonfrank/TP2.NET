@@ -1,15 +1,10 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
 using System.Linq;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
-using System.Security.Cryptography;
 
 namespace UI.Desktop.Reportes
 {
@@ -21,8 +16,6 @@ namespace UI.Desktop.Reportes
         }
         private void formReporteCursosDocente_Load(object sender, EventArgs e)
         {
-            // reportCursoDocente.LocalReport.ReportPath = @"";
-            // reportCursoDocente.ProcessingMode = ProcessingMode.Local;
             int docente = -1;
             if (session.tipoPersona == Persona.TiposPersonas.Profesor)
                 docente = session.personaID;

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
@@ -39,7 +35,7 @@ namespace UI.Desktop
             this.txtID.Text = this.AlumnoInscripcionActual.ID.ToString();
             cbxIDAlumno.Text = AlumnoInscripcionActual.IDAlumno.ToString();
             cbxIDCurso.Text = AlumnoInscripcionActual.IDCurso.ToString();
-            this.txtCondicion.Text = this.AlumnoInscripcionActual.Condicion;
+            this.cbxCondicion.Text = this.AlumnoInscripcionActual.Condicion;
             this.txtNota.Text = this.AlumnoInscripcionActual.Nota.ToString();
             switch (this.Modo)
             {
@@ -73,7 +69,7 @@ namespace UI.Desktop
 
                 this.AlumnoInscripcionActual.IDAlumno = int.Parse(this.cbxIDAlumno.Text);
                 this.AlumnoInscripcionActual.IDCurso = int.Parse(this.cbxIDCurso.Text);
-                this.AlumnoInscripcionActual.Condicion = this.txtCondicion.Text;
+                this.AlumnoInscripcionActual.Condicion = this.cbxCondicion.Text;
                 this.AlumnoInscripcionActual.Nota = int.Parse(this.txtNota.Text);
 
                 switch (Modo)
@@ -143,7 +139,7 @@ namespace UI.Desktop
             {
                 MessageBox.Show("Por favor seleccionar un curso!"); return;
             }
-            else if (string.IsNullOrWhiteSpace(txtCondicion.Text))
+            else if (string.IsNullOrWhiteSpace(cbxCondicion.Text))
             {
                 MessageBox.Show("Por favor especificar la condición!"); return;
             }
@@ -164,6 +160,13 @@ namespace UI.Desktop
 
         private void AlumnoInscripcionDesktop_Load(object sender, EventArgs e)
         {
+            if (session.tipoPersona != Persona.TiposPersonas.Admin)
+                cbxIDAlumno.Enabled = false;
+            if (session.tipoPersona == Persona.TiposPersonas.Alumno)
+            {
+                cbxCondicion.Enabled = false;
+                txtNota.Enabled = false;
+            }
             ListarCmbx();
         }
 
@@ -199,6 +202,11 @@ namespace UI.Desktop
                 MessageBox.Show("No se ha encontrado ningun alumno cargado", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }
+            cbxCondicion.Items.Add("Libre");
+            cbxCondicion.Items.Add("Cursa");
+            cbxCondicion.Items.Add("Regular");
+            cbxCondicion.Items.Add("Aprobado");
+            cbxCondicion.SelectedIndex = 0;
         }
     }
 }

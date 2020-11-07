@@ -43,6 +43,7 @@
             this.docenteCursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCursosPorDocente = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCursosAprobadosPorAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,7 +156,8 @@
             // mnuReportes
             // 
             this.mnuReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuCursosPorDocente});
+            this.mnuCursosPorDocente,
+            this.mnuCursosAprobadosPorAlumno});
             this.mnuReportes.Name = "mnuReportes";
             this.mnuReportes.Size = new System.Drawing.Size(65, 20);
             this.mnuReportes.Text = "Reportes";
@@ -163,9 +165,16 @@
             // mnuCursosPorDocente
             // 
             this.mnuCursosPorDocente.Name = "mnuCursosPorDocente";
-            this.mnuCursosPorDocente.Size = new System.Drawing.Size(180, 22);
+            this.mnuCursosPorDocente.Size = new System.Drawing.Size(238, 22);
             this.mnuCursosPorDocente.Text = "Cursos por Docente";
             this.mnuCursosPorDocente.Click += new System.EventHandler(this.mnuCursosPorDocente_Click);
+            // 
+            // mnuCursosAprobadosPorAlumno
+            // 
+            this.mnuCursosAprobadosPorAlumno.Name = "mnuCursosAprobadosPorAlumno";
+            this.mnuCursosAprobadosPorAlumno.Size = new System.Drawing.Size(238, 22);
+            this.mnuCursosAprobadosPorAlumno.Text = "Cursos Aprobados por Alumno";
+            this.mnuCursosAprobadosPorAlumno.Click += new System.EventHandler(this.mnuCursosAprobadosPorAlumno_Click);
             // 
             // formMain
             // 
@@ -203,5 +212,6 @@
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuReportes;
         private System.Windows.Forms.ToolStripMenuItem mnuCursosPorDocente;
+        private System.Windows.Forms.ToolStripMenuItem mnuCursosAprobadosPorAlumno;
     }
 }

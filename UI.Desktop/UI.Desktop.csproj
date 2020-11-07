@@ -184,11 +184,23 @@
     <Compile Include="Reportes\formIngresoIDDocente.Designer.cs">
       <DependentUpon>formIngresoIDDocente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\formIngresoLegajoAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\formIngresoLegajoAlumno.Designer.cs">
+      <DependentUpon>formIngresoLegajoAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\formReporteCursosDocente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\formReporteCursosDocente.Designer.cs">
       <DependentUpon>formReporteCursosDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\formReporteMateriasAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\formReporteMateriasAlumno.Designer.cs">
+      <DependentUpon>formReporteMateriasAlumno.cs</DependentUpon>
     </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -258,10 +270,17 @@
     <EmbeddedResource Include="Reportes\formIngresoIDDocente.resx">
       <DependentUpon>formIngresoIDDocente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\formIngresoLegajoAlumno.resx">
+      <DependentUpon>formIngresoLegajoAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\formReporteCursosDocente.resx">
       <DependentUpon>formReporteCursosDocente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\formReporteMateriasAlumno.resx">
+      <DependentUpon>formReporteMateriasAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReportCursosDocente.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportMateriasAlumno.rdlc" />
     <EmbeddedResource Include="Usuario\formListaUsuarios.resx">
       <DependentUpon>formListaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,6 +306,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Business.Entities.AlumnoInscripcion.datasource" />
     <None Include="Properties\DataSources\Business.Entities.BusinessEntity+States.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.BusinessEntity.datasource" />
     <None Include="Properties\DataSources\Business.Entities.Comision.datasource" />
     <None Include="Properties\DataSources\Business.Entities.Curso.datasource" />
     <None Include="Properties\DataSources\Business.Entities.DocenteCurso+TiposCargos.datasource" />
@@ -297,6 +317,8 @@
     <None Include="Properties\DataSources\Business.Entities.Persona.datasource" />
     <None Include="Properties\DataSources\Business.Entities.Plan.datasource" />
     <None Include="Properties\DataSources\Business.Entities.Usuario.datasource" />
+    <None Include="Properties\DataSources\UI.Desktop.Reportes.formIngresoIDDocente.datasource" />
+    <None Include="Properties\DataSources\UI.Desktop.Reportes.formReporteCursosDocente.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

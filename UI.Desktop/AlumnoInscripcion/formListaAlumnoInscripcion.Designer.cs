@@ -39,7 +39,7 @@
             this.Condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.tsPersona = new System.Windows.Forms.ToolStrip();
+            this.tsInscripcion = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
@@ -48,7 +48,7 @@
             this.tcUsuarios.SuspendLayout();
             this.tlAlumnoInscripcion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnoInscripcion)).BeginInit();
-            this.tsPersona.SuspendLayout();
+            this.tsInscripcion.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcUsuarios
@@ -65,9 +65,9 @@
             this.tcUsuarios.TabIndex = 0;
             this.tcUsuarios.Text = "toolStripContainer1";
             // 
-            // tcUsuarios.TopToolStripPanel
+            // tcUsuarios.tspInscripcion
             // 
-            this.tcUsuarios.TopToolStripPanel.Controls.Add(this.tsPersona);
+            this.tcUsuarios.TopToolStripPanel.Controls.Add(this.tsInscripcion);
             // 
             // tlAlumnoInscripcion
             // 
@@ -163,17 +163,17 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // tsPersona
+            // tsInscripcion
             // 
-            this.tsPersona.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsPersona.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsInscripcion.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsInscripcion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbEliminar});
-            this.tsPersona.Location = new System.Drawing.Point(3, 0);
-            this.tsPersona.Name = "tsPersona";
-            this.tsPersona.Size = new System.Drawing.Size(81, 25);
-            this.tsPersona.TabIndex = 0;
+            this.tsInscripcion.Location = new System.Drawing.Point(3, 0);
+            this.tsInscripcion.Name = "tsInscripcion";
+            this.tsInscripcion.Size = new System.Drawing.Size(81, 25);
+            this.tsInscripcion.TabIndex = 0;
             // 
             // tsbNuevo
             // 
@@ -224,8 +224,8 @@
             this.tcUsuarios.PerformLayout();
             this.tlAlumnoInscripcion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnoInscripcion)).EndInit();
-            this.tsPersona.ResumeLayout(false);
-            this.tsPersona.PerformLayout();
+            this.tsInscripcion.ResumeLayout(false);
+            this.tsInscripcion.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -237,7 +237,7 @@
         private System.Windows.Forms.DataGridView dgvAlumnoInscripcion;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.ToolStrip tsPersona;
+        private System.Windows.Forms.ToolStrip tsInscripcion;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;

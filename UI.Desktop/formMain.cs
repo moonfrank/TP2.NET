@@ -27,7 +27,11 @@ namespace UI.Desktop
             }
             if (session.tipoPersona.ToString() == "Alumno")
             {
-                this.mnuReportes.Enabled = false;
+                this.mnuCursosPorDocente.Enabled = false;
+            }
+            if (session.tipoPersona.ToString() == "Docente")
+            {
+                this.mnuCursosAprobadosPorAlumno.Enabled = false;
             }
         }
 
@@ -89,6 +93,12 @@ namespace UI.Desktop
         {
             formReporteCursosDocente appReporteCursos = new formReporteCursosDocente();
             if (appReporteCursos.ShowDialog() != DialogResult.OK) appReporteCursos.Dispose();
+        }
+
+        private void mnuCursosAprobadosPorAlumno_Click(object sender, EventArgs e)
+        {
+            formReporteMateriasAlumno appReporteMaterias = new formReporteMateriasAlumno();
+            if (appReporteMaterias.ShowDialog() != DialogResult.OK) appReporteMaterias.Dispose();
         }
     }
 }

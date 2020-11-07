@@ -14,11 +14,6 @@ namespace UI.Desktop.Reportes
             InitializeComponent();
         }
 
-        public void formIngresoIDDocente_Load1(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnOK_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -31,7 +26,6 @@ namespace UI.Desktop.Reportes
                                where a.TipoPersona.ToString() == "Profesor"
                                select a.ID;
 
-            // cboxIDDocente.DataSource = idProfesores;
             foreach (int p in idProfesores)
             {
                 cboxIDDocente.Items.Add(p.ToString());
