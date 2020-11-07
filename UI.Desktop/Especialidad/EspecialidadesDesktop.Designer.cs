@@ -42,8 +42,8 @@
             // 
             this.tlEspecialidad.AutoSize = true;
             this.tlEspecialidad.ColumnCount = 2;
-            this.tlEspecialidad.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlEspecialidad.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlEspecialidad.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.31446F));
+            this.tlEspecialidad.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.68554F));
             this.tlEspecialidad.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlEspecialidad.Controls.Add(this.ID, 0, 0);
             this.tlEspecialidad.Controls.Add(this.label2, 0, 1);
@@ -58,14 +58,14 @@
             this.tlEspecialidad.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlEspecialidad.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlEspecialidad.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tlEspecialidad.Size = new System.Drawing.Size(650, 223);
+            this.tlEspecialidad.Size = new System.Drawing.Size(477, 223);
             this.tlEspecialidad.TabIndex = 1;
             // 
             // ID
             // 
             this.ID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ID.AutoSize = true;
-            this.ID.Location = new System.Drawing.Point(153, 40);
+            this.ID.Location = new System.Drawing.Point(110, 40);
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(18, 13);
             this.ID.TabIndex = 0;
@@ -75,7 +75,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(131, 133);
+            this.label2.Location = new System.Drawing.Point(88, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
@@ -84,7 +84,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAceptar.Location = new System.Drawing.Point(125, 193);
+            this.btnAceptar.Location = new System.Drawing.Point(82, 193);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 2;
@@ -95,7 +95,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancelar.Location = new System.Drawing.Point(450, 193);
+            this.btnCancelar.Location = new System.Drawing.Point(320, 193);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 3;
@@ -106,7 +106,7 @@
             // txtID
             // 
             this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtID.Location = new System.Drawing.Point(437, 36);
+            this.txtID.Location = new System.Drawing.Point(308, 36);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(100, 20);
@@ -115,17 +115,17 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDescripcion.Location = new System.Drawing.Point(403, 99);
+            this.txtDescripcion.Location = new System.Drawing.Point(273, 127);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(169, 81);
+            this.txtDescripcion.Size = new System.Drawing.Size(169, 24);
             this.txtDescripcion.TabIndex = 5;
             // 
             // EspecialidadesDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 223);
+            this.ClientSize = new System.Drawing.Size(477, 223);
             this.Controls.Add(this.tlEspecialidad);
             this.Name = "EspecialidadesDesktop";
             this.Text = "Especialidad";

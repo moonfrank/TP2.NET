@@ -36,7 +36,15 @@ namespace UI.Desktop
             cbxIDAlumno.Text = AlumnoInscripcionActual.IDAlumno.ToString();
             cbxIDCurso.Text = AlumnoInscripcionActual.IDCurso.ToString();
             this.cbxCondicion.Text = this.AlumnoInscripcionActual.Condicion;
-            this.txtNota.Text = this.AlumnoInscripcionActual.Nota.ToString();
+            if (this.AlumnoInscripcionActual.Condicion == "Aprobado")
+            {
+                this.txtNota.Text = this.AlumnoInscripcionActual.Nota.ToString();
+                if (session.tipoPersona != Persona.TiposPersonas.Alumno)
+                    this.txtNota.Enabled = true;
+            }
+                
+            else
+                this.txtNota.Text = string.Empty;
             switch (this.Modo)
             {
                 case ModoForm.Alta:
@@ -64,13 +72,18 @@ namespace UI.Desktop
         {
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
             {
-                if (this.Modo == ModoForm.Alta) this.AlumnoInscripcionActual = new AlumnoInscripcion();
-                else this.AlumnoInscripcionActual.ID = int.Parse(this.txtID.Text);
+                if (this.Modo == ModoForm.Alta)
+                    this.AlumnoInscripcionActual = new AlumnoInscripcion();
+                else
+                {
+                    this.AlumnoInscripcionActual.ID = int.Parse(this.txtID.Text);
+                    this.AlumnoInscripcionActual.Nota = int.Parse(this.txtNota.Text);
+                }
 
                 this.AlumnoInscripcionActual.IDAlumno = int.Parse(this.cbxIDAlumno.Text);
                 this.AlumnoInscripcionActual.IDCurso = int.Parse(this.cbxIDCurso.Text);
                 this.AlumnoInscripcionActual.Condicion = this.cbxCondicion.Text;
-                this.AlumnoInscripcionActual.Nota = int.Parse(this.txtNota.Text);
+                
 
                 switch (Modo)
                 {
@@ -132,24 +145,18 @@ namespace UI.Desktop
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (cbxIDAlumno.SelectedIndex == -1)
-            {
-                MessageBox.Show("Por favor seleccionar un alumno!"); return;
-            }
+                MessageBox.Show("Por favor seleccionar un alumno!");
             else if (cbxIDCurso.SelectedIndex == -1)
-            {
-                MessageBox.Show("Por favor seleccionar un curso!"); return;
-            }
+                MessageBox.Show("Por favor seleccionar un curso!");
             else if (string.IsNullOrWhiteSpace(cbxCondicion.Text))
+                MessageBox.Show("Por favor especificar la condición!");
+            else if (cbxCondicion.Text == "Aprobado")
             {
-                MessageBox.Show("Por favor especificar la condición!"); return;
-            }
-            else if (string.IsNullOrWhiteSpace(txtNota.Text))
-            {
-                MessageBox.Show("Por favor especificar la nota!"); return;
-            }
-            else if (int.Parse(txtNota.Text)<1 || int.Parse(txtNota.Text) > 10)
-            {
-                MessageBox.Show("La nota tiene que estar entre 1 y 10!");
+                if (string.IsNullOrWhiteSpace(txtNota.Text))
+                    MessageBox.Show("Por favor especificar la nota!");
+                else if (int.TryParse(txtNota.Text, out int a))
+                    if (int.Parse(txtNota.Text) < 1 || int.Parse(txtNota.Text) > 10)
+                        MessageBox.Show("La nota tiene que ser un número entre entre 1 y 10!");
             }
             else
             {
@@ -163,10 +170,8 @@ namespace UI.Desktop
             if (session.tipoPersona != Persona.TiposPersonas.Admin)
                 cbxIDAlumno.Enabled = false;
             if (session.tipoPersona == Persona.TiposPersonas.Alumno)
-            {
                 cbxCondicion.Enabled = false;
-                txtNota.Enabled = false;
-            }
+            txtNota.Enabled = false;
             ListarCmbx();
         }
 
@@ -207,6 +212,13 @@ namespace UI.Desktop
             cbxCondicion.Items.Add("Regular");
             cbxCondicion.Items.Add("Aprobado");
             cbxCondicion.SelectedIndex = 1;
+        }
+        private void cbxCondicion_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbxCondicion.SelectedItem.ToString() == "Aprobado")
+                this.txtNota.Enabled = true;
+            else
+                this.txtNota.Enabled = false;
         }
     }
 }

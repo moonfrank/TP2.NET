@@ -18,21 +18,26 @@ namespace UI.Desktop
         private void formMain_Shown(object sender, EventArgs e)
         {
             formLogin appLogin = new formLogin();
-            if (appLogin.ShowDialog() != DialogResult.OK) this.Dispose();
-            if (session.tipoPersona.ToString() != "Admin")
+            if (appLogin.ShowDialog() != DialogResult.OK) 
+                this.Dispose();
+            else
             {
-                this.mnuEspecialidades.Enabled = false;
-                this.mnuPersonas.Enabled = false;
-                this.mnuPlanes.Enabled = false;
+                if (session.tipoPersona.ToString() != "Admin")
+                {
+                    this.mnuEspecialidades.Enabled = false;
+                    this.mnuPersonas.Enabled = false;
+                    this.mnuPlanes.Enabled = false;
+                }
+                if (session.tipoPersona.ToString() == "Alumno")
+                {
+                    this.mnuCursosPorDocente.Enabled = false;
+                }
+                if (session.tipoPersona.ToString() == "Profesor")
+                {
+                    this.mnuCursosAprobadosPorAlumno.Enabled = false;
+                }
             }
-            if (session.tipoPersona.ToString() == "Alumno")
-            {
-                this.mnuCursosPorDocente.Enabled = false;
-            }
-            if (session.tipoPersona.ToString() == "Profesor")
-            {
-                this.mnuCursosAprobadosPorAlumno.Enabled = false;
-            }
+            
         }
 
         private void mnuUsuarios_Click(object sender, EventArgs e)

@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.13726F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.86274F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 1);
@@ -95,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(397, 60);
+            this.label3.Location = new System.Drawing.Point(396, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 2;
@@ -104,7 +104,7 @@
             // cbxIDAlumno
             // 
             this.cbxIDAlumno.FormattingEnabled = true;
-            this.cbxIDAlumno.Location = new System.Drawing.Point(173, 63);
+            this.cbxIDAlumno.Location = new System.Drawing.Point(172, 63);
             this.cbxIDAlumno.Name = "cbxIDAlumno";
             this.cbxIDAlumno.Size = new System.Drawing.Size(121, 21);
             this.cbxIDAlumno.TabIndex = 3;
@@ -112,7 +112,7 @@
             // cbxIDCurso
             // 
             this.cbxIDCurso.FormattingEnabled = true;
-            this.cbxIDCurso.Location = new System.Drawing.Point(517, 63);
+            this.cbxIDCurso.Location = new System.Drawing.Point(516, 63);
             this.cbxIDCurso.Name = "cbxIDCurso";
             this.cbxIDCurso.Size = new System.Drawing.Size(121, 21);
             this.cbxIDCurso.TabIndex = 4;
@@ -129,7 +129,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(397, 125);
+            this.label5.Location = new System.Drawing.Point(396, 125);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 6;
@@ -137,14 +137,14 @@
             // 
             // txtNota
             // 
-            this.txtNota.Location = new System.Drawing.Point(517, 128);
+            this.txtNota.Location = new System.Drawing.Point(516, 128);
             this.txtNota.Name = "txtNota";
             this.txtNota.Size = new System.Drawing.Size(100, 20);
             this.txtNota.TabIndex = 8;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(397, 247);
+            this.btnAceptar.Location = new System.Drawing.Point(396, 247);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 9;
@@ -154,7 +154,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(517, 247);
+            this.btnSalir.Location = new System.Drawing.Point(516, 247);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 10;
@@ -164,7 +164,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(173, 3);
+            this.txtID.Location = new System.Drawing.Point(172, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(100, 20);
@@ -173,10 +173,11 @@
             // cbxCondicion
             // 
             this.cbxCondicion.FormattingEnabled = true;
-            this.cbxCondicion.Location = new System.Drawing.Point(173, 128);
+            this.cbxCondicion.Location = new System.Drawing.Point(172, 128);
             this.cbxCondicion.Name = "cbxCondicion";
             this.cbxCondicion.Size = new System.Drawing.Size(121, 21);
             this.cbxCondicion.TabIndex = 12;
+            this.cbxCondicion.SelectionChangeCommitted += new System.EventHandler(this.cbxCondicion_SelectionChangeCommitted);
             // 
             // AlumnoInscripcionDesktop
             // 
