@@ -202,6 +202,7 @@
     <Compile Include="Reportes\formReporteMateriasAlumno.Designer.cs">
       <DependentUpon>formReporteMateriasAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\ReporteMateriasAlumno.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Usuario\formListaUsuarios.cs">
@@ -319,6 +320,7 @@
     <None Include="Properties\DataSources\Business.Entities.Usuario.datasource" />
     <None Include="Properties\DataSources\UI.Desktop.Reportes.formIngresoIDDocente.datasource" />
     <None Include="Properties\DataSources\UI.Desktop.Reportes.formReporteCursosDocente.datasource" />
+    <None Include="Properties\DataSources\UI.Desktop.Reportes.ReporteMateriasAlumno.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

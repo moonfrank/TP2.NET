@@ -160,6 +160,11 @@ namespace UI.Desktop
                 else if (int.TryParse(txtNota.Text, out int a))
                     if (int.Parse(txtNota.Text) < 1 || int.Parse(txtNota.Text) > 10)
                         MessageBox.Show("La nota tiene que ser un número entre entre 1 y 10!");
+                    else
+                    {
+                        GuardarCambios();
+                        this.Close();
+                    }
             }
             else
             {

@@ -29,14 +29,22 @@ namespace UI.Desktop.Reportes
                 if (ingresoAlumno.ShowDialog() != DialogResult.OK) this.Dispose();
                 else alumno = ingresoAlumno.alumno;
             }
+
             if (alumno != -1)
             {
                 var query = from a in new AlumnoInscripcionLogic().GetAll()
                             join b in new PersonaLogic().GetAll() on a.IDAlumno equals b.ID
                             join c in new CursoLogic().GetAll() on a.IDCurso equals c.ID
+                            join d in new MateriaLogic().GetAll() on c.IDMateria equals d.ID
                             where b.Legajo == alumno && a.Condicion == "Aprobado"
-                            select a;
+                            select new
+                            {
+                                Materia = d.Descripcion,
+                                a.Nota,
+                                Anio = c.AnioCalendario
+                            };
 
+                reportMateriasAlumno.LocalReport.DataSources.Clear();
                 reportMateriasAlumno.LocalReport.DataSources.Add(new ReportDataSource("dsInscripcion", query));
                 reportMateriasAlumno.RefreshReport();
             }
