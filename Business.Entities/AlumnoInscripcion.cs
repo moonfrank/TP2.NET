@@ -10,7 +10,7 @@ namespace Business.Entities
     {
         public int IDAlumno { get; set; }
         public int IDCurso { get; set; }
-        public int Nota { get; set; }
+        public int? Nota { get; set; }
         public string Condicion { get; set; }
     }
 }

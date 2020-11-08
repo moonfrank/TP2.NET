@@ -1,9 +1,6 @@
 ﻿using Business.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
@@ -26,7 +23,7 @@ namespace Data.Database
                     inscripcion.IDAlumno = (int)drInscripciones["id_alumno"];
                     inscripcion.IDCurso = (int)drInscripciones["id_curso"];
                     inscripcion.Condicion = (string)drInscripciones["condicion"];
-                    inscripcion.Nota = (int)drInscripciones["nota"];
+                    inscripcion.Nota = drInscripciones["nota"] as int? ?? -1;
                     inscripciones.Add(inscripcion);
                 }
                 drInscripciones.Close();
@@ -58,7 +55,7 @@ namespace Data.Database
                     inscripcion.IDAlumno = (int)drInscripciones["id_alumno"];
                     inscripcion.IDCurso = (int)drInscripciones["id_curso"];
                     inscripcion.Condicion = (string)drInscripciones["condicion"];
-                    inscripcion.Nota = (int)drInscripciones["nota"];
+                    inscripcion.Nota = drInscripciones["nota"] as int? ?? -1;
                 }
                 drInscripciones.Close();
             }
@@ -106,7 +103,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@id_alumno", SqlDbType.Int).Value = inscripcion.IDAlumno;
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = inscripcion.IDCurso;
                 cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = inscripcion.Condicion;
-                cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = inscripcion.Nota;
+                cmdSave.Parameters.AddWithValue("@nota", ((object)inscripcion.Nota) ?? DBNull.Value);
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -131,7 +128,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@id_alumno", SqlDbType.Int).Value = inscripcion.IDAlumno;
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = inscripcion.IDCurso;
                 cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = inscripcion.Condicion;
-                cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = inscripcion.Nota;
+                cmdSave.Parameters.AddWithValue("@nota", ((object)inscripcion.Nota) ?? DBNull.Value);
                 inscripcion.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
             }
             catch (Exception Ex)

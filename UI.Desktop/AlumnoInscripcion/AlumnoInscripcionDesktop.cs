@@ -25,7 +25,7 @@ namespace UI.Desktop
             MapearDeDatos();
         }
 
-        public Business.Entities.AlumnoInscripcion AlumnoInscripcionActual { get; set; }
+        public AlumnoInscripcion AlumnoInscripcionActual { get; set; }
 
         /// <summary>
         /// Copia información de las entidades a los controles del formulario para nostrar la información de cada entidad.
@@ -77,7 +77,10 @@ namespace UI.Desktop
                 else
                 {
                     this.AlumnoInscripcionActual.ID = int.Parse(this.txtID.Text);
-                    this.AlumnoInscripcionActual.Nota = int.Parse(this.txtNota.Text);
+                    if (int.TryParse(this.txtNota.Text, out int a))
+                        this.AlumnoInscripcionActual.Nota = int.Parse(this.txtNota.Text);
+                    else
+                        this.AlumnoInscripcionActual.Nota = null;
                 }
 
                 this.AlumnoInscripcionActual.IDAlumno = int.Parse(this.cbxIDAlumno.Text);
@@ -168,33 +171,23 @@ namespace UI.Desktop
         private void AlumnoInscripcionDesktop_Load(object sender, EventArgs e)
         {
             if (session.tipoPersona != Persona.TiposPersonas.Admin)
+            {
                 cbxIDAlumno.Enabled = false;
-            if (session.tipoPersona == Persona.TiposPersonas.Alumno)
-                cbxCondicion.Enabled = false;
-            txtNota.Enabled = false;
+                txtNota.Enabled = false;
+                if (session.tipoPersona == Persona.TiposPersonas.Alumno)
+                    cbxCondicion.Enabled = false;
+                else if (session.tipoPersona == Persona.TiposPersonas.Profesor)
+                    cbxIDCurso.Enabled = false;
+            }
             ListarCmbx();
         }
 
         private void ListarCmbx()
         {
-            foreach (Curso curso in new CursoLogic().GetAll())
-            {
-                cbxIDCurso.Items.Add(curso.ID.ToString());
-            }
-            try
-            {
-                cbxIDCurso.SelectedIndex = 0;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("No se ha encontrado ningun curso cargado", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-            }
-
-            var alumno = from a in new PersonaLogic().GetAll()
+            var alumnos = from a in new PersonaLogic().GetAll()
                          where a.TipoPersona.ToString() == "Alumno"
                          select a;
-            foreach (Persona persona in alumno)
+            foreach (Persona persona in alumnos)
             {
                 cbxIDAlumno.Items.Add(persona.ID.ToString());
             }
@@ -207,11 +200,43 @@ namespace UI.Desktop
                 MessageBox.Show("No se ha encontrado ningun alumno cargado", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }
+
+            ListarCursos();
+
             cbxCondicion.Items.Add("Libre");
             cbxCondicion.Items.Add("Cursa");
             cbxCondicion.Items.Add("Regular");
             cbxCondicion.Items.Add("Aprobado");
             cbxCondicion.SelectedIndex = 1;
+        }
+
+        public void ListarCursos()
+        {
+            var cursosConCupo = from a in new CursoLogic().GetAll()
+                                join b in new AlumnoInscripcionLogic().GetAll() on a.ID equals b.IDCurso into c
+                                select new
+                                {
+                                    a.ID,
+                                    a.Cupo,
+                                    CantidadInscriptos = c.Where(x => x.IDCurso == a.ID).Count()
+                                };
+
+            var inscripciones = from a in new AlumnoInscripcionLogic().GetAll()
+                                join b in new PersonaLogic().GetAll() on a.IDAlumno equals b.ID
+                                where a.IDAlumno == int.Parse(cbxIDAlumno.SelectedItem.ToString())
+                                select a;
+
+            foreach (var curso in cursosConCupo)
+            {
+                if (this.Modo == ModoForm.Alta)
+                {
+                    if (!inscripciones.ToList().Any())
+                        if (curso.Cupo > curso.CantidadInscriptos)
+                            cbxIDCurso.Items.Add(curso.ID.ToString());
+                }
+                else
+                    cbxIDCurso.Items.Add(curso.ID.ToString());
+            }
         }
         private void cbxCondicion_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -219,6 +244,10 @@ namespace UI.Desktop
                 this.txtNota.Enabled = true;
             else
                 this.txtNota.Enabled = false;
+        }
+        private void cbxIDAlumno_SelectionChangeCommited(object sender, EventArgs e)
+        {
+            ListarCursos();
         }
     }
 }
