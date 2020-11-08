@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
@@ -132,16 +133,13 @@ namespace UI.Desktop
         /// <returns>Validez de datos</returns>
         public override bool Validar()
         {
-            /*string expresion = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
-            if (this.txtClave.Text.Equals(this.txtConfirm.Text) && txtClave.Text.Length >= 8 &&
-                Regex.IsMatch(this.txtEmail.Text, expresion) && Regex.Replace(this.txtEmail.Text, expresion, string.Empty).Length == 0 &&
-            !string.IsNullOrEmpty(this.txtNombre.Text) && !string.IsNullOrEmpty(this.txtApellido.Text) && !string.IsNullOrEmpty(this.txtUsuario.Text)) return true;
+            string expresion = @"^[0-9]+$";
+            if (Regex.IsMatch(this.txtCupo.Text, expresion) && Regex.Replace(this.txtCupo.Text, expresion, string.Empty).Length == 0) return true;
             else
             {
                 Notificar("Error", "Ingreso de datos inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }*/
-            return true;
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

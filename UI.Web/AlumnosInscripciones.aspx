@@ -23,7 +23,7 @@
     </asp:GridView>
     <asp:Panel ID="formPanel" runat="server" Visible="False" Height="232px">
         <asp:Label ID="lblIDAlumno0" runat="server" Text="ID Alumno"></asp:Label>
-        <asp:DropDownList ID="ddlIDAlumno" runat="server" AutoPostBack="true">
+        <asp:DropDownList ID="ddlIDAlumno" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlIDAlumno_SelectedIndexChanged">
         </asp:DropDownList>
         <br />
         <asp:Label ID="lblIDCurso" runat="server" Text="ID Curso"></asp:Label>
@@ -31,8 +31,8 @@
         </asp:DropDownList>
         <br />
         <asp:Label ID="lblCondicion" runat="server" Text="Condicion"></asp:Label>
-        <asp:TextBox ID="txtCondicion" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtCondicion" ErrorMessage="Campo no puede estar vacio" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+        <asp:DropDownList ID="ddlCondicion" runat="server">
+        </asp:DropDownList>
         <br />
         <asp:Label ID="Label2" runat="server" Text="Nota"></asp:Label>
         <asp:TextBox ID="txtNota" runat="server"></asp:TextBox>

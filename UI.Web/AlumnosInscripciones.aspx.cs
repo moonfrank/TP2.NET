@@ -59,24 +59,19 @@ namespace UI.Web
             Entity = new AlumnoInscripcionLogic().GetOne(ID);
             ddlIDAlumno.Text = Entity.IDAlumno.ToString();
             ddlIDCurso.Text = Entity.IDCurso.ToString();
-            txtCondicion.Text = Entity.Condicion;
+            ddlCondicion.Text = Entity.Condicion.ToString();
             txtNota.Text = Entity.Nota.ToString();
         }
         private void EnableForm(bool enable)
         {
             ddlIDAlumno.Enabled = enable;
             ddlIDCurso.Enabled = enable;
-            txtCondicion.Enabled = enable;
+            ddlCondicion.Enabled = enable;
             txtNota.Enabled = enable;
             ListarCBX();
         }
         private void ListarCBX()
         {
-            foreach (Curso curso in new CursoLogic().GetAll())
-            {
-                ddlIDCurso.Items.Add(curso.ID.ToString());
-            }
-
             var alumno = from a in new PersonaLogic().GetAll()
                          where a.TipoPersona.ToString() == "Alumno"
                          select a;
@@ -84,12 +79,49 @@ namespace UI.Web
             {
                 ddlIDAlumno.Items.Add(persona.ID.ToString());
             }
+
+            ListarCursos();
+
+            ddlCondicion.Items.Add("Libre");
+            ddlCondicion.Items.Add("Cursa");
+            ddlCondicion.Items.Add("Regular");
+            ddlCondicion.Items.Add("Aprobado");
+            ddlCondicion.SelectedIndex = 1;
+
+        }
+        public void ListarCursos()
+        {
+            var cursosConCupo = from a in new CursoLogic().GetAll()
+                                join b in new AlumnoInscripcionLogic().GetAll() on a.ID equals b.IDCurso into c
+                                select new
+                                {
+                                    a.ID,
+                                    a.Cupo,
+                                    CantidadInscriptos = c.Where(x => x.IDCurso == a.ID).Count()
+                                };
+
+            var inscripciones = from a in new AlumnoInscripcionLogic().GetAll()
+                                join b in new PersonaLogic().GetAll() on a.IDAlumno equals b.ID
+                                where a.IDAlumno == int.Parse(ddlIDAlumno.SelectedItem.ToString())
+                                select a;
+
+            foreach (var curso in cursosConCupo)
+            {
+                if (this.FormMode == FormModes.Alta)
+                {
+                    if (!inscripciones.ToList().Any())
+                        if (curso.Cupo > curso.CantidadInscriptos)
+                            ddlIDCurso.Items.Add(curso.ID.ToString());
+                }
+                else
+                    ddlIDCurso.Items.Add(curso.ID.ToString());
+            }
         }
         private void ClearForm()
         {
             ddlIDAlumno.DataSource = string.Empty;
             ddlIDCurso.DataSource = string.Empty;
-            this.txtCondicion.Text = string.Empty;
+            ddlCondicion.DataSource = string.Empty;
             this.txtNota.Text = string.Empty;
         }
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,7 +132,7 @@ namespace UI.Web
         {
             alumno.IDCurso = Convert.ToInt32(ddlIDCurso.SelectedValue);
             alumno.IDAlumno = Convert.ToInt32(ddlIDAlumno.SelectedValue);
-            alumno.Condicion = this.txtCondicion.Text;
+            alumno.Condicion = ddlCondicion.SelectedValue;
             alumno.Nota = int.Parse(txtNota.Text);
         }
 
@@ -171,6 +203,11 @@ namespace UI.Web
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             formPanel.Visible = false;
+        }
+
+        protected void ddlIDAlumno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListarCursos();
         }
     }
 }
