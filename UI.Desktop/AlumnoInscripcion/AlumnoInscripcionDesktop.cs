@@ -228,20 +228,21 @@ namespace UI.Desktop
 
             var inscripciones = from a in new AlumnoInscripcionLogic().GetAll()
                                 join b in new PersonaLogic().GetAll() on a.IDAlumno equals b.ID
-                                where a.IDAlumno == int.Parse(cbxIDAlumno.SelectedItem.ToString())
                                 select a;
 
             foreach (var curso in cursosConCupo)
             {
-                if (this.Modo == ModoForm.Alta)
+                foreach (var inscripcion in inscripciones)
                 {
-                    if (!inscripciones.ToList().Any())
-                        if (curso.Cupo > curso.CantidadInscriptos)
-                            cbxIDCurso.Items.Add(curso.ID.ToString());
-                }
-                else
-                    cbxIDCurso.Items.Add(curso.ID.ToString());
-            }
+                    if (this.Modo == ModoForm.Alta)
+                    {
+                        if (inscripcion.IDCurso != curso.ID)
+                            if (curso.Cupo > curso.CantidadInscriptos)
+                                cbxIDCurso.Items.Add(curso.ID.ToString());
+                    }
+                    else
+                        cbxIDCurso.Items.Add(curso.ID.ToString());
+                }            }
         }
         private void cbxCondicion_SelectionChangeCommitted(object sender, EventArgs e)
         {
