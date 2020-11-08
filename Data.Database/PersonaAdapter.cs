@@ -80,6 +80,7 @@ namespace Data.Database
         }
         public void Delete(int ID)
         {
+            new UsuarioAdapter().DeleteIDPersona(ID);
             try
             {
                 this.OpenConnection();
