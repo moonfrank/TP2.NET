@@ -5,7 +5,7 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Planes : System.Web.UI.Page
+    public partial class Planes : Page
     {
         PlanLogic _logic;
         private PlanLogic Logic
@@ -52,6 +52,8 @@ namespace UI.Web
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session.SessionID == null) Response.Redirect("Login.aspx");
+            else if (Session["Persona"].ToString() != "Admin") Response.Redirect("Home.aspx");
             if (!Page.IsPostBack) LoadGrid();
         }
         private void LoadGrid()
@@ -64,7 +66,7 @@ namespace UI.Web
         {
             Entity = this.Logic.GetOne(id);
             txtDescripcion.Text = this.Entity.Descripcion;
-            ddlIDEspecialidad.Text = this.Entity.IDEspecialidad.ToString();
+            ddlIDEspecialidad.SelectedValue = this.Entity.IDEspecialidad.ToString();
         }
         private void EnableForm(bool enable)
         {
@@ -99,8 +101,8 @@ namespace UI.Web
         {
             this.formPanel.Visible = true;
             this.FormMode = FormModes.Alta;
-            this.ClearForm();
             this.EnableForm(true);
+            this.ClearForm();
         }
         protected void btnEditar_Click(object sender, EventArgs e)
         {
@@ -108,8 +110,8 @@ namespace UI.Web
             {
                 formPanel.Visible = true;
                 FormMode = FormModes.Modificacion;
-                LoadForm(SelectedID);
                 EnableForm(true);
+                LoadForm(SelectedID);
             }
         }
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -152,7 +154,8 @@ namespace UI.Web
         }
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            formPanel.Visible = true;
+            formPanel.Visible = false;
+            formActionsPanel.Visible = false;
         }
 
         private void ListarEspecialidades()

@@ -41,10 +41,7 @@ namespace UI.Web
             get { return (FormModes)this.ViewState["FormMode"]; }
             set { this.ViewState["FormMode"] = value; }
         }
-        private Materia Entity
-        {
-            get; set;
-        }
+        private Materia Entity { get; set; }
         private int SelectedID
         {
             get

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Planes.aspx.cs" Inherits="UI.Web.Planes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="IDEspecialidad" OnSelectedIndexChanged="gridView_SelectedIndexChanged">
+    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="IDEspecialidad" HeaderText="ID Especialidad" SortExpression="IDEspecialidad" />
@@ -35,7 +35,7 @@
         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
     </asp:Panel>
     <asp:Panel ID="formActionsPanel" runat="server">
-        <asp:LinkButton ID="linkAceptar" runat="server" Text="Aceptar" ValidationGroup="vg"/>
-        <asp:LinkButton ID="linkCancelar" runat="server" Text="Cancelar"/>
+        <asp:LinkButton ID="linkAceptar" runat="server" Text="Aceptar" ValidationGroup="vg" OnClick="btnAceptar_Click"/>
+        <asp:LinkButton ID="linkCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"/>
     </asp:Panel>
 </asp:Content>

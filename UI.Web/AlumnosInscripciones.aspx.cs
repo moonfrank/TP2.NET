@@ -50,24 +50,54 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
-            gridView.DataSource = new AlumnoInscripcionLogic().GetAll();
+            if (Session["Persona"].ToString() == "Admin")
+                this.gridView.DataSource = new AlumnoInscripcionLogic().GetAll();
+            else if (Session["Persona"].ToString() == "Alumno")
+            {
+                gridView.DataSource = from a in new AlumnoInscripcionLogic().GetAll()
+                                      where a.IDAlumno == int.Parse(Session["IDPersona"].ToString())
+                                      select a;
+                btnEliminar.Visible = false;
+                btnEditar.Visible = false;
+            }
+            else
+            {
+                gridView.DataSource = from a in new AlumnoInscripcionLogic().GetAll()
+                                      join b in new DocenteCursoLogic().GetAll() on a.IDCurso equals b.IDCurso
+                                      where b.IDDocente == int.Parse(Session["IDPersona"].ToString())
+                                      select a;
+                btnEliminar.Visible = false;
+                btnNuevo.Visible = false;
+            }
             gridView.DataBind();
+
         }
 
         private void LoadForm(int ID)
         {
             Entity = new AlumnoInscripcionLogic().GetOne(ID);
-            ddlIDAlumno.Text = Entity.IDAlumno.ToString();
-            ddlIDCurso.Text = Entity.IDCurso.ToString();
-            ddlCondicion.Text = Entity.Condicion.ToString();
-            txtNota.Text = Entity.Nota.ToString();
+            ddlIDAlumno.SelectedValue = Entity.IDAlumno.ToString();
+            ddlIDCurso.SelectedValue = Entity.IDCurso.ToString();
+            ddlCondicion.SelectedValue = Entity.Condicion;
+            txtNota.Enabled = false;
+            if (this.Entity.Condicion == "Aprobado")
+            {
+                this.txtNota.Text = this.Entity.Nota.ToString();
+                if (Session["Persona"].ToString() != "Alumno")
+                    this.txtNota.Enabled = true;
+            }
         }
         private void EnableForm(bool enable)
         {
-            ddlIDAlumno.Enabled = enable;
-            ddlIDCurso.Enabled = enable;
-            ddlCondicion.Enabled = enable;
-            txtNota.Enabled = enable;
+            if (Session["Persona"].ToString() != "Admin")
+            {
+                ddlIDAlumno.Enabled = !enable;
+            }
+            if (Session["Persona"].ToString() == "Alumno")
+            {
+                ddlCondicion.Enabled = !enable;
+                txtNota.Enabled = !enable;
+            }
             ListarCBX();
         }
         private void ListarCBX()
@@ -86,7 +116,6 @@ namespace UI.Web
             ddlCondicion.Items.Add("Cursa");
             ddlCondicion.Items.Add("Regular");
             ddlCondicion.Items.Add("Aprobado");
-            ddlCondicion.SelectedIndex = 1;
 
         }
         public void ListarCursos()
@@ -158,8 +187,8 @@ namespace UI.Web
             {
                 formPanel.Visible = true;
                 FormMode = FormModes.Modificacion;
-                LoadForm(SelectedID);
                 EnableForm(true);
+                LoadForm(SelectedID);
             }
         }
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -208,6 +237,14 @@ namespace UI.Web
         protected void ddlIDAlumno_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListarCursos();
+        }
+
+        protected void ddlCondicion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlCondicion.SelectedValue == "Aprobado")
+                txtNota.Enabled = true;
+            else
+                txtNota.Enabled = false;
         }
     }
 }

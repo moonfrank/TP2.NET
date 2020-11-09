@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 using Business.Entities;
 using Business.Logic;
 
@@ -8,7 +8,7 @@ namespace UI.Desktop
 {
     public partial class formListaAlumnoInscripcion : ApplicationForm
     {
-        public Business.Entities.AlumnoInscripcion OAlumnoInscripcion { get; set; }
+        public AlumnoInscripcion OAlumnoInscripcion { get; set; }
         public formListaAlumnoInscripcion()
         {
             InitializeComponent();
@@ -23,7 +23,21 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            this.dgvAlumnoInscripcion.DataSource = new AlumnoInscripcionLogic().GetAll();
+            if (session.tipoPersona == Persona.TiposPersonas.Admin)
+                this.dgvAlumnoInscripcion.DataSource = new AlumnoInscripcionLogic().GetAll();
+            else if (session.tipoPersona == Persona.TiposPersonas.Alumno)
+            {
+                dgvAlumnoInscripcion.DataSource = from a in new AlumnoInscripcionLogic().GetAll()
+                                                  where a.IDAlumno == session.personaID
+                                                  select a;
+            }
+            else
+            {
+                dgvAlumnoInscripcion.DataSource = from a in new AlumnoInscripcionLogic().GetAll()
+                                                  join b in new DocenteCursoLogic().GetAll() on a.IDCurso equals b.IDCurso
+                                                  where b.IDDocente == session.personaID
+                                                  select a;
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

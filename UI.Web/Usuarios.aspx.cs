@@ -204,7 +204,7 @@ namespace UI.Web
 
         protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (txtClave.Text == txtRepetirClave.Text) args.IsValid = true;
+            if (Validation.IsPassValid(txtClave.Text, txtRepetirClave.Text)) args.IsValid = true;
             else args.IsValid = false;
         }
 
