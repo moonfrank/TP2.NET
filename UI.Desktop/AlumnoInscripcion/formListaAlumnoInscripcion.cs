@@ -27,16 +27,16 @@ namespace UI.Desktop
                 this.dgvAlumnoInscripcion.DataSource = new AlumnoInscripcionLogic().GetAll();
             else if (session.tipoPersona == Persona.TiposPersonas.Alumno)
             {
-                dgvAlumnoInscripcion.DataSource = from a in new AlumnoInscripcionLogic().GetAll()
-                                                  where a.IDAlumno == session.personaID
-                                                  select a;
+                this.dgvAlumnoInscripcion.DataSource = (from a in new AlumnoInscripcionLogic().GetAll()
+                                                        where a.IDAlumno == session.personaID
+                                                        select a).ToList();
             }
             else
             {
-                dgvAlumnoInscripcion.DataSource = from a in new AlumnoInscripcionLogic().GetAll()
-                                                  join b in new DocenteCursoLogic().GetAll() on a.IDCurso equals b.IDCurso
-                                                  where b.IDDocente == session.personaID
-                                                  select a;
+                this.dgvAlumnoInscripcion.DataSource = (from a in new AlumnoInscripcionLogic().GetAll()
+                                                       join b in new DocenteCursoLogic().GetAll() on a.IDCurso equals b.IDCurso
+                                                       where b.IDDocente == session.personaID
+                                                       select a).ToList();
             }
         }
 
@@ -69,7 +69,7 @@ namespace UI.Desktop
         {
             if (this.dgvAlumnoInscripcion.SelectedRows.Count != 0)
             {
-                if (MessageBox.Show("Está seguro que desea eliminar a esta inscripcion?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes)
+                if (MessageBox.Show("Está seguro que desea eliminar esta inscripcion?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes)
                 {
                     new AlumnoInscripcionDesktop(((AlumnoInscripcion)this.dgvAlumnoInscripcion.SelectedRows[0].DataBoundItem).ID, ApplicationForm.ModoForm.Baja).GuardarCambios();
                     this.Listar();

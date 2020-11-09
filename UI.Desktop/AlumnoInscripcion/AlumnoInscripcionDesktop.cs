@@ -33,9 +33,9 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             this.txtID.Text = this.AlumnoInscripcionActual.ID.ToString();
-            cbxIDAlumno.Text = AlumnoInscripcionActual.IDAlumno.ToString();
-            cbxIDCurso.Text = AlumnoInscripcionActual.IDCurso.ToString();
-            this.cbxCondicion.Text = this.AlumnoInscripcionActual.Condicion;
+            this.cbxIDAlumno.SelectedItem = AlumnoInscripcionActual.IDAlumno.ToString();
+            this.cbxIDCurso.SelectedItem = AlumnoInscripcionActual.IDCurso.ToString();
+            this.cbxCondicion.SelectedItem = this.AlumnoInscripcionActual.Condicion;
             if (this.AlumnoInscripcionActual.Condicion == "Aprobado")
             {
                 this.txtNota.Text = this.AlumnoInscripcionActual.Nota.ToString();
@@ -45,6 +45,7 @@ namespace UI.Desktop
                 
             else
                 this.txtNota.Text = string.Empty;
+
             switch (this.Modo)
             {
                 case ModoForm.Alta:
@@ -175,36 +176,33 @@ namespace UI.Desktop
 
         private void AlumnoInscripcionDesktop_Load(object sender, EventArgs e)
         {
+            ListarCmbx();
             if (session.tipoPersona != Persona.TiposPersonas.Admin)
             {
                 cbxIDAlumno.Enabled = false;
                 txtNota.Enabled = false;
                 if (session.tipoPersona == Persona.TiposPersonas.Alumno)
+                {
                     cbxCondicion.Enabled = false;
+                }
+
                 else if (session.tipoPersona == Persona.TiposPersonas.Profesor)
                     cbxIDCurso.Enabled = false;
             }
-            ListarCmbx();
         }
 
         private void ListarCmbx()
         {
-            var alumnos = from a in new PersonaLogic().GetAll()
-                         where a.TipoPersona.ToString() == "Alumno"
-                         select a;
+            var alumnos = (from a in new PersonaLogic().GetAll()
+                           where a.TipoPersona.ToString() == "Alumno"
+                           select a).ToList();
             foreach (Persona persona in alumnos)
             {
                 cbxIDAlumno.Items.Add(persona.ID.ToString());
             }
-            try
-            {
-                cbxIDAlumno.SelectedIndex = 0;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("No se ha encontrado ningun alumno cargado", "DocenteCurso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-            }
+
+            if (Modo == ModoForm.Alta && session.tipoPersona == Persona.TiposPersonas.Alumno)
+                cbxIDAlumno.SelectedItem = session.personaID.ToString();
 
             ListarCursos();
 
@@ -212,11 +210,16 @@ namespace UI.Desktop
             cbxCondicion.Items.Add("Cursa");
             cbxCondicion.Items.Add("Regular");
             cbxCondicion.Items.Add("Aprobado");
-            cbxCondicion.SelectedIndex = 1;
+            if (Modo == ModoForm.Alta)
+            {
+                cbxCondicion.SelectedItem = "Cursa";
+            }
+
         }
 
         public void ListarCursos()
         {
+            cbxIDCurso.Items.Clear();
             var cursosConCupo = from a in new CursoLogic().GetAll()
                                 join b in new AlumnoInscripcionLogic().GetAll() on a.ID equals b.IDCurso into c
                                 select new
@@ -228,6 +231,7 @@ namespace UI.Desktop
 
             var inscripciones = from a in new AlumnoInscripcionLogic().GetAll()
                                 join b in new PersonaLogic().GetAll() on a.IDAlumno equals b.ID
+                                where a.IDAlumno == int.Parse(cbxIDAlumno.SelectedItem.ToString())
                                 select a;
 
             foreach (var curso in cursosConCupo)
@@ -242,7 +246,8 @@ namespace UI.Desktop
                     }
                     else
                         cbxIDCurso.Items.Add(curso.ID.ToString());
-                }            }
+                }            
+            }
         }
         private void cbxCondicion_SelectionChangeCommitted(object sender, EventArgs e)
         {
