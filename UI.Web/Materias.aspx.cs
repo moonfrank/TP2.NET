@@ -9,7 +9,7 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session.SessionID != null) Response.Redirect("Login.aspx");
+            if (Session.SessionID == null) Response.Redirect("Login.aspx");
             else if (!IsPostBack) LoadGrid();
         }
         MateriaLogic _logic;

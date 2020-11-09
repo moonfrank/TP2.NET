@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Business.Entities;
 using Business.Logic;
 using Microsoft.Reporting.WebForms;
 
@@ -21,12 +16,32 @@ namespace UI.Web
         {
             int docente = -1;
             if (Session["Persona"].ToString() == "Profesor")
-                docente = int.Parse((string)Session["IDPersona"]);
+            {
+                docente = int.Parse(Session["IDPersona"].ToString());
+                fillReporte(docente);
+            }  
             else
             {
-                IngresoIDDocente ingresoDocente = new IngresoIDDocente();
-                docente = ingresoDocente.docente;
+                if (ddlIDDocente.Items.Count==0)
+                    this.fillddlIDDocente();
+                this.panelIDDocente.Visible = true;
             }
+
+        }
+
+        protected void fillddlIDDocente()
+        {
+            var idProfesores = from a in new PersonaLogic().GetAll()
+                               where a.TipoPersona.ToString() == "Profesor"
+                               select a.ID;
+
+            foreach (int p in idProfesores)
+            {
+                ddlIDDocente.Items.Add(p.ToString());
+            }
+        }
+        protected void fillReporte(int docente)
+        {
             if (docente != -1)
             {
                 var query = from a in new CursoLogic().GetAll()
@@ -34,10 +49,14 @@ namespace UI.Web
                             where b.IDDocente == docente
                             select a;
 
+                reportCursoDocente.LocalReport.DataSources.Clear();
                 reportCursoDocente.LocalReport.DataSources.Add(new ReportDataSource("ReporteCursos", query));
             }
-            else
-                this.Dispose();
-            }
         }
+
+        protected void btnIngresar_Click(object sender, EventArgs e)
+        {
+            this.fillReporte(int.Parse(this.ddlIDDocente.SelectedValue));
+        }
+    }
     }

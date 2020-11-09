@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Business.Entities;
 using Business.Logic;
 using Microsoft.Reporting.WebForms;
-using Microsoft.Reporting.Map;
 
 namespace UI.Web
 {
@@ -28,10 +22,12 @@ namespace UI.Web
                           .First().Legajo;
             else
             {
-                IngresoLegajoAlumno ingresoAlumno = new IngresoLegajoAlumno();
-                alumno = ingresoAlumno.alumno;
+                this.panelIDAlumno.Visible = true;
             }
+        }
 
+        protected void fillReporte(int alumno)
+        {
             if (alumno != -1)
             {
                 var query = from a in new AlumnoInscripcionLogic().GetAll()
@@ -49,8 +45,11 @@ namespace UI.Web
                 reportMateriasAlumno.LocalReport.DataSources.Clear();
                 reportMateriasAlumno.LocalReport.DataSources.Add(new ReportDataSource("dsInscripcion", query));
             }
-            else
-                this.Dispose();
+        }
+
+        protected void btnIngresar_Click(object sender, EventArgs e)
+        {
+            this.fillReporte(int.Parse(this.txtIDAlumno.Text));
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Web.UI.WebControls;
 using Business.Logic;
 using Business.Entities;
+using System.Collections.Generic;
 
 namespace UI.Web
 {
@@ -56,7 +57,16 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
-            gridView.DataSource = new UsuarioLogic().GetAll();
+            if (Session["Persona"].ToString() != "Admin")
+            {
+                List<Usuario> user = new List<Usuario>();
+                user.Add(new UsuarioLogic().GetOne(int.Parse(Session["ID"].ToString())));
+                gridView.DataSource = user;
+                btnEliminar.Visible = false;
+                btnNuevo.Visible = false;
+            }
+            else
+                gridView.DataSource = new UsuarioLogic().GetAll();
             gridView.DataBind();
         }
 
@@ -72,15 +82,26 @@ namespace UI.Web
         }
         private void EnableForm(bool enable)
         {
-            txtNombre.Enabled = enable;
-            txtApellido.Enabled = enable;
+            if (Session["Persona"].ToString() != "Admin")
+            {
+                txtNombre.Enabled = !enable;
+                txtApellido.Enabled = !enable;
+                txtNombreUsuario.Enabled = !enable;
+                ddlIDPersona.Enabled = !enable;
+                ckbHabilitado.Enabled = !enable;
+            }
+            if (FormMode == FormModes.Alta || Session["Persona"].ToString()=="Admin")
+            {
+                txtNombre.Enabled = enable;
+                txtApellido.Enabled = enable;
+                txtNombreUsuario.Enabled = enable;
+                ddlIDPersona.Enabled = enable;
+            }
             txtEmail.Enabled = enable;
-            txtNombreUsuario.Enabled = enable;
             txtClave.Enabled = enable;
             lblClave.Visible = enable;
             txtRepetirClave.Enabled = enable;
             lblRepertirClave.Visible = enable;
-            ddlIDPersona.Enabled = enable;
             ListarCBX();
         }
         private void ClearForm()

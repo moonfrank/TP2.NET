@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace UI.Desktop
 {
@@ -22,16 +22,14 @@ namespace UI.Desktop
 
         public void Listar()
         {
-           var usuarios = new UsuarioLogic().GetAll();
             if (session.tipoPersona != Persona.TiposPersonas.Admin)
             {
-                this.dgvUsuarios.DataSource = (from a in usuarios
-                                               where a.ID == session.userID
-                                               select a
-                                              ).ToList();
+                List<Usuario> user = new List<Usuario>();
+                user.Add(new UsuarioLogic().GetOne(session.userID));
+                this.dgvUsuarios.DataSource = user;
             }
             else
-                this.dgvUsuarios.DataSource = usuarios;
+                this.dgvUsuarios.DataSource = new UsuarioLogic().GetAll();
         }
 
         private void Usuarios_Load(object sender, EventArgs e)

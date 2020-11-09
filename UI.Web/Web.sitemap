@@ -11,7 +11,7 @@
     <siteMapNode url="AlumnosInscripciones.aspx" title="Alumnos Inscripciones"  roles="Ad" />
     <siteMapNode url="Materias.aspx" title="Materias"  roles="Ad" />
     <siteMapNode url="DocentesCursos.aspx" title="Docentes Cursos"  roles="Ad" />
-	<siteMapNode url="ReporteMateriasAlumno.aspx" title="Reporte Materias Alumno" roles="Ad" />
-	<siteMapNode url="ReporteCursosDocente.aspx" title="Reporte Cursos Docente" roles="Ad" />
+	  <siteMapNode url="ReporteMateriasAlumno.aspx" title="Reporte Materias Alumno" roles="Ad" />
+	  <siteMapNode url="ReporteCursosDocente.aspx" title="Reporte Cursos Docente" roles="Ad" />
   </siteMapNode>
 </siteMap>

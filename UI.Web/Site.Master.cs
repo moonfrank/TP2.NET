@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
 
 namespace UI.Web
 {
@@ -20,10 +19,9 @@ namespace UI.Web
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Planes"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Comisiones"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Docentes Cursos"));
-                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Alumnos Inscripciones"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Especialidades"));
-                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Usuarios"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Personas"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Reporte Cursos Docente"));
                     }
                     else throw new Exception();
                     break;
@@ -31,8 +29,8 @@ namespace UI.Web
                     if (menuitem != null)
                     {
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Planes"));
-                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Usuarios"));
                         menuitem.ChildItems.Remove(menu.FindItem(@"Home\Personas"));
+                        menuitem.ChildItems.Remove(menu.FindItem(@"Home\Reporte Materias Alumno"));
                     }
                     else throw new Exception();
                     break;

@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="bodyContentPlaceHolder">
     <asp:Panel ID="Panel1" runat="server" Height="216px">
-        <asp:GridView ID="grdMaterias" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdMaterias_SelectedIndexChanged">
+        <asp:GridView ID="grdMaterias" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grdMaterias_SelectedIndexChanged" DataKeyNames="ID">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" />
