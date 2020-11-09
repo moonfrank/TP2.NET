@@ -214,7 +214,6 @@ namespace UI.Desktop
             {
                 cbxCondicion.SelectedItem = "Cursa";
             }
-
         }
 
         public void ListarCursos()
